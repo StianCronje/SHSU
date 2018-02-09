@@ -36,7 +36,6 @@ float dStep = 2;
 void MoveCamera(float zoomStep, float rotationStep)
 {
     // dist += step
-    // find out what xpos and zpos should be...
     if (zoomStep < 0) // if zooming in
     {
         if (dist > 1) // maximum zoom level
@@ -50,6 +49,7 @@ void MoveCamera(float zoomStep, float rotationStep)
 
 	rotation += rotationStep;
     
+    // find out what xpos and zpos should be...
     xpos = dist * sinf(rotation*PI / 180);
     zpos = dist * cosf(rotation*PI / 180);
     
