@@ -47,9 +47,10 @@ namespace TeachingTheater.Views
             };
 
             MyListView.ItemsSource = StudentComputers;
+            //MyListView.BackgroundColor = Color.FromHex("#96d1ff");
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
                 return;
@@ -61,11 +62,7 @@ namespace TeachingTheater.Views
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
-        }
 
-        private void TeacherControlsTapped(object sender, EventArgs e)
-        {
-            MasterPage.Instance.SetDetailPage(new TeacherDetailPage());
         }
     }
 }
