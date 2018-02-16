@@ -57,11 +57,6 @@ void initGL() {
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_DEPTH_TEST);
 
-	quad = gluNewQuadric();
-	quad2 = gluNewQuadric();
-	_textureId = loadtextures("pyramids.jpg");
-	_textureId1 = loadtextures("2.jpg");
-
 	for (int i = 0; i < 6; i++)
 	{
 		sprintf_s(buffer, "%s%d.jpg", "face", i);
@@ -86,8 +81,7 @@ void display() {
 	glBindTexture(GL_TEXTURE_2D, _cubeTextures[0]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads		
-
+	glBegin(GL_QUADS);					// glBegin		
 	// Top face (y = 1.0f
 	glTexCoord2d(1, 1);
 	glVertex3f(1.0f, 1.0f, -1.0f);
@@ -97,13 +91,13 @@ void display() {
 	glVertex3f(-1.0f, 1.0f, 1.0f);
 	glTexCoord2d(1, 0);
 	glVertex3f(1.0f, 1.0f, 1.0f);
-	glEnd();
+	glEnd();							 //glEnd
 
 
 	glBindTexture(GL_TEXTURE_2D, _cubeTextures[1]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS);					//glBegin
 	// Bottom face (y = -1.0f)
 	glTexCoord2d(1, 1);
 	glVertex3f(1.0f, -1.0f, 1.0f);
@@ -113,12 +107,12 @@ void display() {
 	glVertex3f(-1.0f, -1.0f, -1.0f);
 	glTexCoord2d(1, 0);
 	glVertex3f(1.0f, -1.0f, -1.0f);
-	glEnd();
+	glEnd();							//glEnd
 
 	glBindTexture(GL_TEXTURE_2D, _cubeTextures[2]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS);					//glBegin
 	// Front face  (z = 1.0f)
 	glTexCoord2d(1, 1);
 	glVertex3f(1.0f, 1.0f, 1.0f);
@@ -128,12 +122,12 @@ void display() {
 	glVertex3f(-1.0f, -1.0f, 1.0f);
 	glTexCoord2d(1, 0);
 	glVertex3f(1.0f, -1.0f, 1.0f);
-	glEnd();
+	glEnd();							//glEnd
 
 	glBindTexture(GL_TEXTURE_2D, _cubeTextures[3]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS);					//glBegin
 	// Back face (z = -1.0f)
 	glTexCoord2d(1, 1);
 	glVertex3f(1.0f, -1.0f, -1.0f);
@@ -143,12 +137,12 @@ void display() {
 	glVertex3f(-1.0f, 1.0f, -1.0f);
 	glTexCoord2d(1, 0);
 	glVertex3f(1.0f, 1.0f, -1.0f);
-	glEnd();
+	glEnd();							//glEnd
 
 	glBindTexture(GL_TEXTURE_2D, _cubeTextures[4]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS);					//glBegin
 	// Left face (x = -1.0f)
 	glTexCoord2d(1, 1);
 	glVertex3f(-1.0f, 1.0f, 1.0f);
@@ -158,12 +152,12 @@ void display() {
 	glVertex3f(-1.0f, -1.0f, -1.0f);
 	glTexCoord2d(1, 0);
 	glVertex3f(-1.0f, -1.0f, 1.0f);
-	glEnd();
+	glEnd();							//glEnd
 
 	glBindTexture(GL_TEXTURE_2D, _cubeTextures[5]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS);					//glBegin
 	// Right face (x = 1.0f)
 	glTexCoord2d(1, 1);
 	glVertex3f(1.0f, 1.0f, -1.0f);
@@ -173,10 +167,7 @@ void display() {
 	glVertex3f(1.0f, -1.0f, 1.0f);
 	glTexCoord2d(1, 0);
 	glVertex3f(1.0f, -1.0f, -1.0f);
-	glEnd();  // End of drawing color-cube
-
-			  //	glColor3f(1.0f, 0.0f, 0.0f);
-			  //	glutWireTeapot(1);
+	glEnd();							//glEnd 
 
 	glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
 }
