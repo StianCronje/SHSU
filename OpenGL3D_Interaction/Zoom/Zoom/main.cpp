@@ -7,6 +7,8 @@
 #include <string>
 #include <math.h>
 
+#define PI 3.14159265
+
 /* Global variables */
 char title[] = "3D Shapes";
 static GLfloat g_fViewDistance = 5;
@@ -25,26 +27,35 @@ void initGL() {
  whenever the window needs to be re-painted. */
 
 float xpos = 0;
+float ypos = 0;
 float zpos = 0;
 float dist = 5;
 float rotation = 0;
-void ZoomInOut(float step)
+float vertRot = 0;
+float zStep = 1;
+float dStep = 2;
+
+void MoveCamera(float zoomStep, float rotationStep)
 {
     // dist += step
-    // find out what xpos and zpos should be...
-    if (step < 0) // if zoom in
+    if (zoomStep < 0) // if zooming in
     {
-        if (dist > 0)
-            dist += step;
+        if (dist > 1) // maximum zoom level
+            dist += zoomStep;
     }
     else
     {
-        if (dist < 20)
-            dist += step;
+        if (dist < 50) // minimum zoom level
+            dist += zoomStep;
     }
+
+	rotation += rotationStep;
+	//vertRot += zoomStep;
     
-    xpos = dist * sinf(rotation);
-    zpos = dist * cosf(rotation);
+    // find out what xpos and zpos should be...
+    xpos = dist * sinf(rotation*PI / 180);
+    zpos = dist * cosf(rotation*PI / 180);
+	//ypos = dist * sinf(-vertRot*PI / 180);
     
     glutPostRedisplay();
 }
@@ -53,8 +64,8 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
     glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
     glLoadIdentity();                 // load the model-view matrix
-    ZoomInOut(0);
-    gluLookAt(xpos, 0, zpos, 0, 0, -1, 0, 1, 0);
+    MoveCamera(0, 0);
+    gluLookAt(xpos, ypos, zpos, 0, 0, 0, 0, 1, 0);
     
     glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
     glColor3f(0.0f, 1.0f, 0.0f);     // Green
@@ -125,25 +136,23 @@ void KeyboardButton(unsigned char button, int x, int y)
     {
         case 'w':
         case 'W':
-            ZoomInOut(-1);
-            /*
-             if (g_fViewDistance > 0)
-             {
-             g_fViewDistance -= 1;
-             }*/
+            MoveCamera(-zStep, 0);
             break;
-        case 's':
-        case 'S':
-            ZoomInOut(1);
-            /*if (g_fViewDistance < 100)
-             {
-             g_fViewDistance += 1;
-             }*/
-            break;
+		case 's':
+		case 'S':
+			MoveCamera(zStep, 0);
+			break;
+		case 'a':
+		case 'A':
+			MoveCamera(0, -dStep);
+			break;
+		case 'd':
+		case 'D':
+			MoveCamera(0, dStep);
+			break;
         default:
             break;
     }
-    //glutPostRedisplay();
 }
 
 void SpecialKey(int button, int x, int y)
@@ -151,23 +160,20 @@ void SpecialKey(int button, int x, int y)
     switch (button)
     {
         case GLUT_KEY_UP:
-            ZoomInOut(-1);
-            /*if (g_fViewDistance > 0)
-             {
-             g_fViewDistance -= 1;
-             }*/
+            MoveCamera(-zStep, 0);
             break;
         case GLUT_KEY_DOWN:
-            ZoomInOut(1);
-            /*if (g_fViewDistance < 100)
-             {
-             g_fViewDistance += 1;
-             }*/
+            MoveCamera(zStep, 0);
             break;
+		case GLUT_KEY_LEFT:
+			MoveCamera(0, -dStep);
+			break;
+		case GLUT_KEY_RIGHT:
+			MoveCamera(0, dStep);
+			break;
         default:
             break;
     }
-    //glutPostRedisplay();
 }
 
 void MouseButton(int button, int state, int x, int y)
@@ -205,7 +211,6 @@ int main(int argc, char** argv) {
     glutReshapeFunc(reshape);            // Register callback handler for window re-size event
     glutMouseFunc(MouseButton);
     glutMotionFunc(MouseMotion);
-    //glutKeyboardUpFunc(KeyboardButton);
     glutKeyboardFunc(KeyboardButton);
     glutSpecialFunc(SpecialKey);
     initGL();                            // Our own OpenGL initialization
