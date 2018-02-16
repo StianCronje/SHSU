@@ -27,9 +27,11 @@ void initGL() {
  whenever the window needs to be re-painted. */
 
 float xpos = 0;
+float ypos = 0;
 float zpos = 0;
 float dist = 5;
 float rotation = 0;
+float vertRot = 0;
 float zStep = 1;
 float dStep = 2;
 
@@ -48,10 +50,12 @@ void MoveCamera(float zoomStep, float rotationStep)
     }
 
 	rotation += rotationStep;
+	//vertRot += zoomStep;
     
     // find out what xpos and zpos should be...
     xpos = dist * sinf(rotation*PI / 180);
     zpos = dist * cosf(rotation*PI / 180);
+	//ypos = dist * sinf(-vertRot*PI / 180);
     
     glutPostRedisplay();
 }
@@ -61,7 +65,7 @@ void display() {
     glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
     glLoadIdentity();                 // load the model-view matrix
     MoveCamera(0, 0);
-    gluLookAt(xpos, 0, zpos, 0, 0, 0, 0, 1, 0);
+    gluLookAt(xpos, ypos, zpos, 0, 0, 0, 0, 1, 0);
     
     glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
     glColor3f(0.0f, 1.0f, 0.0f);     // Green
