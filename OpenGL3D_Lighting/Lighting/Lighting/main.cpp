@@ -7,14 +7,18 @@
 #include <SOIL.h>
 #include <FreeImage.h>
 
-
-
 using namespace std;
-
 
 int width, height;
 unsigned char* image;
 const int font = (int)GLUT_BITMAP_9_BY_15;
+
+GLuint _textureId, _textureId1, _carTexture; //The id of the texture
+GLUquadric *quad;
+GLUquadric *quad2;
+GLUquadric *quad3;
+GLfloat rotat = 0.0;
+float trans = 0.0f;
 
 
 
@@ -39,16 +43,6 @@ void handleKeypress(unsigned char key, int x, int y) {
 	}
 }
 
-
-//Makes the image into a texture, and returns the id of the texture
-
-
-GLuint _textureId, _textureId1; //The id of the textur
-GLUquadric *quad;
-GLUquadric *quad2;
-GLfloat rotat = 0.0;
-
-
 float diffuse_position[] = { -1.0f, 1.0f, 1.0f, 1.0f };
 GLfloat spec_position[] = { 1.0, 1.0, 1.0, 0.0 };
 
@@ -64,8 +58,10 @@ void initGL()
 	glEnable(GL_COLOR_MATERIAL);
 	quad = gluNewQuadric();
 	quad2 = gluNewQuadric();
-	_textureId = loadtextures("earth.jpg");
+	quad3 = gluNewQuadric();
+	_textureId = loadtextures("earth_day.jpg");
 	_textureId1 = loadtextures("moon.jpg");
+	_carTexture = loadtextures("tesla.png");
 
 	//specular lighting
 	GLfloat mat_shininess[] = { 50.0 };
@@ -107,7 +103,6 @@ void drawScene()
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glTranslatef(-1.5f, -1.0f, -6.0f);  // Move left and into the screen
@@ -145,8 +140,26 @@ void drawScene()
 	glLightfv(GL_LIGHT0, GL_POSITION, spec_position);
 	glPopMatrix();
 
-
-
+	// car
+	glPushMatrix();
+	glTranslatef(1.1f + trans, 1 + (trans * 0.3f), 0);
+	glRotatef(20, 0.0f, 0.0f, 1.0f);
+	glScalef(0.2f, 0.06f, 0.2f);
+	glBindTexture(GL_TEXTURE_2D, _carTexture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	//gluQuadricTexture(quad3, 1);
+	glBegin(GL_QUADS);
+	glTexCoord2d(0, 0);
+	glVertex3f(1.0f, 1.0f, 0.0f);
+	glTexCoord2d(1, 0);
+	glVertex3f(0.0f, 1.0f, 0.0f);
+	glTexCoord2d(1, 1);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glTexCoord2d(0, 1);
+	glVertex3f(1.0f, 0.0f, 0.0f);
+	glEnd();
+	glPopMatrix();
 
 
 	glutSwapBuffers();
@@ -159,6 +172,7 @@ void update(int value)
 	rotat += 5.3;
 	if (rotat>360.f)
 		rotat -= 360;
+
 
 	glutPostRedisplay();
 
@@ -196,6 +210,7 @@ void keypress(unsigned char Key, int x, int y)
 void idleFunc(void)
 {
 	rotat += 0.3;
+	trans += 0.002f;
 	glutPostRedisplay();
 }
 int main(int argc, char** argv) {
