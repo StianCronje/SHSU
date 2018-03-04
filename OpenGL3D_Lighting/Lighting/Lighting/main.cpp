@@ -13,7 +13,7 @@ int width, height;
 unsigned char* image;
 const int font = (int)GLUT_BITMAP_9_BY_15;
 
-GLuint _textureId, _textureId1, _carTexture; //The id of the texture
+GLuint _textureId, _textureId1, _carTexture, _backgroundTexture; //The id of the texture
 GLUquadric *quad;
 GLUquadric *quad2;
 GLUquadric *quad3;
@@ -32,8 +32,28 @@ GLuint loadtextures(const char* filename)
 											 //Map the image to the texture
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 	SOIL_free_image_data(image);
+
+	printf("The width and height of the image %s are (%d, %d) respectively \n", filename, width, height);
+
 	return textureId;
 }
+
+void print(float x, float y, int z, const char *string)
+{
+	//set the position of the text in the window using the x and y coordinates
+	glRasterPos2f(x, y);
+	//get the length of the string to display
+	int len = (int)strlen(string);
+	printf("print: %s - len: %d\n", string, len);
+
+	glDisable(GL_TEXTURE_2D);
+	//loop to display character by character
+	for (int i = 0; i < len; i++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, string[i]);
+	}
+	glEnable(GL_TEXTURE_2D);
+};
 
 
 void handleKeypress(unsigned char key, int x, int y) {
@@ -62,6 +82,7 @@ void initGL()
 	_textureId = loadtextures("earth_day.jpg");
 	_textureId1 = loadtextures("moon.jpg");
 	_carTexture = loadtextures("tesla.png");
+	_backgroundTexture = loadtextures("stars.jpg");
 
 	//specular lighting
 	GLfloat mat_shininess[] = { 50.0 };
@@ -79,10 +100,6 @@ void initGL()
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuseLight);
 	glLightfv(GL_LIGHT1, GL_POSITION, diffuse_position);
 
-
-	//glEnable(GL_LIGHTING);
-	//glEnable(GL_LIGHT0);
-	//glEnable(GL_LIGHT1);
 	glEnable(GL_DEPTH_TEST);
 }
 
@@ -91,6 +108,7 @@ void initGL()
 
 void handleResize(int w, int h) {
 
+	printf("Window sized to %d x %d\n", w, h);
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -108,73 +126,83 @@ void drawScene()
 	glTranslatef(-1.5f, -1.0f, -6.0f);  // Move left and into the screen
 										//Earth
 	glPushMatrix();
-	glTranslatef(0.0f, 1.0f, 0.0f);
-	glBindTexture(GL_TEXTURE_2D, _textureId);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	gluQuadricTexture(quad, 1);
-	glRotatef(90, 1.0f, 0.0f, 0.0f);
-	glRotatef(rotat, 0.0f, 0.0f, 1.0f);
-	glScalef(0.5f, 0.5f, 0.5f);
-	gluSphere(quad, 2, 20, 20);
+		glTranslatef(0.0f, 1.0f, 0.0f);
+		glBindTexture(GL_TEXTURE_2D, _textureId);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		gluQuadricTexture(quad, 1);
+		glRotatef(90, 1.0f, 0.0f, 0.0f);
+		glRotatef(rotat, 0.0f, 0.0f, 1.0f);
+		glScalef(0.5f, 0.5f, 0.5f);
+		gluSphere(quad, 2, 20, 20);
 	glPopMatrix();
 
 	//Moon
 
 	glPushMatrix();
-	glRotatef(rotat, 0.0f, 1.0f, 0.0f);
-	glTranslatef(1, 1, 2);
-	glScalef(0.15, 0.15, 0.15);
-	glBindTexture(GL_TEXTURE_2D, _textureId1);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	gluQuadricTexture(quad2, 1);
-	glScalef(0.2f, 0.2f, 0.2f);
-	gluSphere(quad2, 2, 20, 20);
-	glPopMatrix();
+		glRotatef(rotat, 0.0f, 1.0f, 0.0f);
+		glTranslatef(1, 1, 2);
+		glScalef(0.15, 0.15, 0.15);
+		glBindTexture(GL_TEXTURE_2D, _textureId1);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		gluQuadricTexture(quad2, 1);
+		glScalef(0.2f, 0.2f, 0.2f);
+		gluSphere(quad2, 2, 20, 20);
+		glPopMatrix();
 
-	glPushMatrix();
-	//place the moon light
-	glRotatef(rotat, 0.0f, 1.0f, 0.0f);
-	glTranslatef(1, 0, 2);
-	glLightfv(GL_LIGHT0, GL_POSITION, spec_position);
+		glPushMatrix();
+		//place the moon light
+		glRotatef(rotat, 0.0f, 1.0f, 0.0f);
+		glTranslatef(1, 0, 2);
+		glLightfv(GL_LIGHT0, GL_POSITION, spec_position);
 	glPopMatrix();
 
 	// car
 	glPushMatrix();
-	glTranslatef(1.1f + trans, 1 + (trans * 0.3f), 0);
-	glRotatef(20, 0.0f, 0.0f, 1.0f);
-	glScalef(0.2f, 0.06f, 0.2f);
-	glBindTexture(GL_TEXTURE_2D, _carTexture);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	//gluQuadricTexture(quad3, 1);
-	glBegin(GL_QUADS);
-	glTexCoord2d(0, 0);
-	glVertex3f(1.0f, 1.0f, 0.0f);
-	glTexCoord2d(1, 0);
-	glVertex3f(0.0f, 1.0f, 0.0f);
-	glTexCoord2d(1, 1);
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	glTexCoord2d(0, 1);
-	glVertex3f(1.0f, 0.0f, 0.0f);
-	glEnd();
+		glTranslatef(1.1f + trans, 1 + (trans * 0.3f), 0);
+		glRotatef(20, 0.0f, 0.0f, 1.0f);
+		glScalef(0.2f, 0.06f, 0.2f);
+		glBindTexture(GL_TEXTURE_2D, _carTexture);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glBegin(GL_QUADS);
+			glTexCoord2d(0, 0);
+			glVertex3f(1.0f, 1.0f, 0.0f);
+			glTexCoord2d(1, 0);
+			glVertex3f(0.0f, 1.0f, 0.0f);
+			glTexCoord2d(1, 1);
+			glVertex3f(0.0f, 0.0f, 0.0f);
+			glTexCoord2d(0, 1);
+			glVertex3f(1.0f, 0.0f, 0.0f);
+		glEnd();
+	glPopMatrix();
+
+	// stars
+	glPushMatrix();
+		glTranslatef(1.5, 1, -6);
+		glScalef(5, 5, 1);
+		glBindTexture(GL_TEXTURE_2D, _backgroundTexture);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glBegin(GL_QUADS);
+			glTexCoord2d(0, 0);
+			glVertex3f(-1.0f, -1.0f, 0.0f);
+			glTexCoord2d(0, 1);
+			glVertex3f(-1.0f, 1.0f, 0.0f);
+			glTexCoord2d(1, 1);
+			glVertex3f(1.0f, 1.0f, 0.0f);
+			glTexCoord2d(1, 0);
+			glVertex3f(1.0f, -1.0f, 0.0f);
+		glEnd();
+	glPopMatrix();
+
+	glPushMatrix();
+		print(2.8, 3.2, 0, "Christiaan Cronje");
 	glPopMatrix();
 
 
 	glutSwapBuffers();
-
-}
-
-void update(int value)
-
-{
-	rotat += 5.3;
-	if (rotat>360.f)
-		rotat -= 360;
-
-
-	glutPostRedisplay();
 
 }
 
@@ -184,27 +212,24 @@ void keypress(unsigned char Key, int x, int y)
 	{
 	case 'e':
 		glEnable(GL_LIGHTING);
-		glutPostRedisplay();
 		break;
 	case 'd':
 		glDisable(GL_LIGHTING);
-		glutPostRedisplay();
 		break;
 	case '1':
 		glEnable(GL_LIGHT0);
-		glutPostRedisplay();
 		break;
 	case '2':
 		glEnable(GL_LIGHT1);
-		glutPostRedisplay();
 		break;
 	case '0':
 		glDisable(GL_LIGHT0);
 		glDisable(GL_LIGHT1);
-		glutPostRedisplay();
 		break;
 
 	}
+
+	glutPostRedisplay();
 }
 
 void idleFunc(void)
@@ -217,11 +242,10 @@ int main(int argc, char** argv) {
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE);
-	//glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+
 	glutInitWindowSize(800, 800);
-	glutCreateWindow("Textures&lightening.com");
+	glutCreateWindow("Tesla in Space");
 	initGL();
-	//glutTimerFunc(25, update, 0);
 	glutIdleFunc(idleFunc);
 	glutDisplayFunc(drawScene);
 	glutKeyboardFunc(keypress);
