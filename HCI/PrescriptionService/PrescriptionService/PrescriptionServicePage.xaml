@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:PrescriptionService" xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Class="PrescriptionService.PrescriptionServicePage" Title="Prescription Refill Service">
+    <StackLayout Padding="15">
+            <Label Text="Patient Name:" Style="{StaticResource labelEntry}" />
+            <Entry Placeholder="Name" Keyboard="Text"/>
+            <Label Text="Today's Date:" Style="{StaticResource labelEntry}" />
+            <DatePicker Date="{x:Static sys:DateTime.Now}" MaximumDate="{x:Static sys:DateTime.Now}"/>
+            <Label Text="Doctor's Name:" Style="{StaticResource labelEntry}" />
+            <Picker Grid.Row="4" Grid.Column="0">
+                <Picker.Items>
+                    <x:String>Dr. Burris</x:String>
+                    <x:String>Dr. McGuire</x:String>
+                    <x:String>Dr. Smith</x:String>
+                    <x:String>Dr. Zhou</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Medicine Name:" Style="{StaticResource labelEntry}" />
+            <Entry Placeholder="Medicine" Keyboard="Text" />
+        <Button Text="Submit" BackgroundColor="{StaticResource ButtonColor}" TextColor="White" HeightRequest="40" WidthRequest="200" Margin="0,20,0,0"/>
+    </StackLayout>
+</ContentPage>
