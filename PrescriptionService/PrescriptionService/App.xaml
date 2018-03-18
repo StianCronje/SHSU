@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PrescriptionService.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="HeadingTextColor">#263238</Color>
+            <Color x:Key="ButtonColor">#329cf5</Color>
+            <Style x:Key="labelEntry" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="VerticalTextAlignment" Value="End"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
