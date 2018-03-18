@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\stian\documents\github\cosc-4332-computer-graphics\opengl3d_interaction\zoom\zoom\main.cpp(53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\stian\documents\github\cosc-4332-computer-graphics\opengl3d_interaction\zoom\zoom\main.cpp(54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\stian\documents\github\cosc-4332-computer-graphics\opengl3d_interaction\zoom\zoom\main.cpp(182): warning C4244: '=': conversion from 'GLfloat' to 'int', possible loss of data
+c:\users\stian\documents\github\cosc-4332-computer-graphics\opengl3d_interaction\zoom\zoom\main.cpp(192): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+  Zoom.vcxproj -> C:\Users\Stian\Documents\GitHub\COSC-4332-Computer-Graphics\OpenGL3D_Interaction\Zoom\Debug\Zoom.exe
