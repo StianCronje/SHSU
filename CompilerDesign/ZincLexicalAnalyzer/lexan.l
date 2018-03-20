@@ -3,34 +3,34 @@
     Rules of Zinc are as follows:
 
     Numbers, Literals, and Identifiers:
-    •	num = (+|-)?[1-9][0-9]*|0
-    •	ident = [A-Z][_A-Z0-9]*
+        num = (+|-)?[1-9][0-9]*|0
+        ident = [A-Z][_A-Z0-9]*
     Symbols and Operators:
-    •	LP "("
-    •	RP ")"
-    •	ASGN ":="
-    •	SC ";"
-    •	COLON ":"
-    •	POWER "**"
-    •	MULTIPLICATIVE "*" | "div" | "mod"
-    •	ADDITIVE "+" | "-"
-    •	COMPARE "=" | "<>" | "<" | ">" | "<=" | ">="
+        LP "("
+        RP ")"
+        ASGN ":="
+        SC ";"
+        COLON ":"
+        POWER "**"
+        MULTIPLICATIVE "*" | "div" | "mod"
+        ADDITIVE "+" | "-"
+        COMPARE "=" | "<>" | "<" | ">" | "<=" | ">="
     Keywords:
-    •	IF "if"
-    •	THEN "then"
-    •	ELSE "else"
-    •	BEGIN "begin"
-    •	END "end"
-    •	ENDIF "endif"
-    •	ENDWHILE "endwhile"
-    •	WHILE "while"
-    •	LOOP "loop"
-    •	PROGRAM "program"
-    •	VAR "var"
-    •	INT "integer"
+        IF "if"
+        THEN "then"
+        ELSE "else"
+        BEGIN "begin"
+        END "end"
+        ENDIF "endif"
+        ENDWHILE "endwhile"
+        WHILE "while"
+        LOOP "loop"
+        PROGRAM "program"
+        VAR "var"
+        INT "integer"
     Built-in Procedures:
-    •	WRITEINT "writeInt"
-    •	READINT "readInt"
+        WRITEINT "writeInt"
+        READINT "readInt"
     */
 
     #include <stdio.h>
@@ -73,13 +73,11 @@
 
     Symbol symbolTable[100];
     int symCount = 0;
-    int lineNum = 0;
 
     void insert_into_sym_tab(char *_lex, char * _typ, int _addr)
     {
         for(int i = 0; i < symCount; i++){
             if(strcmp(symbolTable[i].lexeme, _lex) == 0){
-                //strcpy(_typ, "CODE");
                 return;
             }
         }
@@ -132,8 +130,7 @@ INT                 "integer"
 WRITEINT            "writeInt"
 READINT             "readInt"
 COMMENT             "--".*
-WHITESPACE          [ \t]
-NEWLINE             [\n]
+WHITESPACE          [ \t\n]
 
 %%
 
@@ -167,7 +164,6 @@ NEWLINE             [\n]
 
 {COMMENT}           ; //printf("[COMMENT] %s\n", yytext);
 {WHITESPACE}        ; // Ignore whitespace.
-{NEWLINE}           {++lineNum;}
 .                   {printf("INVALID TOKEN: %s\n", yytext);}
 
 %%
@@ -175,13 +171,9 @@ NEWLINE             [\n]
 int main(int argc, char** argv)
 {
     if ( argc > 0 )
-    {
         yyin = fopen( argv[1], "r" );
-    }
     else
-    {
         yyin = stdin;
-    }
 
     int tokenType;
 
@@ -190,7 +182,7 @@ int main(int argc, char** argv)
         printf("<\"%s\", %s>\n", lexeme, token);
 
         if(tokenType == 2)
-            insert_into_sym_tab(lexeme, token, lineNum);
+            insert_into_sym_tab(lexeme, "INTEGER", symCount);
     }
 
     print_symbol_table();
