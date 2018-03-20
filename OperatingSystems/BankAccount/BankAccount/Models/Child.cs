@@ -10,7 +10,6 @@ namespace BankAccount.Models
     {
         private float _spendAmmount;
         private Bank _bank;
-        private Semaphore _semaphore;
 
         public float SpendAmmount
         {
@@ -28,16 +27,10 @@ namespace BankAccount.Models
             SpendAmmount = startSpendAmmount;
             _bank = bank;
         }
-        public Child(float startSpendAmmount, Bank bank, Semaphore sema)
-        {
-            SpendAmmount = startSpendAmmount;
-            _bank = bank;
-            _semaphore = sema;
-        }
 
         public void SpendMoney()
         {
-            if (_semaphore == null)
+            if (_bank.Semaphore == null)
             {
                 SpendMoney_Synchronized();
             }
@@ -49,13 +42,13 @@ namespace BankAccount.Models
 
         void SpendMoney_Synchronized()
         {
-            _bank.MakeTransaction_Synchronized(-SpendAmmount);
+            _bank.MakeTransaction(-SpendAmmount);
         }
         void SpendMoney_Semaphore()
         {
-            _semaphore.WaitOne();
-            _bank.MakeTransaction_Semaphore(-SpendAmmount);
-            _semaphore.Release();
+            _bank.Semaphore.WaitOne();
+            _bank.MakeTransaction(-SpendAmmount);
+            _bank.Semaphore.Release();
         }
 
 

@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using BankAccount.Annotations;
 
 namespace BankAccount.Models
 {
     public class Bank : INotifyPropertyChanged
     {
-        object mutex = new object();
+        readonly object mutex = new object();
         private float _balance;
 
 
@@ -21,14 +22,26 @@ namespace BankAccount.Models
             }
         }
         
-        //TODO make a semaphore
+        public Semaphore Semaphore { get; set; }
 
         public Bank()
         {
             Balance = 0;
         }
 
-        public void MakeTransaction_Synchronized(float ammount)
+        public void MakeTransaction(float ammount)
+        {
+            if (Semaphore == null)
+            {
+                MakeTransaction_Synchronized(ammount);
+            }
+            else
+            {
+                MakeTransaction_Semaphore(ammount);
+            }
+        }
+
+        private void MakeTransaction_Synchronized(float ammount)
         {
             lock (mutex)
             {
@@ -36,7 +49,7 @@ namespace BankAccount.Models
             }
         }
 
-        public void MakeTransaction_Semaphore(float ammount)
+        private void MakeTransaction_Semaphore(float ammount)
         {
             Balance += ammount;
         }

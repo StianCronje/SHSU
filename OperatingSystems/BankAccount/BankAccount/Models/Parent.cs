@@ -8,8 +8,7 @@ namespace BankAccount.Models
     public class Parent : INotifyPropertyChanged
     {
         private float _earningAmmount;
-        private Bank _bank;
-        private Semaphore _semaphore = null;
+        private readonly Bank _bank;
 
         public float EarningAmmount
         {
@@ -28,16 +27,9 @@ namespace BankAccount.Models
             _bank = bank;
         }
 
-        public Parent(float startEarningAmmount, Bank bank, Semaphore sema)
-        {
-            EarningAmmount = startEarningAmmount;
-            _bank = bank;
-            _semaphore = sema;
-        }
-
         public void EarnMoney()
         {
-            if (_semaphore == null)
+            if (_bank.Semaphore == null)
             {
                 EarnMoney_Synchronized();
             }
@@ -47,15 +39,16 @@ namespace BankAccount.Models
             }
         }
 
-        void EarnMoney_Synchronized()
+        private void EarnMoney_Synchronized()
         {
-            _bank.MakeTransaction_Synchronized(EarningAmmount);
+            _bank.MakeTransaction(EarningAmmount);
         }
-        void EarnMoney_Semaphore()
+
+        private void EarnMoney_Semaphore()
         {
-            _semaphore.WaitOne();
-            _bank.MakeTransaction_Semaphore(EarningAmmount);
-            _semaphore.Release();
+            _bank.Semaphore.WaitOne();
+            _bank.MakeTransaction(EarningAmmount);
+            _bank.Semaphore.Release();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
