@@ -8,17 +8,17 @@ using Xamarin.Forms;
 
 namespace BankAccount.ViewModels
 {
-    public class BankViewModel
+    public class MainViewModel
     {
         public Action<ObservableCollection<Transaction>> OnMessageInsertAction;
 
         private string _messageText;
         private ObservableCollection<Transaction> _messages = new ObservableCollection<Transaction>(){
-            new Transaction("name", "message"),
-            new Transaction("name", "message"),
-            new Transaction("name", "message"),
-            new Transaction("name", "message"),
-            new Transaction("name", "message")
+            new Transaction("name", 12),
+            new Transaction("name", -2),
+            new Transaction("name", 5),
+            new Transaction("name", -10),
+            new Transaction("name", 4)
         };
 
 

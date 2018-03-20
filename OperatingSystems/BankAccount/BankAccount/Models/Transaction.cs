@@ -3,21 +3,18 @@ namespace BankAccount.Models
 {
     public class Transaction
     {
-
-
-        public string ID { get; set; }
         public string Name { get; set; }
-        public string MessageContent { get; set; }
+        public float Ammount{ get; set; }
 
-        public Transaction(string name, string messageContent)
+        public Transaction(string name, float ammount)
         {
             Name = name;
-            MessageContent = messageContent;
+            Ammount = ammount;
         }
 
         public override string ToString()
         {
-            return ID + " _ " + Name + ": " + MessageContent;
+            return Name + ": " + Ammount;
         }
     }
 }

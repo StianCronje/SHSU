@@ -5,7 +5,7 @@
              x:Class="BankAccount.BankAccountPage"
              xmlns:modelViews="clr-namespace:BankAccount.ViewModels">
     <ContentPage.BindingContext>
-        <modelViews:BankViewModel/>
+        <modelViews:MainViewModel/>
     </ContentPage.BindingContext>
 
     <StackLayout>
