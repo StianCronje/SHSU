@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SymptomAssessment"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:controls="clr-namespace:SymptomAssessment.Controls;assembly=SymptomAssessment"
+             x:Class="SymptomAssessment.MainPage">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Patient Information" FontSize="Medium"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Patient's Name" VerticalTextAlignment="Center" Grid.Column="0"/>
+                <Entry Placeholder="Patient's Name" Grid.Column="1"/>
+                <Label Text="Patient's Date of Birth" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                <DatePicker MaximumDate="{x:Static sys:DateTime.Now}" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Doctor's Name" VerticalTextAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                <Entry Placeholder="Doctor's Name" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="User Role" VerticalTextAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+                <Picker Grid.Row="3" Grid.Column="1">
+                    <Picker.Items>
+                        <x:String>Patient</x:String>
+                        <x:String>Caregiver</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+            <Label Text="Symptom Assessment" FontSize="Medium"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Wellbeing" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                <Slider Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="11" Minimum="0" Maximum="10"/>
+                <Label Text="0 (Best)" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="1" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                <Label Text="2" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="3"/>
+                <Label Text="3" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="4"/>
+                <Label Text="4" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="5"/>
+                <Label Text="5" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="6"/>
+                <Label Text="6" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="7"/>
+                <Label Text="7" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="8"/>
+                <Label Text="8" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="9"/>
+                <Label Text="9" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="10"/>
+                <Label Text="10 (Worst)" Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="11"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Tired" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                <Slider Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="11" Minimum="0" Maximum="10"/>
+                <Label Text="0 (Best)" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="1" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                <Label Text="2" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="3"/>
+                <Label Text="3" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="4"/>
+                <Label Text="4" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="5"/>
+                <Label Text="5" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="6"/>
+                <Label Text="6" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="7"/>
+                <Label Text="7" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="8"/>
+                <Label Text="8" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="9"/>
+                <Label Text="9" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="10"/>
+                <Label Text="10 (Worst)" Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="11"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Pain" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                <Slider Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="11" Minimum="0" Maximum="10"/>
+                <Label Text="0 (Best)" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="1" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                <Label Text="2" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="3"/>
+                <Label Text="3" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="4"/>
+                <Label Text="4" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="5"/>
+                <Label Text="5" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="6"/>
+                <Label Text="6" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="7"/>
+                <Label Text="7" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="8"/>
+                <Label Text="8" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="9"/>
+                <Label Text="9" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="10"/>
+                <Label Text="10 (Worst)" Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="11"/>
+            </Grid>
+
+            <Label Text="Pain Assessment" FontSize="Medium"/>
+            <Grid>
+                <Label Text="Shoulders"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+            <Grid>
+                <Label Text="Left Arm"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+            <Grid>
+                <Label Text="Right Arm"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+            <Grid>
+                <Label Text="Chest"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+            <Grid>
+                <Label Text="Stomach"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+            <Grid>
+                <Label Text="Right Leg"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+            <Grid>
+                <Label Text="Left Leg"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+            <Grid>
+                <Label Text="Back"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+
+            <Label Text="Additional Information" FontSize="Medium"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Time of day of pain"/>
+                <Picker Grid.Column="1">
+                    <Picker.Items>
+                        <x:String>Morning</x:String>
+                        <x:String>Afternoon</x:String>
+                        <x:String>Night</x:String>
+                        <x:String>All Day</x:String>
+                    </Picker.Items>
+                </Picker>
+
+            </Grid>
+            <Grid>
+                <Label Text="Does movement influence pain?"/>
+                <controls:CustomSwitch Grid.Column="1" OnText="Yes" OffText="No"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
