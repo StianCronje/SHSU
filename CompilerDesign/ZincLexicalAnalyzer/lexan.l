@@ -62,7 +62,7 @@
     #define I_READINT        25
 
     char *lexeme;
-    char token[12];
+    char token[20];
 
     typedef struct
     {
@@ -73,19 +73,25 @@
 
     Symbol symbolTable[100];
     int symCount = 0;
+    int lineNum = 1;
 
-    void insert_into_sym_tab(char *_lex, char * _typ, int _addr)
+    void insert_into_sym_tab(char *_lex)
     {
+        int address = symCount;
+        char type[20];
+        sprintf(type, "INTEGER");
         for(int i = 0; i < symCount; i++){
             if(strcmp(symbolTable[i].lexeme, _lex) == 0){
-                return;
+                // Lexeme is already in symbol table. It must be code
+                address = lineNum;
+                sprintf(type, "CODE");
+                break;
             }
         }
 
         strcpy(symbolTable[symCount].lexeme, _lex);
-        strcpy(symbolTable[symCount].type, _typ);
-        // symbolTable[symCount].type = _typ;
-        symbolTable[symCount].address = _addr;
+        strcpy(symbolTable[symCount].type, type);
+        symbolTable[symCount].address = address;
         symCount++;
     }
     void print_symbol_table()
@@ -130,7 +136,8 @@ INT                 "integer"
 WRITEINT            "writeInt"
 READINT             "readInt"
 COMMENT             "--".*
-WHITESPACE          [ \t\n]
+WHITESPACE          [ \t]
+NEWLINE             [\n]
 
 %%
 
@@ -164,6 +171,7 @@ WHITESPACE          [ \t\n]
 
 {COMMENT}           ; //printf("[COMMENT] %s\n", yytext);
 {WHITESPACE}        ; // Ignore whitespace.
+{NEWLINE}           {lineNum++;}
 .                   {printf("INVALID TOKEN: %s\n", yytext);}
 
 %%
@@ -181,8 +189,8 @@ int main(int argc, char** argv)
     {
         printf("<\"%s\", %s>\n", lexeme, token);
 
-        if(tokenType == 2)
-            insert_into_sym_tab(lexeme, "INTEGER", symCount);
+        if(tokenType == I_IDENT)
+            insert_into_sym_tab(lexeme);
     }
 
     print_symbol_table();
