@@ -30,6 +30,14 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="BankAccountPage.xaml" />
+    <EmbeddedResource Include="Views\SemaphorePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SynchronizedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -49,6 +57,14 @@
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SemaphorePage.xaml.cs">
+      <DependentUpon>SemaphorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SynchronizedPage.xaml.cs">
+      <DependentUpon>SynchronizedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SynchronizedViewModel.cs" />
+    <Compile Include="ViewModels\SemaphoreViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

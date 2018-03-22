@@ -4,16 +4,13 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using BankAccount.Models;
-using BankAccount.Views;
 using Xamarin.Forms;
 
 namespace BankAccount.ViewModels
 {
-    public class MainViewModel
+    public class SemaphoreViewModel
     {
         public Action<ObservableCollection<Transaction>> OnMessageInsertAction;
-
-        public INavigation Navigation;
 
         private string _messageText;
         private ObservableCollection<Transaction> _messages = new ObservableCollection<Transaction>(){
@@ -46,27 +43,6 @@ namespace BankAccount.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public Command SpendRandom => new Command(() =>
-        {
-            AddTransaction("Child", new Random().Next(-100, 100));
-        });
-
-        public void AddTransaction(string name, float ammount)
-        {
-            Messages.Insert(0, new Transaction(name, ammount));
-        }
-
-        public Command LoadSemaphoreSolution => new Command(async () =>
-        {
-            Debug.WriteLine("load page");
-            await Navigation.PushAsync(new SemaphorePage());
-        });
-        public Command LoadSynchronizedSolution => new Command(async () =>
-        {
-			Debug.WriteLine("load page");
-            await Navigation.PushAsync(new SynchronizedPage());
-        });
 
         public Command PageLoadCqommand => new Command(() =>
         {

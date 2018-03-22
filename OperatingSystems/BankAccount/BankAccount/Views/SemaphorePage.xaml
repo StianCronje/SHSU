@@ -2,14 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:BankAccount.ViewModels;assembly=BankAccount"
-             x:Class="BankAccount.Views.MainPage"
+             x:Class="BankAccount.Views.SemaphorePage"
              Title="Family Bank">
+    <ContentPage.BindingContext>
+        <viewModels:SemaphoreViewModel/>
+    </ContentPage.BindingContext>
 
-    <StackLayout>
-        <Button Text="Semaphore (Low Level) Solution" Command="{Binding LoadSemaphoreSolution}"/>
-        <Button Text="Synchronized (High Level) Solution" Command="{Binding LoadSynchronizedSolution}"/>
-    </StackLayout>
-<!--
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -49,7 +47,6 @@
         </StackLayout>
         <StackLayout Grid.Column="2">
             <Label Text="Children" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <Button Text="Spend Rand" Command="{Binding SpendRandom}"/>
         </StackLayout>
-    </Grid>-->
+    </Grid>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using BankAccount.Views;
+﻿using BankAccount.ViewModels;
+using BankAccount.Views;
 using Xamarin.Forms;
 
 namespace BankAccount
@@ -9,7 +10,7 @@ namespace BankAccount
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage(new MainViewModel()));
         }
 
         protected override void OnStart()

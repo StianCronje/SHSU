@@ -4,7 +4,7 @@ program
 begin
     N := readInt;
     SQRT := 0;
-
+    
     -- go until SQRT exceeds the square root of N }
     while SQRT * SQRT <= N loop
         SQRT := SQRT + 1;

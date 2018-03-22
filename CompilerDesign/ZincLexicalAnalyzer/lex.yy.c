@@ -363,8 +363,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 30
-#define YY_END_OF_BUFFER 31
+#define YY_NUM_RULES 29
+#define YY_END_OF_BUFFER 30
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -374,9 +374,9 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[97] =
     {   0,
-        0,    0,   31,   29,   27,   28,    5,    6,   11,   12,
-       12,    3,    3,    9,    8,   13,   13,   13,    4,   29,
-       29,   29,   29,   29,   29,   29,   29,   29,   29,   29,
+        0,    0,   30,   28,   27,   27,    5,    6,   11,   12,
+       12,    3,    3,    9,    8,   13,   13,   13,    4,   28,
+       28,   28,   28,   28,   28,   28,   28,   28,   28,   28,
        10,    3,   26,    3,    7,   13,    4,    0,    0,    0,
         0,   14,    0,    0,    0,    0,    0,    0,    0,    0,
         0,   26,    0,   11,    0,   23,    0,    0,    0,    0,
@@ -589,25 +589,19 @@ char *yytext;
 
     Symbol symbolTable[100];
     int symCount = 0;
-    int lineNum = 1;
 
-    void insert_into_sym_tab(char *_lex, char * _typ, int _addr)
+    void insert_into_sym_tab(char *_lex, char *_typ)
     {
-        int address = symCount;
-        char type[20];
-        sprintf(type, "INTEGER");
         for(int i = 0; i < symCount; i++){
             if(strcmp(symbolTable[i].lexeme, _lex) == 0){
-                address = lineNum;
-                sprintf(type, "CODE");
-                break;
+                // Lexeme is already in symbol table. It must be code
+                return;
             }
         }
 
         strcpy(symbolTable[symCount].lexeme, _lex);
-        strcpy(symbolTable[symCount].type, type);
-        // symbolTable[symCount].type = _typ;
-        symbolTable[symCount].address = address;
+        strcpy(symbolTable[symCount].type, _typ);
+        symbolTable[symCount].address = symCount;
         symCount++;
     }
     void print_symbol_table()
@@ -622,7 +616,7 @@ char *yytext;
 /* Symbols and Operators */
 /* Keywords */
 /* Built-in Procedures */
-#line 626 "lex.yy.c"
+#line 620 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -804,10 +798,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 142 "lexan.l"
+#line 135 "lexan.l"
 
 
-#line 811 "lex.yy.c"
+#line 805 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -892,156 +886,151 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 144 "lexan.l"
+#line 137 "lexan.l"
 {lexeme = yytext; sprintf(token, "PROGRAM"); return I_PROGRAM;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 145 "lexan.l"
+#line 138 "lexan.l"
 {lexeme = yytext; sprintf(token, "BEGIN"); return I_BEGIN;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 146 "lexan.l"
+#line 139 "lexan.l"
 {lexeme = yytext; sprintf(token, "NUM"); return I_NUM;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 147 "lexan.l"
+#line 140 "lexan.l"
 {lexeme = yytext; sprintf(token, "IDENT"); return I_IDENT;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 148 "lexan.l"
+#line 141 "lexan.l"
 {lexeme = yytext; sprintf(token, "LP"); return I_LP;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 149 "lexan.l"
+#line 142 "lexan.l"
 {lexeme = yytext; sprintf(token, "RP"); return I_RP;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 150 "lexan.l"
+#line 143 "lexan.l"
 {lexeme = yytext; sprintf(token, "ASGN"); return I_ASGN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 151 "lexan.l"
+#line 144 "lexan.l"
 {lexeme = yytext; sprintf(token, "SC"); return I_SC;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 152 "lexan.l"
+#line 145 "lexan.l"
 {lexeme = yytext; sprintf(token, "COLON"); return I_COLON;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 153 "lexan.l"
+#line 146 "lexan.l"
 {lexeme = yytext; sprintf(token, "POWER"); return I_POWER;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 154 "lexan.l"
+#line 147 "lexan.l"
 {lexeme = yytext; sprintf(token, "MULTIPLICATIVE"); return I_MULTIPLICATIVE;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 155 "lexan.l"
+#line 148 "lexan.l"
 {lexeme = yytext; sprintf(token, "ADDITIVE"); return I_ADDITIVE;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 156 "lexan.l"
+#line 149 "lexan.l"
 {lexeme = yytext; sprintf(token, "COMPARE"); return I_COMPARE;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 158 "lexan.l"
+#line 151 "lexan.l"
 {lexeme = yytext; sprintf(token, "IF"); return I_IF;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 159 "lexan.l"
+#line 152 "lexan.l"
 {lexeme = yytext; sprintf(token, "THEN"); return I_THEN;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 160 "lexan.l"
+#line 153 "lexan.l"
 {lexeme = yytext; sprintf(token, "ELSE"); return I_ELSE;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 161 "lexan.l"
+#line 154 "lexan.l"
 {lexeme = yytext; sprintf(token, "ENDIF"); return I_ENDIF;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 162 "lexan.l"
+#line 155 "lexan.l"
 {lexeme = yytext; sprintf(token, "WHILE"); return I_WHILE;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 163 "lexan.l"
+#line 156 "lexan.l"
 {lexeme = yytext; sprintf(token, "ENDWHILE"); return I_ENDWHILE;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 164 "lexan.l"
+#line 157 "lexan.l"
 {lexeme = yytext; sprintf(token, "LOOP"); return I_LOOP;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 165 "lexan.l"
+#line 158 "lexan.l"
 {lexeme = yytext; sprintf(token, "VAR"); return I_VAR;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 166 "lexan.l"
+#line 159 "lexan.l"
 {lexeme = yytext; sprintf(token, "INT"); return I_INT;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 167 "lexan.l"
+#line 160 "lexan.l"
 {lexeme = yytext; sprintf(token, "END"); return I_END;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 169 "lexan.l"
+#line 162 "lexan.l"
 {lexeme = yytext; sprintf(token, "WRITEINT"); return I_WRITEINT;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 170 "lexan.l"
+#line 163 "lexan.l"
 {lexeme = yytext; sprintf(token, "READINT"); return I_READINT;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 172 "lexan.l"
+#line 165 "lexan.l"
 ; //printf("[COMMENT] %s\n", yytext);
 	YY_BREAK
 case 27:
+/* rule 27 can match eol */
 YY_RULE_SETUP
-#line 173 "lexan.l"
+#line 166 "lexan.l"
 ; // Ignore whitespace.
 	YY_BREAK
 case 28:
-/* rule 28 can match eol */
 YY_RULE_SETUP
-#line 174 "lexan.l"
-{lineNum++;}
+#line 167 "lexan.l"
+{printf("INVALID TOKEN: %s\n", yytext);}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 175 "lexan.l"
-{printf("INVALID TOKEN: %s\n", yytext);}
-	YY_BREAK
-case 30:
-YY_RULE_SETUP
-#line 177 "lexan.l"
+#line 169 "lexan.l"
 ECHO;
 	YY_BREAK
-#line 1045 "lex.yy.c"
+#line 1034 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2038,7 +2027,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 177 "lexan.l"
+#line 169 "lexan.l"
 
 
 
@@ -2056,7 +2045,7 @@ int main(int argc, char** argv)
         printf("<\"%s\", %s>\n", lexeme, token);
 
         if(tokenType == I_IDENT)
-            insert_into_sym_tab(lexeme, "INTEGER", symCount);
+            insert_into_sym_tab(lexeme, "INTEGER");
     }
 
     print_symbol_table();

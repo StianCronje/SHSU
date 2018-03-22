@@ -15,39 +15,42 @@ namespace BankAccount.Views
     {
         private MainViewModel binding;
 
-        public MainPage()
+        public MainPage(MainViewModel mainViewModel)
         {
             InitializeComponent();
 
-            binding = (MainViewModel)BindingContext;
+            mainViewModel.Navigation = Navigation;
+            BindingContext = mainViewModel;
+
+            binding = mainViewModel;
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
 
-            binding.OnMessageInsertAction += (messages) =>
-            {
-                var index = messages.Count - 1;
-                Device.BeginInvokeOnMainThread(() =>
-                {
+        //    binding.OnMessageInsertAction += (messages) =>
+        //    {
+        //        var index = messages.Count - 1;
+        //        Device.BeginInvokeOnMainThread(() =>
+        //        {
 
-                    ListView.ScrollTo(messages[index], ScrollToPosition.End, true);
-                });
-            };
+        //            ListView.ScrollTo(messages[index], ScrollToPosition.End, true);
+        //        });
+        //    };
 
-            binding.PageLoadCqommand.Execute(null);
-            Debug.WriteLine("test");
-        }
+        //    binding.PageLoadCqommand.Execute(null);
+        //    Debug.WriteLine("test");
+        //}
 
-        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            ListView.SelectedItem = null;
-        }
+        //private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    ListView.SelectedItem = null;
+        //}
 
-        private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            ListView.SelectedItem = null;
-        }
+        //private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    ListView.SelectedItem = null;
+        //}
     }
 }
