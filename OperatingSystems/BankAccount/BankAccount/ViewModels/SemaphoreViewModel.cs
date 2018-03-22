@@ -100,9 +100,9 @@ namespace BankAccount.ViewModels
         public SemaphoreViewModel()
         {
             Parent1 = new Person("Parent 1", 10, Bank, mutexSemaphore);
-            _parentTask1 = new Task(Parent1.EarnMoney_Semaphore);
+            _parentTask1 = new Task(Parent1.ProcessMoney);
             Parent2 = new Person("Parent 2", 10, Bank, mutexSemaphore);
-            _parentTask2 = new Task(Parent2.EarnMoney_Semaphore);
+            _parentTask2 = new Task(Parent2.ProcessMoney);
 
             _parentTask1.Start();
             _parentTask2.Start();
@@ -112,7 +112,7 @@ namespace BankAccount.ViewModels
         {
             Person child = new Person("Child " + (Children.Count + 1), -2, Bank, mutexSemaphore);
             Children.Add(child);
-            _childrenTasks.Add(new Task(child.EarnMoney_Semaphore));
+            _childrenTasks.Add(new Task(child.ProcessMoney));
             _childrenTasks[_childrenTasks.Count-1].Start();
         });
 

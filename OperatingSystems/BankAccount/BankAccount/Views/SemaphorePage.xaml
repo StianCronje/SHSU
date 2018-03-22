@@ -66,14 +66,17 @@
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}" Detail="{Binding TransactionAmmount}">
-                            <TextCell.ContextActions>
-                                <MenuItem Text="Delete"
-                                          IsDestructive="True" 
-                                          Command="{Binding Path=BindingContext.DeleteChildCommand, Source={x:Reference ContentPage}}"
-                                          CommandParameter="{Binding .}"/>
-                            </TextCell.ContextActions>
-                        </TextCell>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                <Label Text="{Binding ActivityString, StringFormat='Spending: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                <Button Text="Eat Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="0"/>
+                                <Button Text="Eat Slower" Command="{Binding SlowDownCommand}" Grid.Row="2" Grid.Column="1"/>
+                                <Button Text="Be Picky" Command="{Binding HigherTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
+                                <Button Text="Be Cheap" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="1"/>
+                                <Button Text="Cutoff Child" Command="{Binding Path=BindingContext.DeleteChildCommand, Source={x:Reference ContentPage}}" CommandParameter="{Binding .}" BackgroundColor="Red" Grid.Row="4" Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -48,10 +48,10 @@ namespace BankAccount.Models
             Balance = 0;
         }
 
-        public void MakeTransaction(string name, float ammount, ExecutionMode mode)
+        public void MakeTransaction(string name, float ammount)
         {
 
-            if (mode == ExecutionMode.Synchronized)
+            if (App.ExecutionMode == ExecutionMode.Synchronized)
             {
                 MakeTransaction_Synchronized(ammount);
             }
