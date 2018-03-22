@@ -11,6 +11,8 @@ using Xamarin.Forms;
 
 namespace BankAccount.ViewModels
 {
+
+    //TODO use execution mode enum to chage the way everything executes
     public class SemaphoreViewModel : INotifyPropertyChanged
     {
         #region Actions

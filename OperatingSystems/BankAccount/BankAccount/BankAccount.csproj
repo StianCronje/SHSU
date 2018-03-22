@@ -29,7 +29,6 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="BankAccountPage.xaml" />
     <EmbeddedResource Include="Views\SemaphorePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -42,9 +41,6 @@
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="BankAccountPage.xaml.cs">
-      <DependentUpon>BankAccountPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ExecutionMode.cs" />
     <Compile Include="Models\Bank.cs" />
