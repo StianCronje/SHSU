@@ -59,27 +59,15 @@ namespace BankAccount.ViewModels
 
         public Command LoadSemaphoreSolution => new Command(async () =>
         {
-            Debug.WriteLine("load page");
+            Debug.WriteLine("load page in semaphore mode");
+            App.ExecutionMode = ExecutionMode.Semaphore;
             await Navigation.PushAsync(new SemaphorePage());
         });
         public Command LoadSynchronizedSolution => new Command(async () =>
         {
-			Debug.WriteLine("load page");
+            Debug.WriteLine("load page in synchronized mode");
+            App.ExecutionMode = ExecutionMode.Synchronized;
             await Navigation.PushAsync(new SynchronizedPage());
-        });
-
-        public Command PageLoadCqommand => new Command(() =>
-        {
-            Debug.WriteLine("Page Loaded");
-        });
-
-        public Command SubmitCommand => new Command(() => {
-            Debug.WriteLine("Submit: " + MessageText);
-        });
-
-        public Command<Transaction> DeleteMessageCommand => new Command<Transaction>(message =>
-        {
-            Debug.WriteLine("delete: ");
         });
 
 

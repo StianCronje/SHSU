@@ -1,4 +1,5 @@
-﻿using BankAccount.ViewModels;
+﻿using BankAccount.Models;
+using BankAccount.ViewModels;
 using BankAccount.Views;
 using Xamarin.Forms;
 
@@ -27,5 +28,7 @@ namespace BankAccount
         {
             // Handle when your app resumes
         }
+
+        public static ExecutionMode ExecutionMode { get; set; }
     }
 }

@@ -5,51 +5,8 @@
              x:Class="BankAccount.Views.MainPage"
              Title="Family Bank">
 
-    <StackLayout>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Button Text="Semaphore (Low Level) Solution" Command="{Binding LoadSemaphoreSolution}"/>
         <Button Text="Synchronized (High Level) Solution" Command="{Binding LoadSynchronizedSolution}"/>
     </StackLayout>
-<!--
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <StackLayout Grid.Column="0">
-            <Label Text="Parents" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Parent 1" FontAttributes="Bold"/>
-                <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
-            <Button Text="Work Harder"/>
-            <Button Text="Slack Off"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Parent 2" FontAttributes="Bold"/>
-                <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
-            <Button Text="Work Harder"/>
-            <Button Text="Slack Off"/>
-        </StackLayout>
-        <StackLayout Grid.Column="1">
-            <Label Text="Transactions" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <ListView x:Name="ListView" 
-                      ItemsSource="{Binding Messages}" 
-                      ItemSelected="ListView_OnItemSelected" 
-                      ItemTapped="ListView_OnItemTapped"
-                      VerticalOptions="Fill"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Name}" Detail="{Binding Ammount}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-        <StackLayout Grid.Column="2">
-            <Label Text="Children" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <Button Text="Spend Rand" Command="{Binding SpendRandom}"/>
-        </StackLayout>
-    </Grid>-->
 </ContentPage>

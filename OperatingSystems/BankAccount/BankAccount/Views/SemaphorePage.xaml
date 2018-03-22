@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:BankAccount.ViewModels;assembly=BankAccount"
              x:Class="BankAccount.Views.SemaphorePage"
+             x:Name="ContentPage"
              Title="Family Bank">
     <ContentPage.BindingContext>
         <viewModels:SemaphoreViewModel/>
@@ -17,26 +18,37 @@
 
         <StackLayout Grid.Column="0">
             <Label Text="Parents" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Parent 1" FontAttributes="Bold"/>
-                <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
-            <Button Text="Work Harder"/>
-            <Button Text="Slack Off"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Parent 2" FontAttributes="Bold"/>
-                <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
-            <Button Text="Work Harder"/>
-            <Button Text="Slack Off"/>
+
+            <Grid BindingContext="{Binding Parent1}">
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label Text="Parent 1" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <Label Text="{Binding ActivityString, StringFormat='Earning: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
+                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="1"/>
+            </Grid>
+            <Grid BindingContext="{Binding Parent2}">
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label Text="Parent 2" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <Label Text="{Binding ActivityString, StringFormat='Earning: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
+                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="1"/>
+            </Grid>
         </StackLayout>
         <StackLayout Grid.Column="1">
             <Label Text="Transactions" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <ListView x:Name="ListView" 
-                      ItemsSource="{Binding Messages}" 
-                      ItemSelected="ListView_OnItemSelected" 
-                      ItemTapped="ListView_OnItemTapped"
-                      VerticalOptions="Fill"
+            <Label Text="{Binding Bank.Balance, StringFormat='Balance: {0}'}" Grid.Row="1" Grid.Column="0"/>
+            <ListView x:Name="TransactionListView" 
+                      BindingContext="{Binding Bank}"
+                      ItemsSource="{Binding Transactions}"
+                      VerticalOptions="FillAndExpand"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -47,6 +59,24 @@
         </StackLayout>
         <StackLayout Grid.Column="2">
             <Label Text="Children" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Button Text="Make new Child" Command="{Binding AddChildCommand}"/>
+            <ListView x:Name="ChildrenListView" 
+                      ItemsSource="{Binding Children}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding TransactionAmmount}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Delete"
+                                          IsDestructive="True" 
+                                          Command="{Binding Path=BindingContext.DeleteChildCommand, Source={x:Reference ContentPage}}"
+                                          CommandParameter="{Binding .}"/>
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </Grid>
 </ContentPage>

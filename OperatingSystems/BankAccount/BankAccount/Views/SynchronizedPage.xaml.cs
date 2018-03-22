@@ -22,24 +22,6 @@ namespace BankAccount.Views
             binding = (SynchronizedViewModel)BindingContext;
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            binding.OnMessageInsertAction += (messages) =>
-            {
-                var index = messages.Count - 1;
-                Device.BeginInvokeOnMainThread(() =>
-                {
-
-                    ListView.ScrollTo(messages[index], ScrollToPosition.End, true);
-                });
-            };
-
-            binding.PageLoadCqommand.Execute(null);
-            Debug.WriteLine("test");
-        }
-
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ListView.SelectedItem = null;
