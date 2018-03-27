@@ -1,0 +1,31 @@
+Notes 3/2/17
+Data Structures
+Burris
+
+Folding (pg 157)
+	divide to prevent overflow
+	add 2 char strings
+
+	division remainder hashing
+
+square and extract hashing (pg 158)
+	extract middle 8 bits for 256 size hashtable
+	hash = (abs(sum)/2^12) % 2^8
+
+collision handling (pg 159)
+	2 objects hash the same location
+		need to find new location for 2nd
+		can reclaim space if 1st deleted?
+		what happens to 2nd?
+
+	linear collision probe
+	when deleting, replace with char other than (pg 161)default - i.e. "###" (still empty)
+
+	random probe (pg 163)
+	r=1
+	tableSize = 8
+	2^n=8 ---- n=3
+
+	r*=5
+	r%=32
+	p[i]=r/4

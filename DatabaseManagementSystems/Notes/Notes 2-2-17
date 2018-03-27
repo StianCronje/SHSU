@@ -1,0 +1,43 @@
+Notes 1/31/17
+Database Management
+Zhou
+
+Needed for proposal
+	Name
+	Team Members
+	Programming Language
+		php
+		java
+		c#
+		vb
+	DBMS
+		sqlite
+		access
+		mysql
+		sqlserver
+	functions (how it fites with our project)
+		login
+		insert
+		delete
+		update/modify
+		search
+	table schema
+
+SQLiteStudio
+	tebles > new table
+
+Basic SQL Queryrelation list> 
+	WHERE <qualification>
+
+	[distinct] = remove duplicates
+
+Relation Conditions
+	EXISTS
+		R = true if R has at least 1 tuple
+	t IN R
+		true if t == tuple in R
+	t > ALL R
+		true only if R has 1 attr and t > all vals
+	t > ANY
+		true only if R has 1 attr and t > any val
+

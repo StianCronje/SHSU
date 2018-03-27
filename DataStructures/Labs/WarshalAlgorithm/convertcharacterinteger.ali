@@ -1,0 +1,76 @@
+V "GNAT Lib v2016"
+M P W=b
+A -gnatwu
+A -g
+A -gnato
+A -gnatwa
+A -gnat05
+A -mtune=generic
+A -march=pentium4
+P ZX
+
+RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV SPARK_05
+
+U convertcharacterinteger%b  convertcharacterinteger.adb  251c42d7 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+W ada.text_io.integer_io%s
+W unchecked_conversion%s
+
+D ada.ads		20160516092928 3ffc8e18 ada%s
+D a-except.ads		20160516092928 291912d5 ada.exceptions%s
+D a-ioexce.ads		20160516092926 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20160516092928 119b8fb3 ada.streams%s
+D a-tags.ads		20160516092932 01f5e3ef ada.tags%s
+D a-textio.ads		20160516092932 386df5d4 ada.text_io%s
+D a-tiinau.ads		20160516092930 8114c8e4 ada.text_io.integer_aux%s
+D a-tiinio.ads		20160516092928 aa04e5d6 ada.text_io.integer_io%s
+D a-tiinio.adb		20160516092930 df9cd7af ada.text_io.integer_io%b
+D a-unccon.ads		20160516092930 f9eb8f06 ada.unchecked_conversion%s
+D convertcharacterinteger.adb  20170217041636 d75e291b convertcharacterinteger%b
+D interfac.ads		20160516092928 5ab55268 interfaces%s
+D i-cstrea.ads		20160516092926 e53d8b8e interfaces.c_streams%s
+D system.ads		20160516092930 2da59038 system%s
+D s-crtl.ads		20160516092926 0ebbdb71 system.crtl%s
+D s-exctab.ads		20160516092930 54135002 system.exception_table%s
+D s-ficobl.ads		20160516092932 078245e4 system.file_control_block%s
+D s-parame.ads		20160516092932 7e2a0d7f system.parameters%s
+D s-soflin.ads		20160516092928 14e1eb6c system.soft_links%s
+D s-stache.ads		20160516092932 a37c21ec system.stack_checking%s
+D s-stalib.ads		20160516092930 09bd3940 system.standard_library%s
+D s-stoele.ads		20160516092932 2dc34a04 system.storage_elements%s
+D s-traent.ads		20160516092928 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20160516092930 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20160516092930 1b7d22d2 system.wch_con%s
+D unchconv.ads		20160516092926 ca2f9e18 unchecked_conversion%s
+X 1 ada.ads
+16K9*Ada 19e8 11|1r6 1r23 6r29
+X 6 a-textio.ads
+49K13*Text_IO 471e16 11|1w10 1r27 6r33
+166U14*New_Line 11|21s31 27s31
+208U14*Put 11|21s22 27s22
+242U14*Put 11|20s8 20s38 21s8 26s8 26s38 27s8
+X 8 a-tiinio.ads
+46k21*Integer_IO 85e27 11|6r41
+66U14 Put 11|20s25[6] 26s25[6]
+X 11 convertcharacterinteger.adb
+4U11*ConvertCharacterInteger 4b11 30l5 30t28
+6K13 MyInt_IO[8|46] 7r9
+10V14 integerToCharacter[26|20]{character} 25s14
+11V14 characterToInteger[26|20]{integer} 19s16
+13e5 c1{character} 17m8 19r36 21r26
+13e9 c2{character} 25m8 27r26
+14i5 int1{integer} 19m8 20r29
+14i11 int2{integer} 23m8 25r33 26r29
+X 26 unchconv.ads
+20v10*Unchecked_Conversion 11|2w6 10r40 11r40
+

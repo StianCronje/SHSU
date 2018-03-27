@@ -1,0 +1,26 @@
+Notes 3/30/17
+Data Structures
+Burris
+
+Tree Head
+    ------------------------
+    | - | 5 | data | 5 | - |
+    ------------------------
+    5
+
+
+pg 97
+    array 9..20
+    avail(index counter) = 9
+    insert head first
+    increment avail
+
+
+    tags are not needed
+    if link is lower than node location
+        then it is a thread
+
+tree deletion
+    replace with inorder successor
+    (can use predecessor, not conventional)
+

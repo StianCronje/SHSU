@@ -1,0 +1,39 @@
+﻿Created By AccessData® FTK® Imager 4.1.1.1 
+
+Case Information: 
+Acquired using: ADI4.1.1.1
+Case Number:  
+Evidence Number:  
+Unique Description: 
+Examiner:  
+Notes:  
+
+--------------------------------------------------------------
+
+Information for F:\Profile\Dropbox\Dropbox\SHSU\2017F\DigitalForensics\Homework\Lab5\FloppyImage:
+
+Physical Evidentiary Item (Source) Information:
+[Device Info]
+ Source Type: Logical
+[Drive Geometry]
+ Bytes per Sector: 512
+ Sector Count: 2,880
+[Physical Drive Information]
+ Removable drive: True
+ Source data size: 1 MB
+ Sector count:    2880
+[Computed Hashes]
+ MD5 checksum:    30d5f0d7921d53edba010c8a60fbefc0
+ SHA1 checksum:   1684242403d705bb7394fefb9a6fe09abd5e5921
+
+Image Information:
+ Acquisition started:   Tue Oct 31 20:14:52 2017
+ Acquisition finished:  Tue Oct 31 20:15:38 2017
+ Segment list:
+  F:\Profile\Dropbox\Dropbox\SHSU\2017F\DigitalForensics\Homework\Lab5\FloppyImage.001
+
+Image Verification Results:
+ Verification started:  Tue Oct 31 20:15:38 2017
+ Verification finished: Tue Oct 31 20:15:38 2017
+ MD5 checksum:    30d5f0d7921d53edba010c8a60fbefc0 : verified
+ SHA1 checksum:   1684242403d705bb7394fefb9a6fe09abd5e5921 : verified

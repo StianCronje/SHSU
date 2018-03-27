@@ -1,0 +1,163 @@
+Notes 4/3/17
+Computer Organization
+McGuire
+
+Bypassing the OS and working with BIOS
+
+Video adaptors
+     MDA - monochrome display adapter (9x14 cell)
+     CGA - color graphics adapter (8x8 cell)
+     EGA - enhanced graphics adapter (8x14 cell)
+     VGA - video graphics array (8x19 cell)
+
+Text mode numbers
+    0 - 40x25 - 16 color text (burst off)
+    1 - 40x25 - 16 color text
+    2 - 80x25 - 16 color text (burst off)
+    3 - 80x25 - 16 color text
+    7 - 80x25 - monochrome text
+
+Text mode programming
+    screen is divided into 80 columns and 25 rows
+    (0,0) - top left
+    (79, 24) - bottom right
+    character displayed is specified by contents of word in display mem
+    high byte contains attributes
+
+Display pages
+    Modes   CGA     EGA     VGA
+    0-1     8       8       8
+    2-3     4       8       8
+    7       n/a     8       8
+
+
+    7   6   5   4   3   2   1   0
+    BL  R   G   B   IN  R   G   B
+
+    BL - blinking
+    IN - intensity
+    RGB - red green blue
+
+    red character on blue bg - 00010100 - 14h
+
+INT 10h - screen functions
+    func 0
+        select display mode
+        AH = 0
+        AL = mode number
+
+        when mode is set, screen is cleared
+    
+    func 1
+        changes cursor size
+        AH = 1
+        CH = starting scan line
+        CL = endinng scan line
+
+        cursor displayed as small dot array at screen pos
+
+        ;largest cursor
+        mov ah, 1
+        mov ch, 0
+        mov cl, 13
+        int 10h
+   
+    func 2
+        move cursor
+        AH = 2
+        DH = new cursor row (0-24)
+        DL = new cursor column (0-79)
+        BH = page number
+
+        ;move cursor to center of page 0
+        mov ah, 2
+        xor bh, bh    ; page 0
+        mov dx, 0C27h ; row=12 col=39
+        int 10h
+    
+    func 3
+        gets cursor pos and size
+        AH = 3
+        BH = page number
+
+        outputs:
+        DH = row
+        DL = column
+        CH = starting scan line
+        CL = ending scan line
+
+        ; move cursor up 1 row if not already at top
+        mov ah, 3
+        xor bh, bh
+        int 10h
+        or dh, dh
+        jz exit
+        mov ah, 2
+        dec dh
+        int 21h
+        exit:
+
+    func 5
+        set active display page
+        num pages is mode dependent
+        AH = 5
+        AL = 0-7, 0-3, 0-7, 0-7
+    
+    func 6
+        scroll the screen or a window up
+        AH = 6
+        AL = number of lines to scroll
+        BH = attribute for blank lines
+        CH = row for upper left corner
+        CL = col for upper left corner
+        DH = row for lower right corner
+        DL = row for lower right corner
+    
+    func 7
+        scroll the screen or a window down
+        AH = 7
+        AL = number of lines to scroll
+        BH = attribute for blank lines
+        CH = row for upper left corner
+        CL = col for upper left corner
+        DH = row for lower right corner
+        DL = row for lower right corner
+
+    func 8
+        read char at cursor pos
+        AH = 8
+        BH = page number
+
+        outputs:
+        AH = attribute of char
+        AL = ASCII code of char
+
+    func 9
+        display character at cursor with any attribute
+        AH = 9
+        BH = page number
+        BL = attribute of char
+        AL = ASCII code of char
+        CX = number of times to write char
+
+    func 0Ah
+        display character at cursor with current attribute
+        AH = 0Ah
+        BH = page number
+        AL = ASCII code of char
+        CX = number of times to write char
+    
+    func 0Eh
+        display char and advance cursor
+        AH = 0Eh
+        BH = page number
+        AL = ASCII code of char
+    
+    func 0Fh
+        get video mode
+        AH = 0Fh
+
+        outputs:
+        AH = number of screen columns
+        BH = active display page
+        AL = display mode

@@ -1,0 +1,26 @@
+Notes 2/7/17
+Database Management
+Zhou
+
+Search
+	Select		search category
+	From		connect tables
+	Where		search condition
+
+SQL Functions
+	COUNT(*)
+	COUNT([DISTINCT] A)
+		A is a column
+	SUM([DISTINCT] A)
+	AVG([DISTINCT] A)
+	MAX(A)
+	MIN(A)
+
+	count the number of sailors
+	SELECT COUNT(*) FROM Sailors S
+
+GROUP BY
+	foreach
+HAVING
+	function of count
+

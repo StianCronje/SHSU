@@ -1,0 +1,6 @@
+WITH Ada_Io; USE Ada_Io;
+
+PROCEDURE Links IS
+BEGIN
+   put_line("Hello World!");
+END Links;

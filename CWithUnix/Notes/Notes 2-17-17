@@ -1,0 +1,19 @@
+Notes 2/17/17
+Special Programming
+Burris
+
+pass by value
+	changes copy of value
+pass by reference
+	passes address
+	changes value of actual variable in memory
+
+C pass by reference
+	void fnc(*p1){ *p1 = 1; }
+	fnc(&someval);
+C++ pass by reference
+	void fnc(&p1){p1 = 1;}
+	fnc(someval);
+
+Scope
+	always uses local variables before global vars

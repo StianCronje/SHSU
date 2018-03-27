@@ -1,0 +1,14 @@
+Notes 2/14/17
+Data Structures
+Burris
+
+linked list with empty handle (pg 40)
+
+Sorting with 1 pass (pg 42)
+	create list array of jobs
+	look through list and add to category
+	only one pass needed
+
+linked list with init allocation (pg 47)
+	creates array to hold entries
+	entries reference index of other entries in list

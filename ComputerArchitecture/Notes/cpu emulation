@@ -1,0 +1,48 @@
+
+simulating a cpu
+
+8 bit
+     7 6 5 |     4    |  3 2 1
+    opcode | addrmode | operand
+
+    opcode
+    000     lda     load accumulator
+    001     sta     store accumulator
+    010     add     add operand to accumulator
+    011     br      unconditional branch
+    100     beq     branch if equal
+    
+    
+pc = 0
+run = true
+while run
+    mar = pc
+    pc++
+    mbr = mem[mar]
+    ir = mbr
+    opcode = ir >> 5
+    addrmode = (ir >> 4) & 1
+    operand = ir & 0x0F
+    switch opcode
+        0:
+            if addrmode = 0
+                acc = mem[operand]
+            else
+                acc = operand
+        1:
+            mem[operand] = acc
+        2:
+            if addrmode = 0
+                acc += mem[operand]
+            else
+                acc += operand
+        3:
+            pc = operand
+        7:
+            run = false
+        defaul:
+            bad opcode
+            run = false
+    end switch
+end while
+

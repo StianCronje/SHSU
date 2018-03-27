@@ -1,0 +1,19 @@
+Notes 4/4/17
+Data Structures
+Burris
+
+Tree traversal
+    In Order - LVR
+    Pre Order - VLR
+    Post Order - LRV
+
+    No Name 1 (Reverse In Order) - RVL
+    No Name 2 (Reverse Pre Order) - RLV
+    No Nmae 3 (Reverse Post Order) - VRL
+
+log[2]n + delta space needed for stack
+
+
+Artificial Intelligence
+    M-ary trees
+        

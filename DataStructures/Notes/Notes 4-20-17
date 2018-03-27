@@ -1,0 +1,16 @@
+Notes 4/18/17
+Data Structures
+Burris
+
+Straight Insertion
+    same as bubble sort
+    fastest way to do bubble sort
+
+Pointer Sort
+    sort an array of pointers
+
+Priority Queue (pg 181)
+    on a disk, faster to serve requests closer to each other
+    builds queue, but sorts it (not a true queue)
+    uses heap data structure
+    

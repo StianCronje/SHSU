@@ -1,0 +1,57 @@
+Project
+
+32 bit instruction
+pull top 16 bits as opcode
+bottom 16 bits for operrands
+  -----------
+0|   1 | 42 |    = PUSH 42
+1|  26 | 0  |    = PRINT
+ ------------
+
+
+data
+(A) 0 - 5
+(B) 1 - 7
+(C) 2
+
+//C = A + B
+
+LVALUE C
+RVALUE A
+RVALUE B
+ADD
+STORE
+
+opcode value
+3       2
+2       0
+2       1
+7       0
+5       0
+0       0
+
+
+z = sum(a,b)
+
+sum (x,y){
+    return x + y;
+}
+
+LVALUE z
+RVALUE a
+RVALUE b
+GOSUB sum
+STO
+...
+LABEL sum
+
+push address of z
+push the values to the stack
+
+needs a stack and a call stack
+    stack will hold method values
+    call stack will hold program addresses
+
+will need 6 bits to implement emu
+    21-16
+    ignore 31-22

@@ -1,0 +1,13 @@
+Notes 1/25/17
+Special Programming
+Burris
+
+"C" does not support true or false ("bool")
+false = 0, true != 0
+
+create a boolean.h file to include boolean into C
+
+defensive programming adds about 20% of code to a program
+
+put if statements in decreasing frequency of occurance to optimize efficiency. (80/20 rule)
+

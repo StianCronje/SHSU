@@ -1,0 +1,21 @@
+FILENAME=EngineeringFunctionTest
+
+all: independent share link path
+
+independent:
+	gcc -fPIC -c engeom.c
+
+share:
+	gcc -shared -o libEngeom.so engeom.o -lm
+
+link:
+	gcc EngineeringFunctions.c -L. -lEngeom -o $(FILENAME) -ldl
+
+path:
+	export LD_LIBRARY_PATH=./
+
+clean:
+	rm -rf *.o *.so $(FILENAME)
+
+run: all
+	./$(FILENAME)

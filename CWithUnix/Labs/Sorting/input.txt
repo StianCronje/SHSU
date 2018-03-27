@@ -1,0 +1,41 @@
+Nienberg     Dylan     Computer_Services   18.24  Blue
+Fitzgerald   Matthew   Accounting           8.96  Green
+DeLuna-Solis Eduardo   Sales                9.57  Hazel
+McGowen	Andrew	Accounting	11.31	Blue
+Moreno
+Issac
+Sales
+16.27
+Hazel
+Welch
+Wade   Computer_Services  22.01  Blue
+Fruci       Jordan       Sales         19.26    Blue
+Gazeau      Valentin     Management     6.72    Steel
+Silva  Julian  Management 17.35  Gray
+Brook  Tyler   Hacker     45.44  Green
+Al-Husain
+Thamer
+Manufacturing
+12.22
+Blue
+Hester Travis  Manufacturing  1.34    Blue
+Howell Brandon Sales         30.00    Hazel
+Feuling   Matthew    Computer_Services  15.21  Green
+Jacobson  Jake       Water_Sports       53.34  Brown
+Zhang     Zhaohe     Accounting          8.96  Green
+Pennington	Jeremy	Customer_Service	78.93	Blue
+Oliver		Logan	Sales			16.27	Hazel
+Pike		Jeremy	Computer_Services	22.01	Blue
+Celaya Esteban  Accounting  11.11	Blue
+Horn		John   Sales	 19.26   Blue
+Brosh     Domenic   Management    6.72   Steel
+Kavanaugh Sarah     Shipping      3.22   Steel
+Dominguez Jared     Water_Sports 53.34
+Brown
+Harding  Andrew
+Sales    16.37  Gray
+Fruci
+Jordan
+Sales   19.26    Blue
+Pike    Jeremy   Computer_Services  22.01  Blue
+Curtis  Harrison Hacker             78.33  Hazel

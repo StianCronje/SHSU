@@ -1,0 +1,62 @@
+Notes 4/21/17
+Computer Organization
+McGuire
+
+How to interface between HLL and assembly
+
+n!
+in C
+    int fact(int n)
+    {
+        if(n ==0)
+        return 1;
+        else
+        return n *fact(n-1);
+    }
+
+passing parameters to functions
+    int addem(int a, int b)
+    {
+        return a + b;
+    }
+    push word[b]
+    push word[a]
+    call addem
+
+    addem:
+    push bp
+    mov bp, sp
+    mov ax, [bp+4]
+    add ax, [bp+6]
+    ret 4   ; pops stack 4 bytes and returns
+
+factorial in asm
+    START:
+        push word [word1] ; word1 = 4
+        call fact
+        mov bx, ax
+        mov ah, 9
+        int 21
+
+        mov ah, a4Ch
+
+
+        fact:
+            push bp
+            mov bp, sp
+
+            cmp word [bp+4], 0
+            jg recur
+
+            mov ax, 1
+            jmp return
+        
+        recur:
+            mov cx, [bp+4]
+            dec cx
+            push cx
+            call fact
+            mul word [bp+4]
+        return:
+        pop bp
+        ret 2

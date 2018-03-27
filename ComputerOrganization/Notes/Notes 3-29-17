@@ -1,0 +1,50 @@
+Notes 3/29/17
+Computer Organization
+McGuire
+
+String operations
+
+Source DS:SI
+Desination ES:DI
+
+Direction
+	CLD - left to right
+	STD - right to left
+
+Moving a String
+MOVSB
+	copies from si into di
+	add 1 to si & di if DF = 0
+	sub 1 if DF = 1
+
+section .data
+string1 	DB 	"HELLO"
+section .bss
+string2 	RESB 5
+section .text
+	mov ax, ds
+	mov es, ax
+	lea si, [string1] ; mov si, string1
+	lea di, [string2] ; mov di, string2
+	cld
+	mov cx, 5
+; can loop
+top:
+	movsb
+	loop
+; or repeat
+	reb movsb ; needs cx
+
+MOVSW
+	moves word instead of byte
+	add 2 instead of 1
+
+STOSB/STOSW
+	move al to ES:DI
+	/
+	move ax to ES:DI
+
+LODSB/LODSW
+	move byte from DS:SI to al
+	/
+	move word from DS:SI to ax

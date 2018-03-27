@@ -1,0 +1,18 @@
+Notes 2/6/17
+Computer Organization
+McGuire
+
+Conditional Jump
+	jxxx <destiantion_label>
+	tests condition of previous operation
+
+Comparison
+	cmp dest,src
+	dest - src
+	result:
+		0 = equal
+		>0 = greater
+		<0 = less
+
+Branching Stuctures (module 6 pg 10)
+	have to recreate if-then structures with a series of comaprisons and jumps

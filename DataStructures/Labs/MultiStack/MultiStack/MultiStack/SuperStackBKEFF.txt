@@ -1,0 +1,210 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MultiStack
+{
+    class SuperStack<T>
+    {
+        int m = 0, n = 0, L0 = 0, lowBound = 0, upBound = 0, minSpace = 1;
+        T[] stack;
+        int[] sBase;
+        int[] sTop;
+        int[] oneArray;
+        //int[] newBase;
+        //int[] growth;
+
+
+        public static SuperStack<T> CreateStack(int lowBound, int upBound, int l0, int size, int amtStacks)
+        {
+            SuperStack<T> ss = new SuperStack<T>();
+
+            ss.stack = new T[upBound - lowBound];
+            ss.sBase = new int[amtStacks + 1];
+            ss.sTop = new int[amtStacks];
+            ss.oneArray = new int[amtStacks+1];
+            //ss.newBase = new int[amtStacks + 1];
+            //ss.growth = new int[amtStacks+1];
+            ss.minSpace = Floor(size * 0.05f);
+            //if (ss.minSpace == 0) ss.minSpace = 1;
+            ss.lowBound = lowBound;
+            ss.upBound = upBound;
+            ss.m = size;
+            ss.L0 = l0;
+            ss.n = amtStacks;
+
+            for (int i = 0; i < amtStacks; i++)
+            {
+                ss.sBase[i] = ss.sTop[i] = ss.oneArray[i+1] = (size - l0) / amtStacks * i + l0;
+                Console.Write(ss.sBase[i] + " | ");
+            }
+            ss.sBase[amtStacks] = size;
+            Console.Write(ss.sBase[amtStacks] + " | ");
+            Console.WriteLine();
+
+            return ss;
+        }
+
+        public bool Push(int stackNum, T obj)
+        {
+            sTop[stackNum]++;
+            if (sTop[stackNum] > sBase[stackNum + 1])
+            {
+                Console.WriteLine("Stack overflow: Stack " + stackNum + " | Pushing " + obj.ToString());
+                Console.WriteLine("Reallocating stack space...");
+                bool success = Reallocate(0.15f);
+                sTop[stackNum]--;
+
+                if (success)
+                    Push(stackNum, obj);
+                else
+                    return false;
+
+            }
+            else
+            {
+                stack[sTop[stackNum]] = obj;
+                Console.WriteLine("Pushing " + obj.ToString() + " to stack" + stackNum + "(" + sTop[stackNum] + ")");
+                return true;
+            }
+            return true;
+        }
+
+        public T Pop(int stackNum)
+        {
+            T obj = default(T);
+            if (sTop[stackNum] == sBase[stackNum])
+            {
+                Console.WriteLine("Stack underflow: Stack " + stackNum + " is empty.");
+                return default(T);
+            }
+            else
+            {
+                Console.WriteLine("Popping stack" + stackNum + "(" + sTop[stackNum] + ")");
+                obj = stack[sTop[stackNum]];
+                //temp
+                stack[sTop[stackNum]] = default(T);
+                sTop[stackNum]--;
+            }
+
+            return obj;
+        }
+
+        bool Reallocate(float equalAllocate)
+        {
+            Console.WriteLine();
+            int availSpace = m - L0;
+            int totalInc = 0;
+            int j = n - 1;
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Stack " + i + " -- Base: " + sBase[i] + ", Top: " + sTop[i] + ", OldTop: " + oneArray[i+1]);
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                availSpace -= sTop[i] - sBase[i];
+                //if (sTop[i] > oneArray[i+1])
+                //{
+                    //growth[i] = sTop[i] - oneArray[i+1];
+                    totalInc += sTop[i] - oneArray[i + 1];
+                //}
+                //else
+                //{
+                //    //growth[i] = 0;
+                //}
+            }
+
+            PrintStack();
+            
+            if (availSpace < minSpace)
+            {
+                Console.WriteLine("Insufficient memory for re-packing");
+                return false;
+            }
+
+            float growthAllocate = 1 - equalAllocate;
+            float alpha = equalAllocate * availSpace / n;
+            float beta = growthAllocate * availSpace / totalInc;
+
+            oneArray[0] = sBase[0];
+            float sigma = 0;
+            for (int i = 1; i < n; i++)
+            {
+                //float tau = sigma + alpha + growth[i - 1] * beta;
+                float tau = sigma + alpha + (sTop[i - 1] - oneArray[i]) * beta;
+                oneArray[i] = oneArray[i-1] + (sTop[i - 1] - sBase[i - 1]) + Floor(tau) - Floor(sigma);
+                sigma = tau;
+            }
+
+            MoveStack();
+
+            for (int i = 0; i < n; i++)
+            {
+                oneArray[i+1] = sTop[i];
+            }
+
+            Console.WriteLine();
+            return true;
+        }
+
+        void MoveStack()
+        {
+            int delta = 0;
+            for (int i = 1; i < n; i++)
+            {
+                if (oneArray[i] < sBase[i])
+                {
+                    delta = sBase[i] - oneArray[i];
+                    for (int l = sBase[i]; l <= sTop[i]; l++)
+                    {
+                        stack[l - delta] = stack[l];
+                    }
+                    sBase[i] = oneArray[i];
+                    sTop[i] -= delta;
+                }
+            }
+
+            delta = 0;
+            for (int i = n - 1; i >= 1; i--)
+            {
+                if (oneArray[i] > sBase[i])
+                {
+                    delta = oneArray[i] - sBase[i];
+                    for (int l = sTop[i]; l >= sBase[i]; l--)
+                    {
+                        stack[l + delta] = stack[l];
+                    }
+                    sBase[i] = oneArray[i];
+                    sTop[i] += delta;
+                }
+            }
+        }
+
+        public void PrintStack()
+        {
+            int stackNum = 0;
+            for (int i = L0; i <= m; i++)
+            {
+                Console.WriteLine("Location " + i + " : Stack " + (stackNum + 1)+ " : " + stack[i]);
+                if (i == sBase[stackNum + 1])
+                {
+                    stackNum++;
+                }
+            }
+        }
+
+
+        static int Floor(float val)
+        {
+            int temp = (int)val;
+            if (temp <= val)
+                return temp;
+            else
+                return temp - 1;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+Notes 2/15/17
+Computer Organization
+McGuire
+
+; get a binary number input
+	mov bx, 0		; bx will accumulate val
+	mov ah, 1		; read char
+	int 21h			; ch in al
+top:
+	cmp al, 0Dh		; is ch=CR
+	je done			; if yes, done
+	shl bx, 1		; bx = bx*2
+	and al, 01h		; '0' -> 0, '1' -> 1
+	or bl, al 		; add in lsb
+	int 21h			; read another char
+	jmp top
+done:
+
+;hex input
+	mov cx, 4	; loop 4 times
+in:
+	rol bx,4	; rotate bx left by 4 bits
+	mov dl, bl	; copy to dl
+	and dl, 0Fh	; mask all but low nybble
+	cmp dl, 10	; is digit 0-9 or A-F?
+	jnl AtoF	; if >=10 it is A-F
+
+	or dl, 30h	; convert to ascii by oring with 30h
+	jmp endif
+	
+	AtoF:
+		add dl, 55	; convert to ascii by adding 55
+	endif:
+
+	mov al, 2
+	int 21h
+
+	loop in

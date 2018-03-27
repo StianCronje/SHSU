@@ -1,0 +1,76 @@
+Notes 2/13/17
+Computer Organization
+McGuire
+
+Logic Instructions
+	Truth tables
+		NOT
+		0 = 1
+		1 = 0
+
+		AND
+		0 0 = 0
+		0 1 = 0
+		1 0 = 0
+		1 1 = 1
+
+		OR
+		0 0 = 0
+		0 1 = 1
+		1 0 = 1
+		1 1 = 1
+
+		XOR
+		0 0 = 0
+		0 1 = 1
+		1 0 = 1
+		1 1 = 0
+
+NOT
+	not destination
+	performs 1's compliment
+	flips all bits
+	0 becomes 1
+	1 becomes 0
+
+AND, OR, XOR
+	and|or|xor dest, src
+		reg, reg|mem|immed
+		mem, reg|immed
+	CF=OF=0
+	SF, ZF, PF are set
+
+Examples
+	mov al, 11010101
+	and al, 01111111
+	;al =   01010101
+
+	mov al, 01010101
+	or  al, 10000001
+	;al =   11010101
+
+	mov al, 01000001
+	xor al, 00100000
+	;al =   01100001
+	xor al, 00100001
+	;al =   01000001
+
+optimize
+	or ax, ax === cmp ax, 0
+	faster and uses less bytes
+
+	xor ax, ax === mov ax, 0
+
+
+XOR
+	mask with key to encrypt/unencrypt
+
+TEST
+	test dest, src
+	performs and, doesnt store result
+	flags are set
+
+	test cl, 10000001b
+	jz EvenAndNonNegative
+	js Negative
+	;must be odd and positive

@@ -1,0 +1,21 @@
+Notes 2/9/17
+Data Structures
+Burris
+
+Create a package for Dates
+	programs page 65
+
+Link list pg 66
+generic link list pg 67
+
+"tagged" allows for inherritence
+
+generic, multitype stack pg 70
+
+make a parent class
+all other objects inherrit from the parent.
+
+Queue
+	insert at rear
+	remove at front
+	datastructures page 37

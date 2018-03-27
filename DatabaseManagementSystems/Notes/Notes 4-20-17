@@ -1,0 +1,22 @@
+Notes 4/18/17
+Database Management
+Zhou
+
+BCNF and Normalization
+
+Boyce Codd Normal Form
+    Every non-trivial FD on Left Hand Side is not SuperKey
+    then R is not BCNF
+
+    R is in BCNF if every non-trivial FD then LHS is a SuperKey
+
+    Decompose
+    1 get the closure of LHS = T1
+    2. T2 = LHS + (R-T1);
+
+
+    Find key
+
+
+3NF
+    

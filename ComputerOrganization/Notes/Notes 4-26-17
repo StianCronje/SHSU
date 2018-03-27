@@ -1,0 +1,15 @@
+Notes 4/21/17
+Computer Organization
+McGuire
+
+Test review
+
+Interrupts
+    ah provides function
+    int 21h
+        DOS services
+    int 10h
+        ROM BIOS video services
+    int 16h
+        ROM BIOS Keyboard services
+

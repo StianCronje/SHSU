@@ -1,0 +1,21 @@
+Notes 4/24/17
+Special Programming
+Burris
+
+Single Inheritence (OOP C++ page 21)
+
+class Animal : pulic Dog{
+    int age;
+    char[30] name;
+
+    public:
+    Dog(int a, char[30] n);
+    void Speak();
+};
+
+Animal::Animal(int wieght):Dog(someAge, someName){
+    wieght = someweight;
+}
+
+Dog someDog(7, "Licky");
+somedog.Speak();

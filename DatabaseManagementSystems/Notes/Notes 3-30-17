@@ -1,0 +1,16 @@
+Notes 3/30/17
+Database Management
+Zhou
+
+Normalization (lecture 10)
+
+Functional dependency
+    some attr depend on others
+    derived key
+    normalize db
+        remove redundancy
+        remove anomalies (incorrect info)
+
+given table
+    find FD
+

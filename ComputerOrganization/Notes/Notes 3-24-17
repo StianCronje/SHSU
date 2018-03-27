@@ -1,0 +1,18 @@
+Notes 2/24/17
+Computer Organization
+McGuire
+
+half adder
+
+full adder
+    2 half adders
+    
+sequencial logic
+    output based on cur inputs + past inputs
+
+RS fip-flop
+    S === set
+        set Q = 1
+    R === reset
+        Q = 0
+    

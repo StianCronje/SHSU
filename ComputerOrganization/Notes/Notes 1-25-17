@@ -1,0 +1,22 @@
+Notes 1/25/17
+Computer Organization
+McGuire
+
+for intel
+bit - byte - word - dword - qword
+
+bus is a set of parallel wires
+	address bus
+	data bus
+	control bus
+
+flag register holds bit results of alu (zero flag: 1 ... 2 values were equal)
+
+fetch-excecute cycle
+	1. fetch
+	2. decode
+	3. operand fetch
+	4. execute
+	5. store result
+	
+

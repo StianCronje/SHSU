@@ -1,0 +1,78 @@
+Notes 4/10/17
+Computer Organization
+McGuire
+
+Test review
+
+Digital logic
+    combinational logic
+        output depends only on current inputs
+    sequential logic 
+        output depends on current and past inputs
+    logic gates
+        AND
+        OR
+        NOT
+        XOR
+        NAND
+        NOR
+        NXOR
+    full adder (2 half adders)
+        A XOR B = sum
+        A AND B = carry
+        Cin XOR sum = sum2
+        Cin AND sum = carry2
+        carry OR carry2 = carryout 
+    RS Flip Flop
+    D Flip Flop
+    Ripple Carry Adder
+Multiplication / Division
+    a = b * c
+        mov ax, [b]
+        imul word [c]
+        mov [a], ax
+    d = e / f   and   g = e % f
+        mov ax, [e]
+        cwd
+        idiv word [f]
+        mov [d], ax
+        mov [g], dx
+    h = i - j * k / m
+        mov ax, [j]
+        imul word [k]
+        cwd
+        idiv word [m]
+        mov dx, i
+        sub dx, ax
+        mov [h], dx
+Arrays
+String instructions
+    read octal
+        mov bx, 0 ; holds sum
+        mov ah, 1 ; read char
+        int 21h
+    while:  
+        cmp al, 0dh ; CR
+        je done
+        and al, 00000111b ; convert to number
+        shl bx, 3
+        or bl, al
+        int 21h
+        jmp while
+    done:
+
+    sum in ax in base (index)
+        A resw 20
+
+        mov ax, 0
+        mov cx, 20
+        mov bx, A (mov si, A)
+    top:
+        add ax, [bx] (mov ax, si + A)
+        add bx, 2 (add si, 2)
+        loop top
+
+Subprograms
+    push IP to stack
+    dec SP
+    IP = proc address
