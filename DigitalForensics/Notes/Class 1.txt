@@ -1,0 +1,116 @@
+8/24/17
+
+What is DF IA
+
+Digital forensics
+    a branch of forensics science
+        scientific tests used in connection with the detection of a crime
+    legal evidence found in computers and network devices and more
+        what information is here
+        what caused this situation
+    digital forensics >= computer forensics
+
+DF application
+    Criminal Investigation
+        BTK killer - "can i communicate with floppy and not be traced by computer?"
+            yes
+    Civil Litigation
+        Discovery of digital evidence in civil cases
+    Intelligence
+        positive - Counter terrorism
+        negative - PRISM, Edward Snowden
+    Administration
+        Collecting evidence of computer abuse by employees
+    
+The forensic process
+    Preparation
+        investigator must be properly trained to perform specific kind of investigation
+        tools should be validated
+            EnCase - Guidence Software
+            forensic Toolkit (FTK) - Access Data
+            Open Source DF Tools: SANS SIFT, The sleuth kit
+    Collection
+        where is the digital evidence?
+            storage medium
+            electronic document
+            packets moving over network
+            web browsing histories
+            frequently searched phrases
+            paired devices
+Special handling of collecting digital evidence
+    most digital information changes easily and frequently
+    difficult to detect a change that has taken place
+    calculate and store a hash of evidence file for later comparison
+    handle original data as little as possible
+        create image
+    establish and maintain chain of custody
+    document everything that has been done
+    only use tools and methods that have been tested and evaluated to validate their accuracy and reliability
+
+    Some of the most valueble information obtained in the cocurse of a forensic ecamination will come from the computers user
+    
+Imaging/Verifying Digital Evidence
+    the process of creating an exact duplicate of the original media
+    verify the image
+        use hash algos to compare original and image
+
+Analysis
+    all digital evidence must be analyzed to determine the type of information that is stored upon it
+        use specialty tools
+
+Reporting
+    once analysis is complete, report is generated
+        modern forensic tools can generate automated reports
+
+Examples of DF 
+    Chandra Levy
+        intern dissapeared in April 30, 2001
+        used web and email, was traced
+    BTK killer
+        Dennis Rader
+        traced by floppy
+
+Information Assurance Definition
+    Conducting operations that protect and defend information 
+        confidentiality
+        integrity
+        availability
+        authentication
+
+Confidentiality
+    holding sensative data in confidence
+    privacy or data security
+
+Integrity
+    maintaining consistency, accurancy and trustworthyness of data
+        System integrity
+        data integrity
+    countermeasure
+        user access control
+        checksum/hash
+
+Availability
+    state where information is in the place needed by the user, at the time needed, and form needed
+    issues
+        system reliability
+        timely delivery
+    countermeasure
+        redundancy
+        firewalls
+
+Authentication
+    verify identity of user, device, or other system
+    countermeasure
+        password
+        biometric
+
+Non-Repudiation
+    cannot deny involvement or actions
+
+    3 types
+        origin
+            cant deny one sent a message
+        submission
+            message transit point cannot deny a message was submitted for delivery
+        delivery
+            cannot deny receiving a message

@@ -1,0 +1,17 @@
+Notes 5/3/17
+Computer Organization
+McGuire
+
+1.  assembly gives you low level access and control
+2.  no set of library routines
+3.  starts with letter
+    may have some special chars 
+    (module 4)
+4.  names of reginsters
+    ax, bx, cx, dx, si, sp, etc
+5.  hex -> bin and bin -> hex
+    CAFEh = 1100 1010 1111 1110
+    bin -> dec
+        div 2
+        print from back
+6.  

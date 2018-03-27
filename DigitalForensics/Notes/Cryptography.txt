@@ -1,0 +1,35 @@
+Cryptography
+
+Motivations
+    to be secure
+
+    confidentiality
+    integrity
+    availability
+
+    Cryptography lays the foundation for modern IA
+    it is the prerequisite for most digital forensics
+
+Terminologies
+    Cryptography
+        art of hiding information into apparent unintelligibility
+        enables information exchange between 2 participants in a way that prevents others from reading it
+    plain text, ciphertext, encryption, decryption
+    
+Secret Algorithms
+    how to create and algo that is not known to anybody
+        how hard to make secure?
+        how hard to make it last?
+        how applicable is it?
+        real world example?
+    what are alternatives
+        is it better for security?
+        will it last longer?
+        real world example
+
+Computational Difficulty
+    Algorithms are not imposible to break
+
+    this in in the notes....
+
+    

@@ -1,0 +1,105 @@
+Computer Architecture		Sample Final Exam Questions
+		
+
+1.	What do we call a computer that stores programs and data in a single memory system?
+        von neuman model
+2.	Explain the difference between the organization and the architecture of a computer system.
+        organization
+            how the architecture is implemented
+            gates, busses, etc
+        architecture
+            programmers view of the system
+            instructions, registers, etc
+3.  Analogue vs Digital
+        Digital 
+            values take on discreet numbers
+        Analogue
+            values are continuously variable
+3.	What are the characteristics of a CISC processor?
+        see test 2 review
+4.	What are the characteristics of a RISC processor?
+        see test 2 review
+5.	Dynamic RAM has a density roughly 4 times greater than that of static RAM.  Why is this so?
+        see test 2 review
+6.	Consider a pipelined system with four different stages.  Stage 1 requires 25ns, Stage2 requires 15 ns, Stage 3 requires 20ns, and Stage 4 requires 20ns. (1ns = 1 nanosecond, 10-9 sec.) How long from the beginning of one instruction until it is completed?  What is the throughput (in instructions per second) for this system?  How would your answers differ if the machine had the same stages, but was not pipelined?
+7.	What fastest and most expensive type of storage in a computer system?
+8.	We wish to compare the CPU performance of two computers, A and B, when executing program P. We know that the processors in A and B both implement the same instruction set architecture. We can determine the following information for A and B: 
+ 		(1) The Instruction Count (number of instructions executed) for Program P 
+ 		(2) The Clocks Per Instruction (CPI) for Program P 
+ 		(3) The Clock Rate 
+ 	Which of these must be determined for both A and B in order to make a valid comparison? 
+9.	What is the term for a type of interrupt that cannot be suspended or delayed?
+        non maskable interrupt
+10.	Explain what happens when an interrupt occurs.
+        finish instruction
+        cpu sends IACK
+        device sends the interrupt number on the data buss / handshaking
+        cpu uses the interrupt number to compute the address of the ISR
+        saves the current processors status word & program counter
+        transfer control to the ISR
+        (Interrupt service routine)
+        ISR saves regs if necessary
+        returns from int (restores the program counter and processors word)
+11.	A 1.6GHZ machine takes 8 clock cycles for every instruction. You wish to make sure that your function completes in less than 2 microseconds. To how many instructions should you limit your function? 
+        instructions = (1 instr / 8 cc) * (1.6e9 cc / sec) * (2e-6 sec)
+                     = .2 * 2e3
+                     = .4e3 = 400
+12.	The McGuire5i computer has instructions which fit in a 32-bit word as follows:
+   	bits 31-27 are op, the opcode field
+  	bits 26-22 are ra, the target register field
+  	bits 21-17 are rb, the operand, address index, or branch target register
+  	bits 16-12 are rc, the second operand, conditional test, or shift count register
+  	bits 21-0   are c1, the long displacement field
+  	bits 16-0   are c2, the short displacement field
+  	bits 11-0   are c3, the count or modifier field
+      see test 2 review
+Because different fields overlap, a given bit might have several names and corresponding meanings, depending on the instruction.  For example, if the op represents an ADD instruction, ra determines the destination register, while rb and rc determine the source operand registers  and c3 is unused.   If op represents a  SHL instruction, ra determines the destination register, rb determines the source operand register, and rc specifies the register holding the shift count.  If  op is an LD (load) ra determines the target register, rb determines the index register, and c2 holds a 16-bit displacement.  If op is an LDR (load relative) instruction, ra determines the target register, and c1 holds the 22-bit displacement relative to the current program counter value. 
+a)	Is this processor more RISC-like, or more CISC-like?  Explain your answer.
+b)	How many different opcodes are possible for this processor?  Explain your answer.
+c)	How many registers does this processor have?  Explain.
+d)	For an ALU instruction with immediate data, this processor uses ra, rb, and c2.  What is the largest  literal  value that can be used, assuming two’s-complement form for immediate data?  Explain.
+13.	For the McGuire5i computer described in the previous problem, give the C code to extract the opcode op from the instruction instr stored in a 32-bit unsigned int.
+14.	For the McGuire5i computer described in the previous problem, give the C code to extract the first operand register number, rb from an instruction instr stored in a 32-bit unsigned int.
+15.	Consider a (misguided) version of the IEEE floating-point standard that uses 16-bit words.  Bit 15 is the sign bit, bits 14 through 9 store the biased exponent, and bits 8 through 0 hold the stored fraction.
+	(a)  What would be the value of the bias, according to the IEEE standard?
+(b) What is the range of actual exponents?
+(c) What is the smallest positive number that can be represented?
+(d) What is the base-10 value of the number whose hexadecimal encoding is BF00?
+16.	What is the decimal value of the 8-bit number A3h when it represents an:
+a.	unsigned integer?
+b.	1’s complement integer?
+c.	2’s complement integer?
+d.	biased 127 integer?
+e.	Sign-magnitude integer?
+f.	unsigned fraction with the decimal point to the left of the MSB?
+17.	Convert 3.75 to its IEEE single-precision floating-point representation, expression your answer as an 8-digit hexadecimal number.
+        Bias = 2^5 -1 = 31
+        
+18.	For the sample CPU given in class, give the control signals that would need to be sent out in order to implement the fetch phase of the fetch-execute cycle.  Clearly differentiate between each step, that is, show what has to done at each clock cycle.
+19.	The task graph shown below represents an image processing application.  Each bubble represents an inherently sequential task.  There are 12 tasks: an input task, 10 computation tasks, and an output task.  Each of the 12 tasks can be accomplished in 1 unit of time on one processor.  The input task must complete before any computational tasks begin.  Likewise, all 10 computational tasks must complete before the output task begins.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the maximum speedup that can be achieved if this problem is solved on two processors?
+What is an upper bound on the speedup that can be achieved if this problem is solved with parallel processor?
+What is the smallest number of processors sufficient to achieve the speedup given in part (b)? 

@@ -1,0 +1,29 @@
+Notes 3/7/17
+Database Management
+Zhou
+
+ER Diag
+	entity set
+		rectangle with "entity name"	[someEntity]
+		
+	attributes
+		oval with attr "name"			(someName)
+		mostly on entity
+		can be on relationship
+		
+	relationship
+		diamond with "verb"				<someAction>
+		binds entities
+		many-many
+		many-one
+		one-many
+		
+		arrows...
+		<----- (pointed)at most one
+		(----- (rounded)exactly one
+										  /\
+	subclass							 /  \
+		triangle with "is a"			/is a\
+		inheritence					   --------
+		
+		

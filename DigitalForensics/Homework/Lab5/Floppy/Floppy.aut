@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutopsyCase>
+  <SchemaVersion>3.0</SchemaVersion>
+  <CreatedDate>2017/10/31 20:19:23 (CDT)</CreatedDate>
+  <ModifiedDate>2017/10/31 20:19:26 (CDT)</ModifiedDate>
+  <CreatedByAutopsyVersion>4.5.0</CreatedByAutopsyVersion>
+  <SavedByAutopsyVersion>4.5.0</SavedByAutopsyVersion>
+  <Case>
+    <Name>floppy_20171031_201923</Name>
+    <DisplayName>Floppy</DisplayName>
+    <Number/>
+    <Examiner/>
+    <CaseType>Single-user case</CaseType>
+    <Database/>
+    <CaseDatabase>autopsy.db</CaseDatabase>
+    <TextIndex/>
+  </Case>
+</AutopsyCase>

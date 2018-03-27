@@ -1,0 +1,11 @@
+Notes 3/27/17
+Special Programming
+Burris
+
+Sequencial search logic (pg 187)
+	mothod 2 and 3
+		appear at most 1 time or not at all
+		3 is 3x faster than method 2
+
+tableLength = seizeof(table)/sizeof(item) - 1;
+

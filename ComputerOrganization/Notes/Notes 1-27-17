@@ -1,0 +1,179 @@
+Notes 1/25/17
+Computer Organization
+McGuire
+
+AX: accumulator register
+	arithmatic
+	logic
+	data transfer
+BX: Base register
+	addresses
+CX: Count register
+	loop counter
+DX: Data register
+	multiplication
+	division
+8-bit registers
+	these represent the top
+	and bottom parts of the _X registers
+	AH, AL, BH ...
+
+SP: Stack Pointer
+	points to top of stack
+BP: Base Pointer
+	access data on stack
+SI: Sourse Index
+	point to memory locations in data segment
+DI: Destination Index
+	same as SI
+SI and DI are used for string opperations
+
+MEMORY SEGMENTATION
+	20-bit addresses need to fit in 16-bit registers
+	SEGMENT:OFFSET
+	A4FB:4872h - offset 4872h within segment A4FB
+	multiply segment by 16
+	
+	A4FB0
+   + 4872
+   ------
+    49822
+
+Segment Registers
+CS: Code Segment
+	start of program machine code
+DS: Data Segment
+SS: Stack Segment
+ES: Extra Segment
+
+IP: Instruction Pointer
+	address of next instruction to be executed
+SP: Stack Pointer
+	points to top of stack
+
+BP: Base Pointer
+	common in stack segment
+SI & DI: Index Registers
+
+Flags
+	individual bits used to store status
+
+	Status Flags
+		ZF: zero flag
+	Control Flags
+		IF: interrupt flag
+
+8086
+
+Header
+	directives that dont produce machine code
+
+Namde Constants
+	symbolic names associated with storage locations
+		variable
+	
+	named constants are symbols created to repressent
+	values determined by and expression
+		numeric or string
+	
+	no storage is allocated
+
+Equates
+	"equ"
+	- count equ 10
+	connot change equ
+	
+	"%assign"
+	- %assign size count * element
+	"%define"
+	- %define mystring "some string"
+	%assign and %define and be changed
+
+Data
+	initialized data
+		".data"
+	uninitialized data
+		".bss"
+
+	---
+	section .data
+		someByte: db 25			(8bit)
+		someWord: dw 0x0800		(16bit)
+		someDouble: dd			(32bit)
+		someQuad: dq			(64bit)
+		someTenbyte: dt			(128bit)
+	
+	section .bss
+		reservedByte: resb 1
+					  resw
+					  resd
+					  resq
+
+Defining Data
+	100 - decimal
+	100b - binary
+	100h - hexidecimal
+	'100' - ASCII
+	"100" - ASCII
+	dw 40Ch, 10b, -13, 0
+
+	decimal
+		200
+		0200
+		0200d
+	hexidecimal
+		0c8h
+		$0c8
+		0xc8
+	octal
+		310q
+	binary
+		11001000b
+		1100_1000b  //4 bits is a nybble
+
+	Arrays
+		X dw 040Ch, 10b, -13, 0
+		Y db 'This is an array'
+		Z dd -109236, FFFFFFFFh, -1, 100b
+		
+		the label refers to the location of the first entity
+		add offset to get Index
+		x, x+2, x+4, x+6
+		y, y+1, y+2, y+3
+		z, z+4, z+8
+
+	Times
+		allows instructions or data to be repeated
+		TIMES 40 resb 1 (resb 40)
+		TIMES 10h dw 0
+
+Program Body
+	[label] [mnemonic] [operand] [comment]
+	Section .text
+	Label Field
+		labels in code section always end in :
+		labels in data section do not
+		labels are case sensitive
+	Mnemonic Field
+		add
+		mov
+		sub
+	Operand Field
+		nop //no operand
+		inc eax
+		add dest, src
+	Comment Field
+		; comment
+		should have many comments
+	
+Closing
+	mov ah, 4Ch		; system call for exit
+	mov al, 0		; exit with return code 0
+	int 21h			; call the kernel
+
+
+
+
+
+
+

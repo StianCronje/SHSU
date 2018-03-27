@@ -1,0 +1,42 @@
+RTL - Register Transfer Language
+    highlevel
+    low level
+
+Variables -> (denote) Registers
+    pc - program counter
+    mar - memory address reg
+    ir - instruction register
+    mbr - memory buffer register
+    d0 - register d0
+    m - memory
+    [ ] - contentof reg
+    <- - transfer of data
+    Gn - Gate n
+    C.. - Clock
+    E - Enable memory
+    R/!W - read not write
+    cu - control unit
+
+fetch
+    1, 2, 3, 4 are the same for all instructions
+
+1.  [mar] <- [pc]
+    [pc] <- [pc] + 1
+        G1, G2, Cmbr, Cpc
+
+2.  [mbr] <- [m([mar])]
+        E, R/!W=1, G6, G11, Cmbr
+
+3.  [ir] <- [mbr]
+        G7, Cir
+
+4.  cu <- [ir(opcode)]
+
+5.  [mar] <- [ir(addr)]
+        G3, Cmar
+
+6.  [mbr] <- [m([mar])]
+        E, R/!W = 1, G6, G11, Cmbr
+
+7.  [d0] <- [d0] + [mbr]
+        G9, G8, ADD, G12, Cd0

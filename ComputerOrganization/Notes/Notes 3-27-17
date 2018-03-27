@@ -1,0 +1,62 @@
+Notes 2/24/17
+Computer Organization
+McGuire
+
+array processing
+	
+W	dw	10,20,30,40,50,60,70,80,90,10
+
+	xor ax, ax 	; ax holds sum
+	mov si, W 	; si points to array W
+	mov cx, 10 	; length of array
+
+addnos:
+	add ax, [si] 	; sum += element
+	add si, 2 		; move pointer to next element
+
+	loop addnos		; loop
+
+; indexed mode
+[register + displacement]
+
+reg must be bx, bp, si, di
+
+msg db 	"this is a message"
+	mov cx, 17 	; # chars
+	xor si, si 	; si indexes a char
+top:
+	cmp [si+msg],' '	; blank?
+	je next				; yes, skip over
+	and [si+msg],0DFh	; no, convert to upper
+next:
+	inc si 		; index next byte
+	loop top	; loop
+
+;application of based mode
+
+
+;application of base-index mode
+base reg = bx or bp
+index reg = si or di
+[base + index + variable + constant]
+
+lea vs mov
+	lea ax, [data]
+	vs
+	mov ax, data
+
+	lea bx, [A+si]
+	vs
+	mov bx, A
+	add bx, si
+
+
+2D Arrays (module 10, pg 21)
+
+	mov bx, 28 	; bx indexes row 2
+	xor si, si 	; si indexes columns
+	mov cx, 7 	; elements in row
+clear:
+	mov [bx + si + A],0 ; clear A[2,7]
+	add si, 2 	; next column
+	loop clear 	; loop

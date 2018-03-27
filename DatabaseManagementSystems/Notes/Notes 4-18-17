@@ -1,0 +1,21 @@
+Notes 4/18/17
+Database Management
+Zhou
+
+given a table, find FD
+based on Armstrong Axioms find FD closure
+    reflexivity
+    augmentation
+    transitivity
+    
+    additional
+        union
+        decomposition
+        pseudo-transitivity
+attribute clusure
+derive key for the given table
+
+superkey = key + attributes
+
+
+

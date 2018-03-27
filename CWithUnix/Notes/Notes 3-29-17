@@ -1,0 +1,57 @@
+Notes 3/29/17
+Special Programming
+Burris
+
+Pipes and Sockets
+	multiple simultanious processes
+
+Pipes "|"	
+	named vs unnamed pipes
+	pipes are "half duplex"
+		can only communicate in one dir
+	
+<unistd.h>
+#define PipeStdIn 0
+#define PipeStdOut 1
+
+int ret, myPipes[2];
+ret = pipe(myPipes); // ret is just a pointer
+
+if(ret == 0) //sucess
+{
+	write(myPipes[PipeStdOut], message, strlen(message)+1);
+	ret = read(myPipes[PipeStdIn], buff, maxlen);
+}
+
+close(myPipes[PipeStdIn]);
+close(myPipes[PipeStdOut]);
+
+-------------
+
+true condition is child
+false condition is parent
+ if( fork( ) == 0 ) {  // child created (forked) successfully
+
+       // START CHILD specific code.
+       ret = read( myPipes[PipeStdIn], buff, MaxLen);  //blocking read (suspend)
+       printf("Child finds message in pipe: %s\n", buff);    // ret =  number char read
+
+       const char *reply = {"Got your message dad!\n"};
+       ret = write( myPipes[PipeStdOut], reply, strlen(reply) + 1);
+       //END CHILD specific code. 
+ 
+    } else {  //Start parent specific code.
+        //include null character when writing string.
+        ret = write( myPipes[PipeStdOut], message, strlen(message) + 1 ); 
+
+        ret = wait( NULL );  //wait on child to read prior to continuing.
+        
+        ret = read(myPipes[PipeStdIn], buff, MaxLen); //blocking read 
+        printf("Father receives message: %s", buff);
+       //End parent specific code.
+      }
+  }
+  //Code common to both parent and child.  Pipes have two ends!
+
+
+  

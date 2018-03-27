@@ -1,0 +1,56 @@
+Notes 2/3/17
+Computer Organization
+McGuire
+
+Translation of HLL instructions
+	b = a		mov ax,[a]
+				mox b, ax
+	a=b -2*ax	mov ax, [b]
+				sub ax, [a]
+				sub ax, [a]
+				mov [a], ax
+
+Program segment structure
+	data
+	code
+	stack
+Program Skeleton
+	
+	section .data
+		;declarations
+	sections .text
+		;main proc code
+		;return to dos
+		;other procs
+
+I/O
+	usually not done directly through io ports
+		not portible
+	BIOS handles this for us
+
+Interrupts
+	software call (system call)
+	stops program and runs subroutine
+
+	int <interrupt_number> ;software interrupt
+
+	Interrupt 21h
+		function 2 - display char
+
+		mov dl, 'A'		;char to display
+		mov ah, 2		;provide interrupt function
+		int 21h			;call interrupt
+		;displays 'A' on screen
+
+		message db "Some string$"
+		mov ah, 9
+		mov dx, message		;display ASCII$ string
+		int 21h
+		;displays "Some string" on screen
+
+		mov ah, 1h
+		int 21h
+		;get next keyboard input char
+		;char gets put into al register
+		mov [CHAR], al
+

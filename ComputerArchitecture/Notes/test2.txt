@@ -1,0 +1,114 @@
+Computer Architecture
+Sample EXAM #2
+ 
+
+1.	Explain the important differences between RISC and CISC.
+    RISC
+        simple instructions
+        faster
+        more registers
+        only load and store into memory, everything else in registers.
+        dont care about code size
+        all instr have same length
+        fewer addressing modes
+        designed for pipelining system
+    
+    CISC
+        Complex instructions
+        maybe fewer registers
+        all instr can access memory.
+        reduce code size
+        instr have vary legnth
+        large set of addressing modes
+
+2.	Consider a pipelined system with four different stages. 
+    Stage 1 requires 4 ms, Stage2 requires 2 ms, Stage 3 requires 3ms, and Stage 4 requires 4ms. 
+    What is the throughput (in instructions per second) for this system?
+
+        one OP is preparing while another is executing using overlap
+        4ms 2ms 3ms 4ms
+            4ms 2ms 3ms 4ms
+                4ms 2ms 3ms 4ms
+                    4ms 2ms 3ms 4ms
+        1 instr/4ms ..... convert to seconds
+
+        
+3.	The MIPS processor uses six bits for its opcode field, but it actually has more than 64 opcodes.  Explain how it can do that.
+        it has opcode feild and function field.
+        function field modifies the opcode
+
+4.	The McGuire5g computer has instructions which fit in a 32-bit word as follows:
+    bits 31-27 are op, the opcode field
+    bits 26-22 are ra, the target register field
+    bits 21-17 are rb, the operand, address index, or branch target register
+    bits 16-12 are rc, the second operand, conditional test, or shift count register
+    bits 21-0   are c1, the long displacement field
+    bits 16-0   are c2, the short displacement field
+    bits 11-0   are c3, the count or modifier field
+Because different fields overlap, a given bit might have several names and corresponding meanings, depending on the instruction.  For example, if the op represents an ADD instruction, ra determines the destination register, while rb and rc determine the source operand registers  and c3 is unused.   If op represents a  SHL instruction, ra determines the destination register, rb determines the source operand register, and rc specifies the register holding the shift count.  If  op is an LD (load) ra determines the target register, rb determines the index register, and c2 holds a 16-bit displacement.  If op is an LDR (load relative) instruction, ra determines the target register, and c1 holds the 22-bit displacement relative to the current program counter value.
+a)	Is this processor more RISC-like, or more CISC-like?  Explain your answer.
+        RISC-like
+            fixed op instruction size
+            3 operand address
+b)	How many different opcodes are possible for this processor?  Explain your answer.
+        31-27 = 5 -> 2^5 = 32 opcodes
+c)	How many registers does this processor have?  Explain.
+        r.. are 5bits -> 2^5 = 32 registers
+d)	For an ALU instruction with immediate data, this processor uses ra, rb, and c2.  What is the largest  literal  value that can be used, assuming two’s-complement form for immediate data?  Explain.
+        c2 = 16-0 = 17 bits. -2^17 -- 2^17 -1
+5.	For the McGuire5g computer described in the previous problem, give the C or Java code to extract the opcode op from the instruction instr stored in a 32-bit int
+        op = instr >> 27
+6.	For the McGuire5g computer described in the previous problem, give the C or Java code to extract the first operand register number, rb from an instruction instr stored in a 32-bit int.
+        rb = (instr >> 17) & 0x1F
+7.	Dynamic RAM has a density roughly 4 times greater than that of static RAM.  Why is this so?
+        SRAM is made of flip-flops
+            4 transistors
+            content stays as long as power
+        DRAM
+            charge capasitor
+
+8.	What fastest and most expensive type of storage in a computer system?
+        registers > cache > main mem
+9.	What is the term for a type of interrupt that cannot be suspended or delayed?
+
+10.	Explain what happens when an interrupt occurs.
+11.	What is the purpose of cache memory?
+        speed up prorgam
+        main memory is slow
+
+12.	Explain the concept of locality, specifically spatial and temporal locality as applied to a cache. 
+        Spatial locality
+            nearby mem loc is likely to be accessed
+        Temporal locality
+            if mem loc is accessed, it is likely to be accessed again
+
+13.	Suppose the access time for cache is 10ns, and the access time for main memory is 90ns.  If the cache hit rate is 95%, what is the effective access time for a memory access? 
+        EAT = (.95 * 10ns) + (.05)(10ns + 90ns) = 9.5 + 5 = 14.5ns
+
+14.	If we have two tasks that need to cooperate on a multicore machine, what mechanism do they use to communicate? What is the mechanism on a distributed system (or a cluster)?
+        send messages
+
+15.	Suppose you have a quad-core processor.  The following instructions accessing shared variables x and y which are both 0 before this code are running at the same time:
+Core 1:  x = 2;
+Core 2:  y = 2;
+Core 3:  w = x + y + 1;
+Core 4:  z = x + y;
+What are all possible resulting values of w, x, y, and z?  For each possible outcome, explain how we might arrive at those values.  You will need to examine all possible interleavings of instructions.
+
+
+
+
+  
+16.	Consider the following CPU structure:
+ 
+
+•	Give the control signals that would need to be sent out in order to implement the fetch phase of the fetch-execute cycle.  Clearly differentiate between each step, that is, show what has to done at each clock cycle.
+•	After the fetch phase is completed, give the control signals that would be needed to perform the operation ADD  D0,D0.
+•	List the control signals to implement the unconditional branch instruction
+BR	nnn
+•	List the control signal for the instruction ADD  [A],D0   (add the contents of D0 to memory location A and store the results back in A.)
+
+    reference cpu notes
+        G1, Cmar, G2, Cpc
+        E, R/!W=1, G6, G11, Cmbr
+        G7, Cir

@@ -1,0 +1,14 @@
+Notes 2/15/17
+Computer Organization
+McGuire
+
+Digital Logic
+binary A+B -> carry = and()
+binary A+B -> sum = xor()
+
+a + b = c s
+0   0 | 0 0
+0   1 | 0 1
+1   0 | 0 1
+1   1 | 1 0
+

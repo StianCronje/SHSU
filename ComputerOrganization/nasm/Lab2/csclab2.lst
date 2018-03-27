@@ -1,0 +1,77 @@
+     1                                  ; Christiaan Cronje
+     2                                  ; COSC 2329.01
+     3                                  ; 3/3/17
+     4                                  
+     5                                  	org 100h
+     6                                  
+     7                                  section .data	
+     8 00000000 506C6561736520656E-     prompt1 db	"Please enter a character: ",'$'
+     9 00000009 746572206120636861-
+    10 00000012 7261637465723A2024 
+    11 0000001B 506C6561736520656E-     prompt2	db	"Please enter a digit 0-9: ",'$'
+    12 00000024 746572206120646967-
+    13 0000002D 697420302D393A2024 
+    14 00000036 0D0A24                  crlf	db	13,10,'$'
+    15                                  
+    16                                  section .bss
+    17 00000000 <res 00000002>          char1	resw 1
+    18 00000002 <res 00000002>          num1	resw 1
+    19                                  
+    20                                  section	.text
+    21                                  ; print first prompt
+    22 00000000 B409                    	mov	ah,9		; display string function
+    23 00000002 BA[0000]                	mov	dx,prompt1	; load dx with address of prompt1
+    24 00000005 CD21                    	int	21h			; display
+    25                                  ; get the char from the user
+    26 00000007 B401                    	mov	ah, 1		; read char fcn
+    27 00000009 CD21                    	int	21h			; read it
+    28 0000000B A2[0000]                	mov [char1], al
+    29                                  ; go to the next line
+    30 0000000E B409                    	mov	ah, 9		; display string fcn
+    31 00000010 BA[3600]                	mov	dx,crlf		; cr/lf pair
+    32 00000013 CD21                    	int	21h
+    33                                  ; echo the char entered
+    34 00000015 8A16[0000]              	mov	dl,[char1]		; move char into dl
+    35 00000019 B402                    	mov	ah, 2		; display char fcn
+    36 0000001B CD21                    	int	21h			; display it
+    37                                  
+    38                                  digitPrompt:
+    39                                  ; go to the next line
+    40 0000001D B409                    	mov	ah, 9		; display string fcn
+    41 0000001F BA[3600]                	mov	dx,crlf		; cr/lf pair
+    42 00000022 CD21                    	int	21h
+    43                                  ; print second prompt
+    44 00000024 B409                    	mov	ah,9		; display string function
+    45 00000026 BA[1B00]                	mov	dx,prompt2	; load dx with address of prompt2
+    46 00000029 CD21                    	int	21h			; display
+    47                                  ; get the char from the user
+    48 0000002B B401                    	mov	ah, 1		; read char fcn
+    49 0000002D CD21                    	int	21h			; read it
+    50                                  
+    51                                  ; check if between 1 and 9
+    52 0000002F 3C31                    	cmp al,31h
+    53 00000031 7CEA                    	jl digitPrompt
+    54 00000033 3C39                    	cmp al,39h
+    55 00000035 7FE6                    	jg digitPrompt
+    56 00000037 A2[0200]                	mov [num1], al	; save in memory
+    57                                  ; go to the next line
+    58 0000003A B409                    	mov	ah, 9		; display string fcn
+    59 0000003C BA[3600]                	mov	dx,crlf		; cr/lf pair
+    60 0000003F CD21                    	int	21h
+    61                                  ; convert from digit to numeric val
+    62 00000041 832E[0200]30            	sub [num1], word 30h
+    63 00000046 0FB60E[0200]            	movzx cx, [num1]	; set counter
+    64                                  
+    65 0000004B B402                    	mov ah, 2
+    66 0000004D 8A16[0000]              	mov dl, [char1]		; mov char to dl
+    67 00000051 CD21                    	int 21h				; print char to screen
+    68                                  print:
+    69 00000053 FF06[0000]              	inc word [char1]	; increase char1 by 1
+    70 00000057 8A16[0000]              	mov dl, [char1]		; mov char to dl
+    71 0000005B CD21                    	int 21h				; print to screen
+    72 0000005D E2F4                    	loop print 			; repeat for counter length
+    73                                  
+    74                                  ; exit to DOS
+    75 0000005F B44C                    	mov	ah,4Ch		; DOS exit fcn
+    76 00000061 B000                    	mov	al,0		; normal termination
+    77 00000063 CD21                    	int	21h			; we're done

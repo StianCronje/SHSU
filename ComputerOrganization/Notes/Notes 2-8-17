@@ -1,0 +1,100 @@
+Notes 2/8/17
+Computer Organization
+McGuire
+
+Control Structures
+	Compound statement
+		code enclosed in {}
+		sequence of statements
+	Decision Structure
+		branching
+		if/else
+		switch/case
+	lopping structures
+		for
+		while
+		do while/repeat
+	subprogram
+		method
+		function
+		procedure
+
+AND condition
+	if ax < 42 AND bx > 100 then
+		dx = dx - ax
+	endif
+
+	cmp 	ax, 42	;eval 1st condition
+	jnl		endif	;endif if condtition not met
+	cmp 	bx, 100	;eval 2nd condition
+	jng 	endif
+
+	sub 	dx, ax	;all conditions met, do procedure
+endif:
+	; continue program
+
+OR condition
+	if ans == 42 OR cx == 0 then
+		print('c')
+	endif
+
+	;if
+		cmp 	word [ans], 42
+		je		then
+		cmp		cx,0
+		jne		endif
+	then:
+		mov 	dl, 'c'
+		mov		ah, 2h
+		int		21h
+	endif:
+	; continue program
+
+WHILE loop
+	while ax < 42 do
+		ax = ax + 2
+	end while
+
+	while:
+		cmp 	ax,42
+		jnl 	endwhile
+		add 	ax,2
+		jmp 	while
+	endwhile:
+	; continue program
+
+DO WHILE / REPEAT loop
+	repeat
+		ax = ax + 1
+		bx = bx - 1
+	until ax > bx
+
+	repeat:
+		inc		ax		;do body
+		dec		bx
+		cmp 	ax, bx	;compare condition
+		jng		repeat 	;jump to top repeat
+
+	; continue program
+
+FOR loop
+	for 5 times do
+		ax = 99
+	endfor
+
+	loop instruction
+		dest:
+			;some code
+		loop dest
+		;1. dec cx
+		;2. cmp cx, 0
+		;3. jnz to dest label
+
+		mov 	cx, 5 
+		jcxz	skipfor		;safety net for if cx 0
+	forloop:
+		mov		ax, 99
+		loop	forloop
+	skipfor:
+
+	; continue program

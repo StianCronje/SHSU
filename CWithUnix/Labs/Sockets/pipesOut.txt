@@ -1,0 +1,12 @@
+stian@ubuntu:~/Dropbox/SHSU/SpecialTopics/Labs/Lab6$ ./pipes
+Bridge starting...
+Current Time: 23:49:2
+
+Adjusted navigation systems: 5.12s
+Current Time: 23:49:7
+
+Adjusted life support systems: 9.65s
+Current Time: 23:49:11
+
+Adjusted Environment control systems: 0.97s
+Current Time: 23:49:11

@@ -1,0 +1,14 @@
+Notes 4/27/17
+Data Structures
+Burris
+
+Decision table
+
+4 quadrant table
+i f | rules
+-------------
+then| actions
+
+loop through and compare rules
+execute defined actions
+

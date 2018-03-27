@@ -1,0 +1,21 @@
+
+
+
+                                Lab 1 Option A
+
+                              Christiaan Cronje
+
+                              Due: March 3, 2017
+
+                         Submitted: February 17, 2017
+
+                      SOME COMPANY                   2/16/2017
+
+Line No. Emp No.  Given   Surname YTD         Gross       FICA Tax    
+
+1            342  Joe     Smith    $100,000.00     $500.31      $21.01
+2          34256  Sam     Hopper        $45.66   $7,823.10     $328.57
+3             34  Mary    James    $125,436.78   $9,782.00       $0.00
+4            785  Tom     Jones     $69,700.00     $200.26       $8.41
+
+                                Totals          $18,305.67     $357.99

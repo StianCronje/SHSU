@@ -1,0 +1,69 @@
+Notes 2/1/17
+Computer Organization
+McGuire
+
+Assembling a program
+	assembly files are edited as .asm
+	assemble
+		nasm myprog.asm -o myprog.com
+	execute in DosBox
+		.\myprog.com
+
+Errors
+	helpfull to have a .lst file
+		nasm myfile.asm -l myfile.lst
+	contains complete listing of program with line numbers, code bytes, symbol table
+
+All programs must return control back to OS
+
+USING DOSBOX
+	mount asm dir
+
+Data Transfer Instructions
+	MOV destination, source
+		reg,reg
+		mem,reg
+		reg,mem
+		mem,immed
+		reg,immed
+
+	sizes must be the same
+
+Examples
+	mov ax, [word1] ;moves content of location word1 to ax
+	word1 == address
+	[word1] == contents
+
+	mov ah, bl ;moves contents of bl to ah
+	
+	mov [word1], [word2] ; ILLEGAL - both opperands cant be memory locations
+
+	-----------------
+	b db 4Fh
+	w dw 2048
+
+	mov word [w], -100 ;requires modifier to specify data type
+	mov byte [b], 0
+	-------------
+
+Echange
+	XCHG destination,source
+		reg,reg
+		reg,mem
+		mem,reg
+	MOV and XCHG
+		cant perform memory to memory moves
+	can swap opperands
+
+Examples
+	xchg ax,[word1] ;swap values of word1 and ax
+
+Arithmatic Instructions
+	ADD dest,src ; dest += src
+		reg,reg
+		reg,mem
+		reg,const
+	SUB dest,src ; dest -= scr
+	INC dest	 ; dest++
+	DEC dest	 ; dest--
+	NEG dest	 ; dest = -dest

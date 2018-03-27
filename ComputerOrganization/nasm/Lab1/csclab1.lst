@@ -1,0 +1,38 @@
+     1                                  	org 100h
+     2                                  
+     3                                  section .data	
+     4 00000000 48656C6C6F2C206D79-     message db	"Hello, my name is Christiaan Cronje",13,10,'$'
+     5 00000009 206E616D6520697320-
+     6 00000012 436872697374696161-
+     7 0000001B 6E2043726F6E6A650D-
+     8 00000024 0A24               
+     9 00000026 506C6561736520656E-     prompt	db	"Please enter a character:  ",'$'
+    10 0000002F 746572206120636861-
+    11 00000038 7261637465723A2020-
+    12 00000041 24                 
+    13 00000042 0D0A24                  crlf	db	13,10,'$'
+    14                                  
+    15                                  section	.text
+    16                                  ; print greeting message
+    17 00000000 B409                    	mov	ah,9		; display string function
+    18 00000002 BA[0000]                	mov	dx,message	; load dx with address of greeting
+    19 00000005 CD21                    	int	21h		; display greeting
+    20                                  ; prompt user for input
+    21 00000007 B409                    	mov	ah,9		; display string fcn
+    22 00000009 BA[2600]                	mov	dx,prompt	; dx has addr of string
+    23 0000000C CD21                    	int	21h		; display it
+    24                                  ; get the char from the user
+    25 0000000E B401                    	mov	ah, 1		; read char fcn
+    26 00000010 CD21                    	int	21h		; read it
+    27                                  ; go to the next line
+    28 00000012 B409                    	mov	ah, 9		; display string fcn
+    29 00000014 BA[4200]                	mov	dx,crlf		; cr/lf pair
+    30 00000017 CD21                    	int	21h
+    31                                  ; echo the char entered
+    32 00000019 88C2                    	mov	dl,al		; move char into dl
+    33 0000001B B402                    	mov	ah, 2		; display char fcn
+    34 0000001D CD21                    	int	21h		; display it
+    35                                  ; exit to DOS
+    36 0000001F B44C                    	mov	ah,4Ch		; DOS exit fcn
+    37 00000021 B000                    	mov	al,0		; normal termination
+    38 00000023 CD21                    	int	21h		; we're done

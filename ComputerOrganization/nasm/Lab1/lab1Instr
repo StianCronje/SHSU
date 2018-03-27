@@ -1,0 +1,10 @@
+
+
+    If you have not already done so, download and install DosBox and nasm.  Make sure you follow the instructions given here exactly when you do so.
+    Download the attached file and save it to your computer with the filename nnnlab1.asm where nnn are you initials.  For instance, if your name is Sammy The Bearkat, the filename should be stblab1.asm. 
+    Edit the file, replacing "Inigo Montoya" with your name. 
+    Assemble the file using nasm, and generate a .lst file using the command  nasm nnnlab1.asm -o nnnlab1.com -l nnnlab.lst
+    Run the program to make sure that it works.
+    Submit your .asm and .lst files via Blackboard
+
+

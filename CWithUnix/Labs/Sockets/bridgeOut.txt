@@ -1,0 +1,51 @@
+stian@ubuntu:~/Dropbox/SHSU/SpecialTopics/Labs/Lab6$ ./bridge
+Bridge starting...
+Current Time: 23:49:24
+
+Adjusted navigation systems: 2.76s
+Current Time: 23:49:28
+
+Adjusted life support systems: 3.08s
+Current Time: 23:49:29
+
+Adjusted Environment control systems: 0.57s
+Current Time: 23:49:29
+
+Adjusted navigation systems: 0.80s
+Current Time: 23:49:58
+
+Adjusted life support systems: 6.63s
+Current Time: 23:50:5
+
+Adjusted Environment control systems: 1.93s
+Current Time: 23:50:6
+
+Adjusted navigation systems: 4.41s
+Current Time: 23:50:32
+
+Adjusted life support systems: 4.33s
+Current Time: 23:50:40
+
+Adjusted Environment control systems: 7.59s
+Current Time: 23:50:47
+
+Adjusted navigation systems: 2.30s
+Current Time: 23:51:4
+
+Adjusted life support systems: 4.03s
+Current Time: 23:51:21
+
+Adjusted Environment control systems: 1.19s
+Current Time: 23:51:22
+
+Adjusted navigation systems: 3.47s
+Current Time: 23:51:37
+
+Adjusted life support systems: 13.23s
+Current Time: 23:52:5
+
+Adjusted Environment control systems: 1.21s
+Current Time: 23:52:6
+
+Adjusted navigation systems: 5.10s
+Current Time: 23:52:12

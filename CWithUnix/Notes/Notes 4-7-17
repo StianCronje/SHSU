@@ -1,0 +1,35 @@
+Notes 4/7/17
+Special Programming
+Burris
+
+Network communication
+
+min requirement
+	address of receiving computer
+	address of receiving user
+	address of sender
+	message
+
+Fat client
+	accepts user request, transfers request to server
+	server sends all data for request
+	client processes data
+	client presents results
+
+Thin client
+	like fat client
+	server processes data and returns to client
+
+Sockets (pipes pg 24)
+	TCP - transport control protocol
+	UDP - user data gram protocol
+
+	#include <sys/socket.h>
+	#include <arpa/inet.h>
+	truct sockaddr_in {
+		int16_t sin_family;           //AF_INET is Ipv4 socket stream SOCK_STREAM
+		unit16_t sin_port;            // server port address
+		struct in_addr sin_addr;  // INADDR_ANY to accept all connections
+		char sin_zero[8];
+	};
+

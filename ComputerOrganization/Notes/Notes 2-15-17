@@ -1,0 +1,48 @@
+Notes 2/15/17
+Computer Organization
+McGuire
+
+Shift Instructions
+	opcode destination, 1
+	opcode destination, cl
+
+	Left Shift
+		SHL dest, cl
+		shifts all bits left
+		0 moves in from right
+		SF, PF, ZF are set approriately
+		CF = last bit shifted out
+		OF = set if result changes
+
+		left shift mult by power of 2
+		use SAL if mult is intended
+
+	Right Shift
+		RHL dest, cl
+		shifts all bits right
+		0 moves in from left
+		SF, PF, ZF are set approriately
+		CF = last bit shifted out
+		OF = set if result changes
+
+		right shift devides by power of 2
+		use SAR if signed dev was intended 
+		sign bit is kept
+
+Rotate Instructions
+	ROL (rotate left)
+		shifts bits left
+		leftmost moves to rightmost and CF
+	ROR (rotate right)
+		shofts bits right
+		rightmost moves to leftmost and CF
+
+	RCL (rorate through carry left)
+		shifts bits left
+		leftmost moves CF
+		CF moves to rightmost
+	RCR (rorate through carry right)
+		shifts bits left
+		rightmost moves CF
+		CF moves to leftmost
+

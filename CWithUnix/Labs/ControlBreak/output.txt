@@ -1,0 +1,80 @@
+
+
+
+
+					ACME Sports Inc.
+
+
+			"We are the best, you use the best!"
+
+
+					ACME Sports Inc.
+
+
+Emp# Given      Surname    Dept.             YTD         Gross          FICA           Net
+
+6    Byrd       Wesley     Acct    $   110100.00 $      529.60 $        0.00 $      529.60
+10   Cauble     Blain      Acct    $    66600.00 $     1371.52 $       97.38 $     1274.14
+22   Cronje     Chrisriaan Acct    $    36600.00 $      100.00 $        7.10 $       92.90
+24   Darosa     Mauro      Acct    $   110090.00 $     1515.71 $        0.71 $     1515.00
+
+				Page Totals:	    $     3516.83 $      105.19 $     3411.64
+											Page 1
+
+					ACME Sports Inc.
+
+
+Emp# Given      Surname    Dept.             YTD         Gross          FICA           Net
+
+13   Deal       Ryan       Acct    $     1358.34 $      977.50 $       69.40 $      908.10
+			Department Totals:	    $     4494.33 $      174.59 $     4319.74
+
+5    SDiaz      Ortiz      DP      $   110090.00 $       10.00 $        0.71 $        9.29
+			Department Totals:	    $       10.00 $        0.71 $        9.29
+
+3    Dominguez  Michael    Mgt     $   673478.31 $     7502.40 $        0.00 $     7502.40
+1    Duhart     Marcus     Mgt     $   134234.34 $     4340.16 $        0.00 $     4340.16
+			Department Totals:	    $    11842.56 $        0.00 $    11842.56
+
+
+				Page Totals:	    $    12830.06 $       70.11 $    12759.95
+											Page 2
+
+					ACME Sports Inc.
+
+
+Emp# Given      Surname    Dept.             YTD         Gross          FICA           Net
+
+4    Dunn       Korbin     Sales   $    11345.22 $     1924.18 $      136.62 $     1787.56
+12   Evans      Jeramy     Sales   $      234.56 $      683.08 $       48.50 $      634.59
+17   Friedman   Micah      Sales   $     2342.34 $     1348.42 $       95.74 $     1252.69
+7    Gauss      Addison    Sales   $    67000.00 $     1369.20 $       97.21 $     1271.99
+			Department Totals:	    $     5324.89 $      378.07 $     4946.82
+
+
+				Page Totals:	    $     5324.89 $      378.07 $     4946.82
+											Page 3
+
+					ACME Sports Inc.
+
+
+Emp# Given      Surname    Dept.             YTD         Gross          FICA           Net
+
+86   Giammaruti Alexander  Inven   $    12345.78 $      529.60 $       37.60 $      492.00
+66   Harrison   Jeremy     Inven   $   109998.75 $     4441.52 $        7.19 $     4434.33
+51   Hedreen    Robert     Inven   $   206600.00 $      100.00 $        0.00 $      100.00
+38   Jaiswar    Rahul      Inven   $    78342.00 $     1885.28 $      133.85 $     1751.42
+			Department Totals:	    $     6956.40 $      178.64 $     6777.75
+
+
+				Page Totals:	    $     6956.40 $      178.64 $     6777.75
+											Page 4
+
+					Report Summary.
+
+
+Records Processed: 16
+Total Gross:   $    28628.18
+Total Net:     $      732.01
+Total FICA:    $    27896.17
+											Page 5

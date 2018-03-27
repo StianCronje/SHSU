@@ -1,0 +1,17 @@
+Notes 3/2/17
+Data Structures
+Burris
+
+Hashing (pg 145)
+	key -> Hash Function -> HashTable
+	Collision when 2 file files create the same hash
+	
+	Lab3
+		most code given
+		bad hash function given
+		keys given
+		
+		make better hash function
+		why was first hash f bad
+		why is new hash f good
+		prove it

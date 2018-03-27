@@ -1,0 +1,72 @@
+Notes 3/28/17
+Data Structures
+Burris
+
+tree traversal (alphtre1)
+    use a recursive function passing nodes through
+    push and pop from stack
+
+    procedure Inorder(t:Tree) is – recursive inorder tree traversal
+    begin
+        if t /= null then
+            Inorder(t.Left);   put("tree sort ");  	 -- 1 Traverse Left
+            put(t.Value); new_line;                  	 --  2 Visit
+            inorder(t.Right);				 --  3 Traverse Right
+        end if;
+    end Inorder;
+
+
+    using iteration
+    allocate space for stack
+
+    procedure Inorder(t:Tree) is -- Iterative inorder tree traversal.
+        Stack: array(1..10) of Tree;  -- Balance tree requires log base 2
+        Knt: integer;                          -- of N space, N is number nodes.
+        Pt: Tree;
+    begin
+        Knt := 0;      Pt := t;-- Set stack empty, Pt to the root of the tree.
+        loop
+            if Pt /= null then
+            Knt := Knt + 1;   Stack(Knt) := Pt;     Pt := Pt.Left;
+            else
+            exit when Knt = 0;  -- Traveresed whole tree.
+            Pt := Stack(Knt);    Knt := Knt - 1;
+            put("tree sort "); put(Pt.Value); new_line;   Pt := Pt.Right;
+            end if;
+        end loop;
+    end Inorder;
+
+
+insert in alpha order
+    avail ~~ new ....
+
+    insertKey( key: dataType, t: inout treePointer) 
+    begin
+        if (t = Ω)                        -- insert the new node at location “t.”
+            t <=Avail;               -- we assume storage is available.
+            t.leftLink  t.rightLink  Ω;
+            t.info  key;                   -- new desried information
+        else  if (key < t.info)               -- insert in left subtree
+                insertKey( key, t.leftLink);
+            else                                 -- insert in right subtree
+                insertKey(key, t.rightLink);
+            endif;
+        endif;
+    end insert;
+
+
+Threaded tree (A. J. Perlins and C. Thornton)
+    left empty link points to predecessor
+    right empty link points to successor
+    needs head node
+
+    P$:  Symmetric Inorder Successor in a threaded binary tree (P$).
+    Assume P points to a node of a threaded binary tree.  This algorithm sets Q := P$, where P$ is the inorder successor.  The tree is assumed to be threaded in inorder.
+
+	Q := P.RLink;  {Look right}
+	If P.RTag = “-” then
+		null;  {P points to the inorder successor}
+	else
+		{Search to left.}
+		while Q.LTag = “+” loop  Q := Q.LLink;  end loop;
+	end if;

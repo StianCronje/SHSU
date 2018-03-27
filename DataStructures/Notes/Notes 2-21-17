@@ -1,0 +1,69 @@
+Notes 2/21/17
+Data Structures
+Burris
+
+Topological sort (pg 59)
+	get the number of actions, NA
+	for k in 1..NA 
+		count[k] = 0
+		top[k] = null
+	endfor
+
+	actions still to be processed, KN = NA
+
+	get first relation j < k
+	repeat
+		count[k]++
+		p = avail
+		p.suc = k
+		p.next = top[j]
+		top[j] = p
+		get next relation
+	until no relations
+
+
+	//output queue
+	r = 0
+	qlink[0] = 0
+	for k in 1..NA
+		if count[k] = 0 then
+			qlink[r] = k
+			r = k
+		end if
+	end loop
+
+	f = qlink[0]
+
+	while f != 0
+		KN = KN-1
+		p = top[f]
+		while p != null
+			count[suc(p)] = count[suc(p)]-1
+			if count[suc(p)] = 0 then
+				qlink[r] = suc[p]
+				r = suc[p]
+			endif
+			p=suc[p]
+		endloop
+		f = qlink[f]
+	endloop
+
+	if kn = 0, done
+
+
+
+
+	j < k
+	9 < 2
+	k.cnt ++	//2.cnt ++
+	top[j] = k 	//top[9] = 2
+
+	3 < 7
+	k.cnt++ 	//7.cnt++
+	top[j] = k 	//top[3] = 7
+
+	9 < 5
+	k.cnt++ 	//5.cnt++
+	top[j] = k
+
+singly link list in lexicographic order (pg 53)

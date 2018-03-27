@@ -1,0 +1,16 @@
+Notes 2/10/17
+Computer Organization
+McGuire
+
+repeat
+	prompt for input
+	read char from keyboard
+		int 21h, f1
+	convert from charcode to number and mov to bl
+	print another prompt
+	read another char
+	convert to number, add to bl
+	test bl > 9
+		display 1
+		sub 10 from bl
+	add 30h to bl to make ascii

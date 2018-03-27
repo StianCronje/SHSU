@@ -1,0 +1,73 @@
+Notes 1/26/17
+Database Management
+Zhou
+
+column = attribute = field
+row = tuple = record
+
+schema defines column heads - CoursesTaken(Student, Course, Grade)
+instance contains data rows
+
+degree - number of attr
+cardinality - number of tuples
+
+Projection (Pi)
+	delete attr that are not in projection list
+	filters based on column(attribute)
+	RA: (Pi) a1, a2,...an(R)
+	SQL: SELECT a1, a2,...an FROM R;
+
+Selection (Sigma)
+	filters based on rows(tuples)
+	RA: (Sigma)[c](R)
+	SQL: SELECT * FROM R WHERE C;
+	
+	Conditional Operators
+		SQL: =, <>, <, <=, >, >=
+		JAVA: =, !=, <, <=, >, >=
+	
+Union (U)
+	add to table
+	R & S must have identical sets of attributes
+	eliminates duplicates
+	
+	RA: r U s
+	SQL (SELECT * FROM R) UNION (SELECT * FROM S)
+	
+Intersection (n)
+	only commons are kept
+	must have identical attrs
+	
+	RA: R n S
+	SQL: (SELECT * FROM R) INTERSECT (SELECT * FROM S)
+
+Difference (-)
+	difference of 2 relations
+	everything in R except for whats present in S
+	
+	RA: R - S
+	SQL: (SELECT * FROM R) EXCEPT (SELECT * FROM S)
+
+Cartesian Product (x)
+	cross product of 2 relations
+	
+	RA: R x S
+	SQL: SELECT * FROM R, S
+
+Theta-Join
+	set of tuples in cross producs that satify
+	some condition
+
+	RA: R (inf[c]) S
+	SQL: SELECT * FROM R, S WHERE C;
+
+Natural-Join
+	set of tuples that agree on whatever attr are common to R and S
+
+	RA: R (inf) S
+	SQL: SELECT * FROM R, S
+		 WHERE R.B = S.B AND R.C = S.C
+		
+Renaming
+	RA: (roh) S(A1, A2, A3...)(R)
+	SQL: Students AS Students1

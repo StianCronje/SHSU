@@ -1,0 +1,36 @@
+Notes 4/10/17
+Special Programming
+Burris
+
+Interrupt Processing
+	combination of hardware and software that forces they system to take note an event has occurred
+
+// Program to intercept the timer interrupt.  It utilizes the Borland C++ DOS
+// library functions “setvect( )” and “getvect( ).  // C:\Software\CPP\CPP\Disk3\beep2.exe
+
+#include <stdio.h>  //tc lib ref 477
+#include <dos.h>
+#include <conio.h>
+
+#define INTR 0X1C // Address of clock tick interrupt
+
+void interrupt (*oldhandler)(...);  // Borland definition for pointer to interrupt handler.
+
+int count = 0;	// Global for interrupt handler and main program interaction.
+
+void interrupt handler(...) {  // Define my interrupt handler.
+  count++;
+  oldhandler( );                     // Call system ISR to update the clock
+}
+
+
+int main( ) {
+    oldhandler = getvect(INTR); // set to address of clock ISR
+
+    setvect(INTR, handler);      // replace with new ISR in interrupt vector
+
+    while(count < 20) printf("count is %d\n",count);
+
+    setvect(INTR, oldhandler);   // restore old clock routine
+    return 0;
+}

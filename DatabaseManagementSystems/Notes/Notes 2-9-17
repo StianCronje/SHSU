@@ -1,0 +1,26 @@
+Notes 2/9/17
+Database Management
+Zhou
+
+DDL
+	data definition language
+DML
+	data manipulation language
+
+Data Types
+	character strings
+		CHAR(n)
+		VARCHAR(n)
+	Bit strings
+		BIT(n)
+		.
+		.
+		.
+Creating and Deleting Tables (lesson 5)
+	CREATE TABLE <table name> (<attribute name> <DATA TYPE>, <attribute name> <DATA TYPE>);
+
+	DROP TABLE <table name>;
+
+UCI repository
+	free data
+

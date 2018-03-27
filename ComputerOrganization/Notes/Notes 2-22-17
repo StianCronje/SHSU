@@ -1,0 +1,13 @@
+Notes 2/15/17
+Computer Organization
+McGuire
+
+Multiplication
+	signed
+		IMUL source	; ax = al*src
+					; dx:ax = ax*src
+
+		imul bh		; al*bh = ax
+		imul cx		; ax*cx = dx:ax
+	unsigned
+		MUL source

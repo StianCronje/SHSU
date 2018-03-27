@@ -1,0 +1,16 @@
+8/23/17
+cosc 3327
+McGuire
+
+Project:
+will need to write machine emulator (Java/C/asm)
+
+Architecture vs. Organization
+    Architecture
+        "what"
+        specification
+
+    Organization
+        "how"
+        implimentation
+

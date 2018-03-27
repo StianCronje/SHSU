@@ -1,0 +1,25 @@
+Notes 3/30/17
+Database Management
+Zhou
+
+For test
+    chap 6
+    extended bag operations
+        sort (tao)
+        dup elim ()
+        group by (gamma)
+        aggregation
+        ext. projec
+        outerjoin
+    transactions
+        motivation
+        ACID
+    view/index
+
+    chap 7
+    ER diag
+
+    chap 8
+    weak entity, support relation
+    understand design techniques
+    ER -> tables

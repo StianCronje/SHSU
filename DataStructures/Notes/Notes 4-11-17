@@ -1,0 +1,37 @@
+Notes 4/11/17
+Data Structures
+Burris
+
+Binary search
+    probe halfway point
+    discard half
+    needs to be in sorted order
+    log[2](N) searches
+
+Instead of x/2, use SAR x, 1 (shift right 1)
+
+Ill Spelled Name Routines 1
+    5 character code
+        1st char of last name
+        5th char of last name, or *
+        2 3 4 are spaces
+        remove vowels, H, W, Y in last name
+        remove repeated letters
+        fill 2 3 4
+
+Soundex (ill spelled 2)
+    X### code
+        keep 1st letter
+        drop a e h i o u w
+        assign numbers
+            b f p v => 1
+            c g j k q s x z => 2
+            d t => 3
+            l => 4
+            m n => 5
+            r => 6
+        eliminate duplicate adjacent codes
+        add 0s or drop digits to fit space
+
+B tree
+    

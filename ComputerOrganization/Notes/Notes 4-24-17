@@ -1,0 +1,48 @@
+Notes 4/21/17
+Computer Organization
+McGuire
+
+Floating point numbers
+101.11 binary
+2 1 0 -1 -2
+1 0 1 .1  1
+
+digit * 2^index
+1*2^2 + 0*2^1 + 1*2^0 + 1*2^-1 + 1*2^-2
+4     + 0     + 1     + 0.5    + .25
+5.25
+
+Base 2 to Base 10
+100.01
+
+Base 10 to Base 2
+0.875 = ???b
+
+0.875 * 2 = 1.75
+0.75  * 2 = 1.5
+0.5   * 2 = 1
+
+0.875 = 0.111b
+
+0. How many bits total
+1. What base? 2 | 16 ...
+2. How many bits for the fraction
+3. How many bits for the exponent
+4a. How to represent - fraction numbers
+4b. How to represent - exponent numbers
+
+ x = (-1)^s * 2^(E-B) * 1.f
+ s = sign
+ E - biased form
+ B = 127 for floats
+ f - normalized
+
+
+ E = 0 - 255 (1 - 254)
+    0, 255 are special cases
+    E = 0 -> 0 if f == 0
+    else E = denormalized number
+
+    E = 255 -> +-inf if f = 0
+    else NaN
+

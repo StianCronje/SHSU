@@ -1,0 +1,34 @@
+Notes 2/3/17
+Special Programming
+Burris
+
+Flow Charts
+
+Macro flow chart
+	more general
+	gets the idea across
+
+Micro flowchart
+	more detailed
+	trapezoin = io
+	diamonds = conditions
+	rectangle = processing
+
+EOF vs Sentinal
+
+
+Libraries in UNIX
+	static library
+		functions export with program
+		multiple copies
+	shared library
+		lists all the references required
+		on runtime loads/links the library functions at start
+	dynamic link library (shared)
+		lists needed library functions
+		loads function when it is called
+		might get destroyed between function calls
+Reentrant code
+	unique data sections
+	shared code sections
+	
