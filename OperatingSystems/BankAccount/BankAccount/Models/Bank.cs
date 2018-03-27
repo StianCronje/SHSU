@@ -12,13 +12,7 @@ namespace BankAccount.Models
     {
         readonly object mutex = new object();
         private float _balance;
-        private ObservableCollection<Transaction> _transactions = new ObservableCollection<Transaction>(){
-            new Transaction("name", 12),
-            new Transaction("name", -2),
-            new Transaction("name", 5),
-            new Transaction("name", -10),
-            new Transaction("name", 4)
-        };
+        private ObservableCollection<Transaction> _transactions = new ObservableCollection<Transaction>();
 
 
         public float Balance
@@ -70,13 +64,20 @@ namespace BankAccount.Models
         {
             lock (mutex)
             {
-                Balance += ammount;
+                if ((Balance + ammount) >= 0)
+                {
+                    Balance += ammount;
+                }
             }
         }
 
         private void MakeTransaction_Semaphore(float ammount)
         {
-            Balance += ammount;
+
+            if ((Balance + ammount) >= 0)
+            {
+                Balance += ammount;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -11,15 +11,8 @@ using Xamarin.Forms;
 
 namespace BankAccount.ViewModels
 {
-
-    //TODO use execution mode enum to chage the way everything executes
-    public class SemaphoreViewModel : INotifyPropertyChanged
+    public class BankViewModel : INotifyPropertyChanged
     {
-        #region Actions
-
-        public Action<ObservableCollection<Transaction>> OnMessageInsertAction;
-
-        #endregion
 
         #region private variable
 
@@ -97,11 +90,11 @@ namespace BankAccount.ViewModels
         #endregion
 
 
-        public SemaphoreViewModel()
+        public BankViewModel()
         {
-            Parent1 = new Person("Parent 1", 10, Bank, mutexSemaphore);
+            Parent1 = new Person("Parent 1", new Random().Next(1, 15), Bank, mutexSemaphore);
             _parentTask1 = new Task(Parent1.ProcessMoney);
-            Parent2 = new Person("Parent 2", 10, Bank, mutexSemaphore);
+            Parent2 = new Person("Parent 2", new Random().Next(1, 15), Bank, mutexSemaphore);
             _parentTask2 = new Task(Parent2.ProcessMoney);
 
             _parentTask1.Start();
@@ -110,7 +103,7 @@ namespace BankAccount.ViewModels
 
         public Command AddChildCommand => new Command(() =>
         {
-            Person child = new Person("Child " + (Children.Count + 1), -2, Bank, mutexSemaphore);
+            Person child = new Person("Child " + (Children.Count + 1), new Random().Next(1, 10) * -1, Bank, mutexSemaphore);
             Children.Add(child);
             _childrenTasks.Add(new Task(child.ProcessMoney));
             _childrenTasks[_childrenTasks.Count-1].Start();

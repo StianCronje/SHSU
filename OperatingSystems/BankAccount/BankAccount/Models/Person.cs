@@ -138,17 +138,8 @@ namespace BankAccount.Models
             while (Running)
             {
                 _mutex.WaitOne();
-
-                if ((_bank.Balance + TransactionAmmount) < 0)
-                {
-                    _mutex.Release();
-                    return;
-                }
-
                 _bank.MakeTransaction(Name, TransactionAmmount);
                 _mutex.Release();
-
-
                 await Task.Delay(ExecutionDelay);
             }
         }

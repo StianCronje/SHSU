@@ -13,13 +13,13 @@ namespace BankAccount.ViewModels
         {
             Debug.WriteLine("load page in semaphore mode");
             App.ExecutionMode = ExecutionMode.Semaphore;
-            await Navigation.PushAsync(new SemaphorePage());
+            await Navigation.PushAsync(new BankPage(){Title = "Semaphore Solution"});
         });
         public Command LoadSynchronizedSolution => new Command(async () =>
         {
             Debug.WriteLine("load page in synchronized mode");
             App.ExecutionMode = ExecutionMode.Synchronized;
-            await Navigation.PushAsync(new SemaphorePage());
+            await Navigation.PushAsync(new BankPage(){Title = "Synchronized Solution"});
         });
     }
 }

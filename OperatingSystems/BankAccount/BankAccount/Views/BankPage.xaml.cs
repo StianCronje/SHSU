@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace BankAccount.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SemaphorePage : ContentPage
+    public partial class BankPage : ContentPage
     {
-        public SemaphorePage()
+        public BankPage()
         {
             InitializeComponent();
 

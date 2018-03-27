@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>BankAccount.MacOS</string>
+	<string>BankAccount</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.stiancronje.BankAccount-MacOS</string>
 	<key>CFBundleShortVersionString</key>
@@ -26,5 +26,7 @@
 	<string>NSApplication</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.education</string>
 </dict>
 </plist>

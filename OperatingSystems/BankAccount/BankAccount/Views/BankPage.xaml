@@ -2,12 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:BankAccount.ViewModels;assembly=BankAccount"
-             x:Class="BankAccount.Views.SemaphorePage"
-             x:Name="ContentPage"
-             Title="Family Bank">
+             xmlns:controls="clr-namespace:BankAccount.Controls;assembly=BankAccount"
+             x:Class="BankAccount.Views.BankPage"
+             x:Name="ContentPage">
     <ContentPage.BindingContext>
-        <viewModels:SemaphoreViewModel/>
+        <viewModels:BankViewModel/>
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="depositTemplate">
+                <TextCell Text="{Binding Name}" Detail="{Binding Ammount}" TextColor="Green" DetailColor="Lime"/>
+            </DataTemplate>
+            <DataTemplate x:Key="withdrawalTemplate">
+                <TextCell Text="{Binding Name}" Detail="{Binding Ammount}" TextColor="Maroon" DetailColor="Red"/>
+            </DataTemplate>
+
+            <controls:TransactionTemplateSelector x:Key="transactionDataTemplateSelector" 
+                                                  DepositTemplate="{StaticResource depositTemplate}"
+                                                  WithdrawalTemplate="{StaticResource withdrawalTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,10 +40,10 @@
                     <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
                 <Label Text="{Binding ActivityString, StringFormat='Earning: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
-                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="0"/>
-                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="2" Grid.Column="1"/>
-                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
-                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
             </Grid>
             <Grid BindingContext="{Binding Parent2}">
                 <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
@@ -36,10 +51,10 @@
                     <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
                 <Label Text="{Binding ActivityString, StringFormat='Earning: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
-                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="0"/>
-                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="2" Grid.Column="1"/>
-                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
-                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
             </Grid>
         </StackLayout>
         <StackLayout Grid.Column="1">
@@ -49,13 +64,8 @@
                       BindingContext="{Binding Bank}"
                       ItemsSource="{Binding Transactions}"
                       VerticalOptions="FillAndExpand"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Name}" Detail="{Binding Ammount}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                      HasUnevenRows="True"
+                      ItemTemplate="{StaticResource transactionDataTemplateSelector}"/>
         </StackLayout>
         <StackLayout Grid.Column="2">
             <Label Text="Children" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
@@ -63,17 +73,18 @@
             <ListView x:Name="ChildrenListView" 
                       ItemsSource="{Binding Children}"
                       VerticalOptions="FillAndExpand"
-                      HasUnevenRows="True">
+                      HasUnevenRows="True"
+                      IsEnabled="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
                                 <Label Text="{Binding Name}" FontAttributes="Bold" Grid.Row="0" Grid.ColumnSpan="2"/>
                                 <Label Text="{Binding ActivityString, StringFormat='Spending: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
-                                <Button Text="Eat Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="0"/>
-                                <Button Text="Eat Slower" Command="{Binding SlowDownCommand}" Grid.Row="2" Grid.Column="1"/>
-                                <Button Text="Be Picky" Command="{Binding HigherTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
-                                <Button Text="Be Cheap" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="1"/>
+                                <Button Text="Eat Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="1"/>
+                                <Button Text="Eat Slower" Command="{Binding SlowDownCommand}" Grid.Row="3" Grid.Column="1"/>
+                                <Button Text="Be Picky" Command="{Binding HigherTransactionCommand}" Grid.Row="2" Grid.Column="0"/>
+                                <Button Text="Be Cheap" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
                                 <Button Text="Cutoff Child" Command="{Binding Path=BindingContext.DeleteChildCommand, Source={x:Reference ContentPage}}" CommandParameter="{Binding .}" BackgroundColor="Red" Grid.Row="4" Grid.ColumnSpan="2"/>
                             </Grid>
                         </ViewCell>

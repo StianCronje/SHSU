@@ -29,11 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="Views\SemaphorePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SynchronizedPage.xaml">
+    <EmbeddedResource Include="Views\BankPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -52,14 +48,11 @@
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SemaphorePage.xaml.cs">
-      <DependentUpon>SemaphorePage.xaml</DependentUpon>
+    <Compile Include="Views\BankPage.xaml.cs">
+      <DependentUpon>BankPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SynchronizedPage.xaml.cs">
-      <DependentUpon>SynchronizedPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\SynchronizedViewModel.cs" />
-    <Compile Include="ViewModels\SemaphoreViewModel.cs" />
+    <Compile Include="ViewModels\BankViewModel.cs" />
+    <Compile Include="Controls\TransactionTemplateSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -80,6 +73,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

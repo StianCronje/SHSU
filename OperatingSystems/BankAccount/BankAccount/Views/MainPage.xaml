@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:BankAccount.ViewModels;assembly=BankAccount"
-             x:Class="BankAccount.Views.MainPage"
-             Title="Family Bank">
+             x:Class="BankAccount.Views.MainPage">
 
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Button Text="Semaphore (Low Level) Solution" Command="{Binding LoadSemaphoreSolution}"/>
