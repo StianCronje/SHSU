@@ -9,17 +9,24 @@ namespace BankAccount.ViewModels
     {
         public INavigation Navigation;
 
+        public Command MainViewAppearingCommand => new Command(() =>
+        {
+            App.MainNav.BarBackgroundColor = Color.White;
+        });
+
         public Command LoadSemaphoreSolution => new Command(async () =>
         {
             Debug.WriteLine("load page in semaphore mode");
             App.ExecutionMode = ExecutionMode.Semaphore;
-            await Navigation.PushAsync(new BankPage(){Title = "Semaphore Solution"});
+            await Navigation.PushAsync(new BankPage() { Title = "Semaphore Solution" });
+            App.MainNav.BarBackgroundColor = Color.FromHex("#039be5");
         });
         public Command LoadSynchronizedSolution => new Command(async () =>
         {
             Debug.WriteLine("load page in synchronized mode");
             App.ExecutionMode = ExecutionMode.Synchronized;
-            await Navigation.PushAsync(new BankPage(){Title = "Synchronized Solution"});
+            await Navigation.PushAsync(new BankPage() { Title = "Synchronized Solution" });
+            App.MainNav.BarBackgroundColor = Color.FromHex("#ff7043");
         });
     }
 }

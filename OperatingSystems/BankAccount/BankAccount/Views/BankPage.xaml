@@ -12,10 +12,26 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="depositTemplate">
-                <TextCell Text="{Binding Name}" Detail="{Binding Ammount}" TextColor="Green" DetailColor="Lime"/>
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" TextColor="Green"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Ammount}" TextColor="Lime"/>
+                            <Label Text="{Binding AvailableBalance, StringFormat='Balance: {0}'}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
             </DataTemplate>
             <DataTemplate x:Key="withdrawalTemplate">
-                <TextCell Text="{Binding Name}" Detail="{Binding Ammount}" TextColor="Maroon" DetailColor="Red"/>
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" TextColor="Maroon"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Ammount}" TextColor="Red"/>
+                            <Label Text="{Binding AvailableBalance, StringFormat='Balance: {0}'}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
             </DataTemplate>
 
             <controls:TransactionTemplateSelector x:Key="transactionDataTemplateSelector" 
@@ -65,7 +81,9 @@
                       ItemsSource="{Binding Transactions}"
                       VerticalOptions="FillAndExpand"
                       HasUnevenRows="True"
-                      ItemTemplate="{StaticResource transactionDataTemplateSelector}"/>
+                      ItemTemplate="{StaticResource transactionDataTemplateSelector}"
+                      BackgroundColor="White"
+                      CachingStrategy="RecycleElement"/>
         </StackLayout>
         <StackLayout Grid.Column="2">
             <Label Text="Children" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>

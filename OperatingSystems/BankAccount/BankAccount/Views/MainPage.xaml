@@ -5,7 +5,7 @@
              x:Class="BankAccount.Views.MainPage">
 
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Button Text="Semaphore (Low Level) Solution" Command="{Binding LoadSemaphoreSolution}"/>
-        <Button Text="Synchronized (High Level) Solution" Command="{Binding LoadSynchronizedSolution}"/>
+        <Button Text="Semaphore (Low Level) Solution" Command="{Binding LoadSemaphoreSolution}" BackgroundColor="#039be5"/>
+        <Button Text="Synchronized (High Level) Solution" Command="{Binding LoadSynchronizedSolution}" BackgroundColor="#ff7043"/>
     </StackLayout>
 </ContentPage>

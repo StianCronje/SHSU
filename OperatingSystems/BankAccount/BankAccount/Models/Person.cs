@@ -22,8 +22,6 @@ namespace BankAccount.Models
         private int _executionDelay;
         private int _delayIncrement = 500;
         private int _minDelay = 500;
-
-        private Random _random;
         #endregion
 
         #region public variables
@@ -39,7 +37,6 @@ namespace BankAccount.Models
                 else{
                 _transactionAmmount = value >= 0 ? value : 0;
                 } 
-                //_transactionAmmount = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(ActivityString));
             }
@@ -98,8 +95,7 @@ namespace BankAccount.Models
 
             _bank = bank;
             _mutex = mutex;
-            _random = new Random(DateTime.Now.Second);
-            _executionDelay = _random.Next(1, 3) * 1000;
+            _executionDelay = new Random().Next(1, 3) * 1000;
         }
 
         /// <summary>
@@ -126,7 +122,7 @@ namespace BankAccount.Models
             Running = true;
             while (Running)
             {
-                _bank.MakeTransaction(Name, TransactionAmmount);
+                _bank.MakeTransaction_Synchronized(Name, TransactionAmmount);
 
                 await Task.Delay(ExecutionDelay);
             }
@@ -138,7 +134,7 @@ namespace BankAccount.Models
             while (Running)
             {
                 _mutex.WaitOne();
-                _bank.MakeTransaction(Name, TransactionAmmount);
+                _bank.MakeTransaction_Semaphore(Name, TransactionAmmount);
                 _mutex.Release();
                 await Task.Delay(ExecutionDelay);
             }
@@ -175,7 +171,7 @@ namespace BankAccount.Models
 
         int GetRandomIncrement()
         {
-            return _random.Next(_transactionIncrementMin, _transactionIncrementMax);
+            return new Random().Next(_transactionIncrementMin, _transactionIncrementMax);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
