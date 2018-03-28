@@ -24,5 +24,12 @@ namespace BankAccount.Views
 
             binding = mainViewModel;
         }
-    }
+
+		protected override void OnAppearing()
+		{
+            base.OnAppearing();
+
+            binding.MainViewAppearingCommand.Execute(null);
+		}
+	}
 }

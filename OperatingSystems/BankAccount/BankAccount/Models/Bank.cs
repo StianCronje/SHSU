@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Threading.Tasks;
 using BankAccount.Annotations;
 using Xamarin.Forms;
 
@@ -12,13 +13,7 @@ namespace BankAccount.Models
     {
         readonly object mutex = new object();
         private float _balance;
-        private ObservableCollection<Transaction> _transactions = new ObservableCollection<Transaction>(){
-            new Transaction("name", 12),
-            new Transaction("name", -2),
-            new Transaction("name", 5),
-            new Transaction("name", -10),
-            new Transaction("name", 4)
-        };
+        private ObservableCollection<Transaction> _transactions = new ObservableCollection<Transaction>();
 
 
         public float Balance
@@ -48,35 +43,56 @@ namespace BankAccount.Models
             Balance = 0;
         }
 
-        public void MakeTransaction(string name, float ammount)
-        {
+        //public void MakeTransaction(string name, float ammount)
+        //{
 
-            if (App.ExecutionMode == ExecutionMode.Synchronized)
-            {
-                MakeTransaction_Synchronized(ammount);
-            }
-            else
-            {
-                MakeTransaction_Semaphore(ammount);
-            }
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                Transactions.Insert(0, new Transaction(name, ammount));
-            });
+        //    if (App.ExecutionMode == ExecutionMode.Synchronized)
+        //    {
+        //        MakeTransaction_Synchronized(ammount);
+        //    }
+        //    else
+        //    {
+        //        MakeTransaction_Semaphore(ammount);
+        //    }
+        //    Device.BeginInvokeOnMainThread(() =>
+        //    {
+        //        Transactions.Insert(0, new Transaction(name, ammount, Balance));
+        //    });
             
-        }
+        //}
 
-        private void MakeTransaction_Synchronized(float ammount)
+        public void MakeTransaction_Synchronized(string name, float ammount)
         {
             lock (mutex)
             {
-                Balance += ammount;
+                if ((Balance + ammount) >= 0)
+                {
+                    Balance += ammount;
+
+                    float tempBalance = Balance;
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        Transactions.Insert(0, new Transaction(name, ammount, tempBalance));
+                    });
+                }
             }
         }
 
-        private void MakeTransaction_Semaphore(float ammount)
+        public void MakeTransaction_Semaphore(string name, float ammount)
         {
-            Balance += ammount;
+
+            if ((Balance + ammount) >= 0)
+            {
+                Balance += ammount;
+
+                float tempBalance = Balance;
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Transactions.Insert(0, new Transaction(name, ammount, tempBalance));
+                });
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

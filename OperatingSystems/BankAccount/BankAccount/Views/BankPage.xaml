@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:BankAccount.ViewModels;assembly=BankAccount"
+             xmlns:controls="clr-namespace:BankAccount.Controls;assembly=BankAccount"
+             x:Class="BankAccount.Views.BankPage"
+             x:Name="ContentPage">
+    <ContentPage.BindingContext>
+        <viewModels:BankViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="depositTemplate">
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" TextColor="Green"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Ammount}" TextColor="Lime"/>
+                            <Label Text="{Binding AvailableBalance, StringFormat='Balance: {0}'}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="withdrawalTemplate">
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" TextColor="Maroon"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Ammount}" TextColor="Red"/>
+                            <Label Text="{Binding AvailableBalance, StringFormat='Balance: {0}'}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+
+            <controls:TransactionTemplateSelector x:Key="transactionDataTemplateSelector" 
+                                                  DepositTemplate="{StaticResource depositTemplate}"
+                                                  WithdrawalTemplate="{StaticResource withdrawalTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0">
+            <Label Text="Parents" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+            <Grid BindingContext="{Binding Parent1}">
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label Text="Parent 1" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <Label Text="{Binding ActivityString, StringFormat='Earning: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
+            </Grid>
+            <Grid BindingContext="{Binding Parent2}">
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label Text="Parent 2" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="3" Color="Accent" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <Label Text="{Binding ActivityString, StringFormat='Earning: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Button Text="Work Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="Work Slower" Command="{Binding SlowDownCommand}" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="Work Harder" Command="{Binding HigherTransactionCommand}" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="Slack Off" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
+            </Grid>
+        </StackLayout>
+        <StackLayout Grid.Column="1">
+            <Label Text="Transactions" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Bank.Balance, StringFormat='Balance: {0}'}" Grid.Row="1" Grid.Column="0"/>
+            <ListView x:Name="TransactionListView" 
+                      BindingContext="{Binding Bank}"
+                      ItemsSource="{Binding Transactions}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True"
+                      ItemTemplate="{StaticResource transactionDataTemplateSelector}"
+                      BackgroundColor="White"
+                      CachingStrategy="RecycleElement"/>
+        </StackLayout>
+        <StackLayout Grid.Column="2">
+            <Label Text="Children" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Button Text="Make new Child" Command="{Binding AddChildCommand}"/>
+            <ListView x:Name="ChildrenListView" 
+                      ItemsSource="{Binding Children}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True"
+                      IsEnabled="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                <Label Text="{Binding ActivityString, StringFormat='Spending: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                <Button Text="Eat Faster" Command="{Binding SpeedUpCommand}" Grid.Row="2" Grid.Column="1"/>
+                                <Button Text="Eat Slower" Command="{Binding SlowDownCommand}" Grid.Row="3" Grid.Column="1"/>
+                                <Button Text="Be Picky" Command="{Binding HigherTransactionCommand}" Grid.Row="2" Grid.Column="0"/>
+                                <Button Text="Be Cheap" Command="{Binding LowerTransactionCommand}" Grid.Row="3" Grid.Column="0"/>
+                                <Button Text="Cutoff Child" Command="{Binding Path=BindingContext.DeleteChildCommand, Source={x:Reference ContentPage}}" CommandParameter="{Binding .}" BackgroundColor="Red" Grid.Row="4" Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

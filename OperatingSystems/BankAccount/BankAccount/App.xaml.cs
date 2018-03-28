@@ -7,11 +7,14 @@ namespace BankAccount
 {
     public partial class App : Application
     {
+        public static NavigationPage MainNav;
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage(new MainViewModel()));
+            MainNav = new NavigationPage(new MainPage(new MainViewModel()));
+
+            MainPage = MainNav;
         }
 
         protected override void OnStart()
