@@ -28,7 +28,7 @@ int main(void)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(1024, 768, "Red triangle", NULL, NULL);
+	window = glfwCreateWindow(1024, 768, "Blue Pentagon", NULL, NULL);
 	if (window == NULL) {
 		fprintf(stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n");
 		getchar();
@@ -50,7 +50,7 @@ int main(void)
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	// Dark blue background
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -59,12 +59,36 @@ int main(void)
 	// Create and compile our GLSL program from the shaders
 	GLuint programID = LoadShaders("SimpleVertexShader.vs", "SimpleFragmentShader.fs");
 
+	/*
+		0.0f, 1.0f, 0.0f,
+		0.7f, 0.2f, 0.0f,
+		0.5f, -1.0f, 0.0f,
+		-0.5f, -1.0f, 0.0f,
+		-0.7f, 0.2f, 0.0f,
+	*/
 
 	static const GLfloat g_vertex_buffer_data[] = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f,  1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f,
+		0.8f, 0.2f, 0.0f,
+
+		0.0f, 0.0f, 0.0f,
+		0.8f, 0.2f, 0.0f,
+		0.5f, -1.0f, 0.0f,
+
+		0.0f, 0.0f, 0.0f,
+		0.5f, -1.0f, 0.0f,
+		-0.5f, -1.0f, 0.0f,
+
+		0.0f, 0.0f, 0.0f,
+		-0.5f, -1.0f, 0.0f,
+		-0.8f, 0.2f, 0.0f,
+
+		0.0f, 0.0f, 0.0f,
+		-0.8f, 0.2f, 0.0f,
+		0.0f, 1.0f, 0.0f
 	};
+
 	/////////////////////////////////////////////// 
 	// 2) create a buffer object name(ID) holder.
 	GLuint vertexbuffer;
@@ -115,7 +139,7 @@ int main(void)
 		// Use our shader
 		glUseProgram(programID);
 		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, 3); // 3 indices starting at 0 -> 1 triangle
+		glDrawArrays(GL_TRIANGLES, 0, 15); // 3 indices starting at 0 -> 1 triangle
 
 		glDisableVertexAttribArray(0);
 
