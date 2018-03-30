@@ -8,3 +8,6 @@ run: all
 
 test: all
 	./zinc < test.txt
+
+if: all
+	./zinc < if.txt

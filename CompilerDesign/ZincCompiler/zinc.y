@@ -4,19 +4,56 @@
     #include <string.h>
     int yylex();
     void yyerror (char* s);
-    // char* label;
-    // char countStr[4];
-    // int labelCount = 0;
-    // char* get_label()
-    // {
-    //     sprintf(countStr, "%03d", labelCount);
-    //     strcpy(label, "LABEL");
-    //     strcat(label, countStr);
-    //     return label;
-    // }
-
-    #define YYSTYPE char*
     extern char * yytext;
+
+    char labelStack[10][100];
+    int stackPointer = 0;
+
+    void push(char* l)
+    {
+        if(stackPointer < 99)
+        {
+            strcpy(labelStack[stackPointer], l);
+            stackPointer++;
+        }
+    }
+    char* pop()
+    {
+        if(stackPointer > 0)
+        {
+            stackPointer--;
+            return labelStack[stackPointer];
+        }
+    }
+
+    int declaring = 0;
+
+    char countStr[4];
+    int labelCount = 0;
+    void make_label(char* label)
+    {
+        labelCount++;
+        sprintf(label, "%s", "LABEL");
+        sprintf(countStr, "%03d", labelCount);
+        strcat(label, countStr);
+        push(label);
+    }
+    void get_label(char* label)
+    {
+        strcpy(label, pop());
+    }
+
+
+    // RVALUE FLAG
+    // GOTRUE TRUE
+    // elseClause
+    // GOTO ENDIF
+    // LABEL TRUE
+    // RVALUE X
+    // PRINT
+    // RVALUE Y
+    // PRINT
+    // LABEL ENDIF
 %}
 
 /* Definitions */
@@ -33,102 +70,88 @@
 %%
 /* productions */
 
-program             : T_PROGRAM declarations T_BEGIN statementSequence T_END
+program             : T_PROGRAM beginDeclarations T_BEGIN beginStatements T_END {printf("HALT\n");}
                     ;
-declarations        : T_VAR primary T_COLON type T_SC declarations
-                    |
+beginDeclarations   :  { printf("Section .data\n"); } declarations
                     ;
-type                : T_INT
+declarations        : T_VAR varId T_COLON type T_SC declarations
+                    | /* empty */
+                    ;
+type                : T_INT { printf("word\n"); }
+                    ;
+beginStatements     :{ printf("Section .code\n"); } statementSequence
                     ;
 statementSequence   : statement T_SC statementSequence
-                    |
+                    | /* empty */
                     ;
 statement           : assignment
                     | ifStatement
                     | whileStatement
                     | writeInt
-                    |
+                    | /* empty */
                     ;
-assignment          : primary T_ASGN expression {
-                                                    printf("STO\n");
-                                                }
-                    | primary T_ASGN T_READINT  {
+assignment          : ident T_ASGN expression { printf("STO\n"); }
+                    | ident T_ASGN T_READINT    {
                                                     printf("READ\n");
                                                     printf("STO\n");
                                                 }
                     ;
-ifStatement         : T_IF expression T_THEN statementSequence elseClause T_ENDIF   {
-                                                                                        // get_label();
-                                                                                        printf("GOFALSE %s\n", "label");
-                                                                                        printf("--- stmt sqns ---\n");
-                                                                                        printf("--- end ---\n");
-                                                                                        printf("LABEL %s\n", "label");
-                                                                                    }
+ifStatement         : T_IF expression T_THEN
+                                    {  char skipLabel[10];
+                                        make_label(skipLabel);
+                                        printf("GOFALSE %s\n", skipLabel); }
+                        statementSequence elseClause T_ENDIF
+                                                    {   char skipLabel[10];
+                                                        get_label(skipLabel);
+                                                        printf("LABEL %s\n", skipLabel); }
                     ;
 elseClause          : T_ELSE statementSequence {printf("elseClause\n");}
-                    |
+                    | /* empty */
                     ;
-whileStatement      : T_WHILE expression T_LOOP statementSequence T_ENDWHILE    {
-                                                                                    // char* loopLabel = get_label();
-                                                                                    // char* skipLabel = get_label();
-                                                                                    printf("LABEL %s\n", "loopLabel");
-                                                                                    printf("GOFALSE %s\n", "skipLabel");
-                                                                                    printf("--- stmt sqns ---\n");
-                                                                                    printf("LABEL %s\n", "skipLabel");
-                                                                                }
+whileStatement      : T_WHILE expression T_LOOP
+                                        {   char loopLabel[10];
+                                            char skipLabel[10];
+                                            make_label(loopLabel);
+                                            make_label(skipLabel);
+                                            printf("LABEL %s\n", loopLabel);
+                                            printf("GOFALSE %s\n", skipLabel); }
+                        statementSequence T_ENDWHILE
+                                        {   char loopLabel[10];
+                                            char skipLabel[10];
+                                            get_label(skipLabel);
+                                            get_label(loopLabel);
+                                            printf("GOTO %s\n", loopLabel);
+                                            printf("LABEL %s\n", skipLabel); }
                     ;
-writeInt            : T_WRITEINT expression {
-                                                printf("PRINT\n");
-                                            }
+writeInt            : T_WRITEINT expression { printf("PRINT\n"); }
                     ;
 expression          : simpleExpression
-                    | simpleExpression T_EQ expression  {
-                                                            printf("EQ\n");
-                                                        }
-                    | simpleExpression T_NE expression  {
-                                                            printf("NE\n");
-                                                        }
-                    | simpleExpression T_LT expression  {
-                                                            printf("LT\n");
-                                                        }
-                    | simpleExpression T_GT expression  {
-                                                            printf("GTLT\n");
-                                                        }
-                    | simpleExpression T_LE expression  {
-                                                            printf("LE\n");
-                                                        }
-                    | simpleExpression T_GE expression  {
-                                                            printf("GE\n");
-                                                        }
+                    | simpleExpression T_EQ expression  { printf("EQ\n"); }
+                    | simpleExpression T_NE expression  { printf("NE\n"); }
+                    | simpleExpression T_LT expression  { printf("LT\n"); }
+                    | simpleExpression T_GT expression  { printf("GTLT\n"); }
+                    | simpleExpression T_LE expression  { printf("LE\n"); }
+                    | simpleExpression T_GE expression  { printf("GE\n"); }
                     ;
-simpleExpression    : term T_ADD simpleExpression  {
-                                                        printf("ADD\n");
-                                                    }
-                    | term T_SUB simpleExpression   {
-                                                        printf("SUB\n");
-                                                    }
+simpleExpression    : term T_ADD simpleExpression  { printf("ADD\n"); }
+                    | term T_SUB simpleExpression   { printf("SUB\n"); }
                     | term
                     ;
-term                : factor T_MULT term    {
-                                                printf("MPY\n");
-                                            }
-                    | factor T_DIV term {
-                                            printf("DIV\n");
-                                        }
-                    | factor T_MOD term {
-                                            printf("MOD\n");
-                                        }
+term                : factor T_MULT term    { printf("MPY\n"); }
+                    | factor T_DIV term { printf("DIV\n"); }
+                    | factor T_MOD term { printf("MOD\n"); }
                     | factor
                     ;
-factor              : primary T_POWER factor    {
-                                                    printf("POW\n");
-                                                }
+factor              : primary T_POWER factor    { printf("POW\n"); }
                     | primary
                     ;
-primary             : T_IDENT {printf("LVALUE %s\n", yytext);}
-                    | T_NUM {printf("PUSH %s\n", yytext);}
+primary             : T_NUM {printf("PUSH %s\n", yytext);}
                     | T_LP expression T_RP
+                    | T_IDENT { printf("RVALUE %s\n", yytext);}
                     ;
+ident               : T_IDENT {printf("LVALUE %s\n", yytext);}
+                    ;
+varId              : T_IDENT {printf("%s: ", yytext);}
 
 %%
 /* User subroutines */
