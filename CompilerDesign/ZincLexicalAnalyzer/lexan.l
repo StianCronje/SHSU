@@ -130,7 +130,7 @@ INT                 "integer"
 WRITEINT            "writeInt"
 READINT             "readInt"
 COMMENT             "--".*
-WHITESPACE          [ \t\n]
+WHITESPACE          [ \t\n\r\f]
 
 %%
 
