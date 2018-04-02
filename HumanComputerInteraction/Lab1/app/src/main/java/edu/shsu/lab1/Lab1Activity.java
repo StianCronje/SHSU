@@ -18,7 +18,7 @@ public class Lab1Activity extends AppCompatActivity
 
         if(hashmap != null)
         {
-            helloLabel.setText(String.format("%s %s!", getString(R.string.hello), hashmap.get("uname").toString()));
+            helloLabel.setText(String.format("%s %s!", getString(R.string.hello), hashmap.getString("uname")));
         }
     }
 }
