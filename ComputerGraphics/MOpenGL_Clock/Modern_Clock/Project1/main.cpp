@@ -165,12 +165,13 @@ int main(void)
 		float elapsed_secs1 = double(end1 - begin) / CLOCKS_PER_SEC;
 		GLint uniColor1 = glGetUniformLocation(programID, "framecolor");
 		glUniform3f(uniColor1, 0.0f, 0.0f, abs(sin(elapsed_secs1*glm::radians(25.0f))));
+
 		
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 360);
 		glDisableVertexAttribArray(0);
 
 
-		//Seconds hands
+		//Minutes hands
 		glBindVertexArray(hand1ArrayID);
 		glBindBuffer(GL_ARRAY_BUFFER, hands1Buffer);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(hand1_buffer_data), hand1_buffer_data, GL_STATIC_DRAW);
@@ -180,15 +181,17 @@ int main(void)
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 5);
 		glDisableVertexAttribArray(0);
 
-		//Minutes hands
+		//Seconds hands
 		glBindVertexArray(hand2ArrayID);
 		glBindBuffer(GL_ARRAY_BUFFER, hands2Buffer);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(hand2_buffer_data), hand2_buffer_data, GL_STATIC_DRAW);
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
 		glUseProgram(hand2ID);
+		GLint uniColor2 = glGetUniformLocation(hand2ID, "sechandcolor");
+		glUniform3f(uniColor2, 0.0f, abs(sin(elapsed_secs1*glm::radians(25.0f))), 0.0f);
 
-		//Transformation of the minutes hand
+		//Transformation of the seconds hand
 		//https://open.gl/transformations
 		clock_t end = clock();
 		float elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;

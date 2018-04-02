@@ -1,11 +1,12 @@
 #version 330 core
 
+uniform vec3 sechandcolor;
 // Ouput data
 out vec3 color;
 
 void main()
 {
-	//Black
-	color = vec3(0,0,0);
+	//green shades
+    color = sechandcolor;
 
 }
