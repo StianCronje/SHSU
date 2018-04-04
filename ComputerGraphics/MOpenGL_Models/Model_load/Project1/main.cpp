@@ -111,24 +111,32 @@ int main( void )
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader" );
+	GLuint programID = LoadShaders("TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader");
+	GLuint programID2 = LoadShaders( "TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader" );
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+	GLuint MatrixID2 = glGetUniformLocation(programID2, "MVP");
 
 	// Load the texture
 	//GLuint Texture = loadtextures("L200-OBJ/truck_color.jpg");
 	GLuint Texture = loadtextures("L200-OBJ-triangles/truck_color.jpg");
+	GLuint Texture2 = loadtextures("FREOBJ/CIRRUSTS.jpg");
 	
 	
 	// Get a handle for our "myTextureSampler" uniform
-	GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");
+	GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler");
+	GLuint TextureID2  = glGetUniformLocation(programID, "myTextureSampler");
 
 	// Read our .obj file
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals; // Won't be used at the moment.
 	bool res = loadOBJ("L200-OBJ-triangles/truck.obj", vertices, uvs, normals);
+	std::vector<glm::vec3> vertices2;
+	std::vector<glm::vec2> uvs2;
+	std::vector<glm::vec3> normals2; // Won't be used at the moment.
+	bool res2 = loadOBJ("FREOBJ/FREOBJ2.obj", vertices2, uvs2, normals2);
 
 	// Load it into a VBO
 
@@ -141,6 +149,16 @@ int main( void )
 	glGenBuffers(1, &uvbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
 	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+
+	GLuint vertexbuffer2;
+	glGenBuffers(1, &vertexbuffer2);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer2);
+	glBufferData(GL_ARRAY_BUFFER, vertices2.size() * sizeof(glm::vec3), &vertices2[0], GL_STATIC_DRAW);
+
+	GLuint uvbuffer2;
+	glGenBuffers(1, &uvbuffer2);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer2);
+	glBufferData(GL_ARRAY_BUFFER, uvs2.size() * sizeof(glm::vec2), &uvs2[0], GL_STATIC_DRAW);
 
 	clock_t begin = clock();
 	do{
@@ -210,6 +228,76 @@ int main( void )
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
+
+
+		////////////////////////////////////////////////////////////////////////////
+
+		// Use our shader
+		glUseProgram(programID2);
+
+		// Compute the MVP matrix from keyboard and mouse input
+		computeMatricesFromInputs();
+		glm::mat4 ProjectionMatrix2 = getProjectionMatrix();
+		glm::mat4 ViewMatrix2 = getViewMatrix();
+		glm::mat4 ModelMatrix2 = glm::mat4(1.0);
+
+
+		glm::mat4 trans2;
+		//Rotate the car about Y axis
+		// move up
+		trans2 = glm::translate(trans2, glm::vec3(0.0f, 50.0f, -100.0f));
+		trans2 = glm::translate(trans2, glm::vec3(elapsed_secs * -10.0f, 0.0f, 0.0f));
+		//Rotate
+		//you can control the speed of the rotation if you multiply elapsed_secs*glm::radians(180.0f) (180.0f isjust an example)
+		trans2 = glm::rotate(trans2, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		trans2 = glm::rotate(trans2, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		//Scale up
+		trans2 = glm::scale(trans2, glm::vec3(10.0f, 10.0f, 10.0f));
+		GLint uniTrans2 = glGetUniformLocation(programID2, "trans");
+		glUniformMatrix4fv(uniTrans2, 1, GL_FALSE, glm::value_ptr(trans2));
+		glm::mat4 MVP2 = ProjectionMatrix2 * ViewMatrix2 * ModelMatrix2;
+
+		// Send our transformation to the currently bound shader, 
+		// in the "MVP" uniform
+		glUniformMatrix4fv(MatrixID2, 1, GL_FALSE, &MVP2[0][0]);
+
+		// Bind our texture in Texture Unit 0
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, Texture2);
+		// Set our "myTextureSampler" sampler to use Texture Unit 0
+		glUniform1i(TextureID2, 0);
+
+		// 1rst attribute buffer : vertices
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer2);
+		glVertexAttribPointer(
+			0,                  // attribute
+			3,                  // size
+			GL_FLOAT,           // type
+			GL_FALSE,           // normalized?
+			0,                  // stride
+			(void*)0            // array buffer offset
+		);
+
+		// 2nd attribute buffer : UVs
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer2);
+		glVertexAttribPointer(
+			1,                                // attribute
+			2,                                // size
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+
+		// Draw the Model !
+		glDrawArrays(GL_TRIANGLES, 0, vertices2.size());
+
+		glDisableVertexAttribArray(0);
+		glDisableVertexAttribArray(1);
+
+		////////////////////////////////////////////////////////////////////////////
 
 		// Swap buffers
 		glfwSwapBuffers(window);
