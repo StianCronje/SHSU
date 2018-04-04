@@ -37,6 +37,8 @@
 
 %}
 
+%option yylineno
+
 /* Numbers, Literals, and Identifiers */
 NUM                 ("+"|"-")?[1-9][0-9]*|0
 IDENT               [A-Z][_A-Z0-9]*

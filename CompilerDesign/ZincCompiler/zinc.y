@@ -5,6 +5,7 @@
     int yylex();
     void yyerror (char* s);
     extern char * yytext;
+    extern int yylineno;
 
     char trueLabel[10];
     char endLabel[10];
@@ -81,22 +82,26 @@
 %%
 /* productions */
 
-program             : T_PROGRAM beginDeclarations T_BEGIN beginStatements T_END {printf("HALT\n");}
+program             : T_PROGRAM beginDeclarations T_BEGIN beginStatements T_END { printf("HALT\n"); }
+                    | error beginDeclarations T_BEGIN beginStatements T_END     { printf("Program Syntax Error : 'program' expected\n"); yyerrok; }
+                    | T_PROGRAM beginDeclarations error beginStatements T_END   { printf("Program Syntax Error : 'begin' expected\n"); yyerrok; }
+                    | T_PROGRAM beginDeclarations T_BEGIN beginStatements error { printf("Program Syntax Error : 'end' expected\n"); yyerrok; }
                     ;
-beginDeclarations   :  { printf("Section .data\n"); } declarations
+beginDeclarations   : { printf("Section .data\n"); } declarations
                     ;
-declarations        : T_VAR T_IDENT T_COLON type T_SC declarations {printf("%s : %s\n", $2, $4);}
+declarations        : T_VAR T_IDENT T_COLON type T_SC declarations  { printf("%s : %s\n", $2, $4); }
                     | /* empty */
-                    | error T_IDENT T_COLON type T_SC declarations {printf("error in declarations : 'var' expected\n"); yyerrok;}
-                    | T_VAR T_IDENT error type T_SC declarations {printf("error in declarations : ':' expected\n"); yyerrok;}
-                    | T_VAR T_IDENT T_COLON type error declarations {printf("error in declarations : ';' expected\n"); yyerrok;}
+                    | error T_IDENT T_COLON type T_SC declarations  { printf("Declaration Error : 'var' expected\n"); yyerrok; }
+                    | T_VAR T_IDENT error type T_SC declarations    { printf("Declaration Error : ':' expected\n"); yyerrok; }
+                    | T_VAR T_IDENT T_COLON type error declarations { printf("Declaration Error : ';' expected\n"); yyerrok; }
                     ;
 type                : T_INT { strcpy($$, "word"); }
                     ;
-beginStatements     :{ printf("Section .code\n"); } statementSequence
+beginStatements     : { printf("Section .code\n"); } statementSequence
                     ;
 statementSequence   : statement T_SC statementSequence
                     | /* empty */
+                    | statement error statementSequence     { printf("Statement Error : ';' expected\n"); yyerrok; }
                     ;
 statement           : assignment
                     | ifStatement
@@ -114,39 +119,26 @@ assignment          : T_IDENT T_ASGN expression {
                                                     printf("STO\n");
                                                 }
                     ;
-ifStatement         : T_IF expression T_THEN
-                                    {
-                                        make_label(trueLabel);
-                                        printf("GOFALSE %s\n", trueLabel);
-                                    }
-                        statementSequence elseClause T_ENDIF
-                                    {
-                                        get_label(endLabel);
-                                        printf("LABEL %s\n", endLabel);
-                                    }
+ifStatement         : T_IF expression T_THEN                    {   make_label(trueLabel);
+                                                                    printf("GOFALSE %s\n", trueLabel); }
+                        statementSequence elseClause T_ENDIF    {   get_label(endLabel);
+                                                                    printf("LABEL %s\n", endLabel); }
                     ;
-elseClause          : T_ELSE {
-                                        get_label(trueLabel);
+elseClause          : T_ELSE        {   get_label(trueLabel);
                                         make_label(endLabel);
                                         printf("GOTO %s\n", endLabel);                                        
-                                        printf("LABEL %s\n", trueLabel);
-                                    } statementSequence
+                                        printf("LABEL %s\n", trueLabel); } 
+                        statementSequence
                     | /* empty */
                     ;
-whileStatement      : T_WHILE expression T_LOOP
-                                        {   char loopLabel[10];
-                                            char skipLabel[10];
-                                            make_label(loopLabel);
-                                            make_label(skipLabel);
-                                            printf("LABEL %s\n", loopLabel);
-                                            printf("GOFALSE %s\n", skipLabel); }
-                        statementSequence T_ENDWHILE
-                                        {   char loopLabel[10];
-                                            char skipLabel[10];
-                                            get_label(skipLabel);
-                                            get_label(loopLabel);
-                                            printf("GOTO %s\n", loopLabel);
-                                            printf("LABEL %s\n", skipLabel); }
+whileStatement      : T_WHILE                           {   make_label(trueLabel);
+                                                            printf("LABEL %s\n", trueLabel); }
+                        expression T_LOOP               {   make_label(endLabel);
+                                                            printf("GOFALSE %s\n", endLabel); }
+                        statementSequence T_ENDWHILE    {   get_label(endLabel);
+                                                            get_label(trueLabel);
+                                                            printf("GOTO %s\n", trueLabel);
+                                                            printf("LABEL %s\n", endLabel); }
                     ;
 writeInt            : T_WRITEINT expression { printf("PRINT\n"); }
                     ;
@@ -158,21 +150,21 @@ expression          : simpleExpression
                     | simpleExpression T_LE expression  { printf("LE\n"); }
                     | simpleExpression T_GE expression  { printf("GE\n"); }
                     ;
-simpleExpression    : term T_ADD simpleExpression  { printf("ADD\n"); }
+simpleExpression    : term T_ADD simpleExpression   { printf("ADD\n"); }
                     | term T_SUB simpleExpression   { printf("SUB\n"); }
                     | term
                     ;
-term                : factor T_MULT term { printf("MPY\n"); }
-                    | factor T_DIV term { printf("DIV\n"); }
-                    | factor T_MOD term { printf("MOD\n"); }
+term                : factor T_MULT term    { printf("MPY\n"); }
+                    | factor T_DIV term     { printf("DIV\n"); }
+                    | factor T_MOD term     { printf("MOD\n"); }
                     | factor
                     ;
 factor              : primary T_POWER factor    { printf("POW\n"); }
                     | primary
                     ;
-primary             : T_NUM {printf("PUSH %s\n", yytext);}
+primary             : T_NUM     { printf("PUSH %s\n", yytext); }
                     | T_LP expression T_RP
-                    | T_IDENT { printf("RVALUE %s\n", yytext);}
+                    | T_IDENT   { printf("RVALUE %s\n", yytext); }
                     ;
 
 %%
@@ -187,5 +179,5 @@ int main()
 
 void yyerror (char* s)
 {
-    fprintf(stderr, "ERROR: %s\n", s);
+    fprintf(stderr, "ERROR: %s (line: %d)\n", s, yylineno);
 }
