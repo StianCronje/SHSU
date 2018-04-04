@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical|center_horizontal"
-            android:text="ok" />
+            android:text="@string/button_ok" />
 
         <TextView
             android:id="@+id/textView1"

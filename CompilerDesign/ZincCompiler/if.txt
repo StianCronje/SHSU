@@ -2,11 +2,6 @@ program
 begin
     if FLAG then
  		writeInt X;
-    else
-        writeInt Y;
  	endif;
 
-    while WHILEFLAG loop
-        writeInt A;
-    endwhile;
 end

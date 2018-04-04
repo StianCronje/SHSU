@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ViewTester</string>
+    <string name="edit_text">Enter Text</string>
+    <string name="button_press">Press</string>
+    <string name="choice_one">Choice One</string>
+    <string name="choice_two">Choice Two</string>
+    <string name="choice_three">Choice Three</string>
+    <string name="black">Black</string>
+    <string name="white">White</string>
+    <string name="ringer_on">Ringer On</string>
+    <string name="ringer_off">Ringer Off</string>
+</resources>

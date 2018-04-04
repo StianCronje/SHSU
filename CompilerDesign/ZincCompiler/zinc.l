@@ -82,7 +82,7 @@ WHITESPACE          [ \t\n\r\f]
 {PROGRAM}           {/*printf("returning %-10s\n", yytext);*/ return T_PROGRAM;}
 {BEGIN}             {/*printf("returning %-10s\n", yytext);*/ return T_BEGIN;}
 {NUM}               {/*printf("returning %-10s\n", yytext);*/ return T_NUM;}
-{IDENT}             {/*printf("returning %-10s\n", yytext);*/ return T_IDENT;}
+{IDENT}             {/*printf("returning %-10s\n", yytext);*/ strcpy(yylval.id, yytext); return T_IDENT;}
 {LP}                {/*printf("returning %-10s\n", yytext);*/ return T_LP;}
 {RP}                {/*printf("returning %-10s\n", yytext);*/ return T_RP;}
 {ASGN}              {/*printf("returning %-10s\n", yytext);*/ return T_ASGN;}
