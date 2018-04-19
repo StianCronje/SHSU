@@ -1,150 +1,150 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ffb1a743cf6cec6b545a44ed3912342a\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\546ca78dddcc4e59b862c0bd2b0feac9\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\93673e14c51e8698c2a34cfb848a23b5\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\225feb3a6b74b2c6decd8af9fa9eb69b\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\e43d05a1850645c52fc0ec0dca3e7fa9\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\29a4c721be189014fdee031eb7f7a173\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\02e0c2813a7caab090b320a68d451b94\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\09e0223a97148897b0b32bc2f108a864\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\da9abaa32d6c4ed67687d22facb28046\AndroidManifest.xml:17:1-31:12
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:17:1-30:12
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
+ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/stian/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c94eba811c8cd88a8aae4a3ed6cc7fa4/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/64dbb7b1ff361d0109e6b2ed56e1435a/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/daec1251103b63315fe1ae2bb6106244/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ba2227d73cb83acd56796e7073504b94/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2cc1957900ee36406d20963fbcfd05bb/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/18f573c9462f5187fae7d07e22eb123e/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/75ed95eb3306e208054e5756d4c8aeea/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/d2159038eeb351e8161207deb86f2eb6/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/672a21756c54741af86e8c1de67b2ff1/AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:17:1-30:12
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
 	package
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:3:5-64
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:3:5-64
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:1-21:12
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:5:5-19:19
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ffb1a743cf6cec6b545a44ed3912342a\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ffb1a743cf6cec6b545a44ed3912342a\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\546ca78dddcc4e59b862c0bd2b0feac9\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\546ca78dddcc4e59b862c0bd2b0feac9\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\93673e14c51e8698c2a34cfb848a23b5\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\93673e14c51e8698c2a34cfb848a23b5\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\225feb3a6b74b2c6decd8af9fa9eb69b\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\225feb3a6b74b2c6decd8af9fa9eb69b\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\e43d05a1850645c52fc0ec0dca3e7fa9\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\e43d05a1850645c52fc0ec0dca3e7fa9\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\29a4c721be189014fdee031eb7f7a173\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\29a4c721be189014fdee031eb7f7a173\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\02e0c2813a7caab090b320a68d451b94\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\02e0c2813a7caab090b320a68d451b94\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\09e0223a97148897b0b32bc2f108a864\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\09e0223a97148897b0b32bc2f108a864\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\da9abaa32d6c4ed67687d22facb28046\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\da9abaa32d6c4ed67687d22facb28046\AndroidManifest.xml:25:5-29:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:24:5-28:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:24:5-28:19
+ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/stian/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c94eba811c8cd88a8aae4a3ed6cc7fa4/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/stian/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c94eba811c8cd88a8aae4a3ed6cc7fa4/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/64dbb7b1ff361d0109e6b2ed56e1435a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/64dbb7b1ff361d0109e6b2ed56e1435a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/daec1251103b63315fe1ae2bb6106244/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/daec1251103b63315fe1ae2bb6106244/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ba2227d73cb83acd56796e7073504b94/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ba2227d73cb83acd56796e7073504b94/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2cc1957900ee36406d20963fbcfd05bb/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2cc1957900ee36406d20963fbcfd05bb/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/18f573c9462f5187fae7d07e22eb123e/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/18f573c9462f5187fae7d07e22eb123e/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/75ed95eb3306e208054e5756d4c8aeea/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/75ed95eb3306e208054e5756d4c8aeea/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/d2159038eeb351e8161207deb86f2eb6/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/d2159038eeb351e8161207deb86f2eb6/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/672a21756c54741af86e8c1de67b2ff1/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/672a21756c54741af86e8c1de67b2ff1/AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:11:9-40
 activity#com.stiancronje.christiaancronjehelloautocomplete.MainActivity
-ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:12:9-18:20
+ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:12:19-47
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:12:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:13:13-17:29
+ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:16:17-77
+ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml:16:27-74
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml:16:27-74
 uses-sdk
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ffb1a743cf6cec6b545a44ed3912342a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ffb1a743cf6cec6b545a44ed3912342a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\546ca78dddcc4e59b862c0bd2b0feac9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\546ca78dddcc4e59b862c0bd2b0feac9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\93673e14c51e8698c2a34cfb848a23b5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\93673e14c51e8698c2a34cfb848a23b5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\225feb3a6b74b2c6decd8af9fa9eb69b\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\225feb3a6b74b2c6decd8af9fa9eb69b\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\e43d05a1850645c52fc0ec0dca3e7fa9\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\e43d05a1850645c52fc0ec0dca3e7fa9\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\29a4c721be189014fdee031eb7f7a173\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\29a4c721be189014fdee031eb7f7a173\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\02e0c2813a7caab090b320a68d451b94\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\02e0c2813a7caab090b320a68d451b94\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\09e0223a97148897b0b32bc2f108a864\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\09e0223a97148897b0b32bc2f108a864\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\da9abaa32d6c4ed67687d22facb28046\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\da9abaa32d6c4ed67687d22facb28046\AndroidManifest.xml:21:5-23:58
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:20:5-22:41
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/stian/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c94eba811c8cd88a8aae4a3ed6cc7fa4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/stian/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/c94eba811c8cd88a8aae4a3ed6cc7fa4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/64dbb7b1ff361d0109e6b2ed56e1435a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/64dbb7b1ff361d0109e6b2ed56e1435a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/daec1251103b63315fe1ae2bb6106244/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/daec1251103b63315fe1ae2bb6106244/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ba2227d73cb83acd56796e7073504b94/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ba2227d73cb83acd56796e7073504b94/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2cc1957900ee36406d20963fbcfd05bb/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2cc1957900ee36406d20963fbcfd05bb/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/18f573c9462f5187fae7d07e22eb123e/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/18f573c9462f5187fae7d07e22eb123e/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/75ed95eb3306e208054e5756d4c8aeea/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/75ed95eb3306e208054e5756d4c8aeea/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/d2159038eeb351e8161207deb86f2eb6/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/d2159038eeb351e8161207deb86f2eb6/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/672a21756c54741af86e8c1de67b2ff1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/672a21756c54741af86e8c1de67b2ff1/AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-		ADDED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
-		INJECTED from F:\GitHub\SHSU\HumanComputerInteraction\AndroidViews\ChristiaanCronjeHelloAutoComplete\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+		ADDED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stian/Documents/GitHub/SHSU/HumanComputerInteraction/AndroidViews/ChristiaanCronjeHelloAutoComplete/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\546ca78dddcc4e59b862c0bd2b0feac9\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\546ca78dddcc4e59b862c0bd2b0feac9\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\93673e14c51e8698c2a34cfb848a23b5\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\93673e14c51e8698c2a34cfb848a23b5\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\225feb3a6b74b2c6decd8af9fa9eb69b\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\225feb3a6b74b2c6decd8af9fa9eb69b\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\e43d05a1850645c52fc0ec0dca3e7fa9\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\e43d05a1850645c52fc0ec0dca3e7fa9\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\29a4c721be189014fdee031eb7f7a173\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\29a4c721be189014fdee031eb7f7a173\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\02e0c2813a7caab090b320a68d451b94\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\02e0c2813a7caab090b320a68d451b94\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\09e0223a97148897b0b32bc2f108a864\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\09e0223a97148897b0b32bc2f108a864\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\da9abaa32d6c4ed67687d22facb28046\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\da9abaa32d6c4ed67687d22facb28046\AndroidManifest.xml:26:9-28:38
+ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/64dbb7b1ff361d0109e6b2ed56e1435a/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/64dbb7b1ff361d0109e6b2ed56e1435a/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/daec1251103b63315fe1ae2bb6106244/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/daec1251103b63315fe1ae2bb6106244/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ba2227d73cb83acd56796e7073504b94/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ba2227d73cb83acd56796e7073504b94/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2cc1957900ee36406d20963fbcfd05bb/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2cc1957900ee36406d20963fbcfd05bb/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/18f573c9462f5187fae7d07e22eb123e/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/18f573c9462f5187fae7d07e22eb123e/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/75ed95eb3306e208054e5756d4c8aeea/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/75ed95eb3306e208054e5756d4c8aeea/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/d2159038eeb351e8161207deb86f2eb6/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/d2159038eeb351e8161207deb86f2eb6/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/672a21756c54741af86e8c1de67b2ff1/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/672a21756c54741af86e8c1de67b2ff1/AndroidManifest.xml:26:9-28:38
 	android:value
-		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:28:13-35
+		ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:28:13-35
 	android:name
-		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\d91c58829c37ebe8b31d53e6e457f110\AndroidManifest.xml:27:13-51
+		ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8a68089cf1a337045f6f3849bf36a010/AndroidManifest.xml:27:13-51
 meta-data#android.arch.lifecycle.VERSION
-ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:25:9-27:47
+ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:25:9-27:47
 	android:value
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:27:13-44
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:27:13-44
 	android:name
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Stian\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0fe825b7c95211ec3c51dd1923cc1004\AndroidManifest.xml:26:13-58
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/stian/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/cbbc8db7a46288bd41168deb2014f357/AndroidManifest.xml:26:13-58

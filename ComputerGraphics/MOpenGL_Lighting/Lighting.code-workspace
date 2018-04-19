@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "LightingTruck"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"fstream": "cpp"
+		}
+	}
+}
