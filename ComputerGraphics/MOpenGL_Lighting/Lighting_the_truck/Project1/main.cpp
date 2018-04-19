@@ -200,13 +200,17 @@ int main( void )
 		// Set the Diffuse light Position
 		GLint Diffuse_Light_position = glGetUniformLocation(programID, "lightPos");
 		glUniform3fv(Diffuse_Light_position, 1, glm::value_ptr(glm::vec3(4.0, 50.0, 4.0)));
+		GLint Diffuse_Light_position1 = glGetUniformLocation(programID, "lightPos1");
+		glUniform3fv(Diffuse_Light_position1, 1, glm::value_ptr(glm::vec3(40.0, 0.0, 0.0)));
 		GLint Diffuse_Light_position2 = glGetUniformLocation(programID, "lightPos2");
-		glUniform3fv(Diffuse_Light_position2, 1, glm::value_ptr(glm::vec3(4.0, -50.0, 4.0)));
+		glUniform3fv(Diffuse_Light_position2, 1, glm::value_ptr(glm::vec3(-40.0, 0.0, 0.0)));
 		// Set the Diffuse light Position
 		GLint Diffuse_Light_color = glGetUniformLocation(programID, "lightColor");
 		glUniform3fv(Diffuse_Light_color, 1, glm::value_ptr(glm::vec3(1.0, 1.0, 1.0)));
+		GLint Diffuse_Light_color1 = glGetUniformLocation(programID, "lightColor1");
+		glUniform3fv(Diffuse_Light_color1, 1, glm::value_ptr(glm::vec3(1.0, 0.0, 0.0)));
 		GLint Diffuse_Light_color2 = glGetUniformLocation(programID, "lightColor2");
-		glUniform3fv(Diffuse_Light_color2, 1, glm::value_ptr(glm::vec3(1.0, 0.0, 0.0)));
+		glUniform3fv(Diffuse_Light_color2, 1, glm::value_ptr(glm::vec3(0.0, 0.0, 1.0)));
 
 
 		//Specular Staff
