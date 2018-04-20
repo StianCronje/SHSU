@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:paddingTop="10dp"
+        android:text="Hello World!" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text" />
+
+    <Button
+        android:id="@+id/main_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_press"
+        android:layout_gravity="center_horizontal"
+        android:drawableRight="@mipmap/ic_launcher"/>
+
+    <CheckBox
+        android:id="@+id/check_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choice_one"/>
+    <CheckBox
+        android:id="@+id/check_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choice_three"/>
+    <CheckBox
+        android:id="@+id/check_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choice_three"/>
+
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:text="@string/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:text="@string/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </RadioGroup>
+
+    <ToggleButton
+        android:id="@+id/toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="@string/ringer_on"
+        android:textOff="@string/ringer_off"
+        android:layout_gravity="end"/>
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="1"
+        android:stepSize="0.5"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

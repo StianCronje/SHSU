@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     TextView textView;
     EditText editText;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         {
             String name = editText.getText().toString();
 
-            if(!name.equals(""))
+            if(!name.isEmpty())
             {
                 textView.setText(String.format("%s %s!", getString(R.string.hello) ,name));
             }
