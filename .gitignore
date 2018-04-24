@@ -412,8 +412,8 @@ gen/
 out/
 
 # Gradle files
-.gradle
-.gradle/
+.gradle*
+.gradle/*
 build/
 
 # Signing files
@@ -524,3 +524,4 @@ fabric.properties
 
 
 # End of https://www.gitignore.io/api/androidstudio
+local.properties
