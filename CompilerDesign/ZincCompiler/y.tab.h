@@ -45,33 +45,33 @@
      T_RP = 261,
      T_SC = 262,
      T_COLON = 263,
-     T_POWER = 264,
-     T_EQ = 265,
-     T_NE = 266,
-     T_LT = 267,
-     T_GT = 268,
-     T_LE = 269,
-     T_GE = 270,
-     T_IF = 271,
-     T_THEN = 272,
-     T_ELSE = 273,
-     T_BEGIN = 274,
-     T_END = 275,
-     T_ENDIF = 276,
-     T_ENDWHILE = 277,
-     T_WHILE = 278,
-     T_LOOP = 279,
-     T_PROGRAM = 280,
-     T_VAR = 281,
-     T_INT = 282,
-     T_WRITEINT = 283,
-     T_READINT = 284,
-     T_ASGN = 285,
-     T_SUB = 286,
-     T_ADD = 287,
-     T_MOD = 288,
-     T_DIV = 289,
-     T_MULT = 290
+     T_ASGN = 264,
+     T_ADD = 265,
+     T_SUB = 266,
+     T_MULT = 267,
+     T_DIV = 268,
+     T_MOD = 269,
+     T_POWER = 270,
+     T_EQ = 271,
+     T_NE = 272,
+     T_LT = 273,
+     T_GT = 274,
+     T_LE = 275,
+     T_GE = 276,
+     T_IF = 277,
+     T_THEN = 278,
+     T_ELSE = 279,
+     T_BEGIN = 280,
+     T_END = 281,
+     T_ENDIF = 282,
+     T_ENDWHILE = 283,
+     T_WHILE = 284,
+     T_LOOP = 285,
+     T_PROGRAM = 286,
+     T_VAR = 287,
+     T_INT = 288,
+     T_WRITEINT = 289,
+     T_READINT = 290
    };
 #endif
 /* Tokens.  */
@@ -81,40 +81,40 @@
 #define T_RP 261
 #define T_SC 262
 #define T_COLON 263
-#define T_POWER 264
-#define T_EQ 265
-#define T_NE 266
-#define T_LT 267
-#define T_GT 268
-#define T_LE 269
-#define T_GE 270
-#define T_IF 271
-#define T_THEN 272
-#define T_ELSE 273
-#define T_BEGIN 274
-#define T_END 275
-#define T_ENDIF 276
-#define T_ENDWHILE 277
-#define T_WHILE 278
-#define T_LOOP 279
-#define T_PROGRAM 280
-#define T_VAR 281
-#define T_INT 282
-#define T_WRITEINT 283
-#define T_READINT 284
-#define T_ASGN 285
-#define T_SUB 286
-#define T_ADD 287
-#define T_MOD 288
-#define T_DIV 289
-#define T_MULT 290
+#define T_ASGN 264
+#define T_ADD 265
+#define T_SUB 266
+#define T_MULT 267
+#define T_DIV 268
+#define T_MOD 269
+#define T_POWER 270
+#define T_EQ 271
+#define T_NE 272
+#define T_LT 273
+#define T_GT 274
+#define T_LE 275
+#define T_GE 276
+#define T_IF 277
+#define T_THEN 278
+#define T_ELSE 279
+#define T_BEGIN 280
+#define T_END 281
+#define T_ENDIF 282
+#define T_ENDWHILE 283
+#define T_WHILE 284
+#define T_LOOP 285
+#define T_PROGRAM 286
+#define T_VAR 287
+#define T_INT 288
+#define T_WRITEINT 289
+#define T_READINT 290
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 66 "zinc.y"
+#line 52 "zinc.y"
 {
     char id[12];
     int num;

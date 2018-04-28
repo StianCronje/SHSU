@@ -15,8 +15,13 @@ public class NoteEdit  extends Activity
     EditText mTitleText;
     EditText mBodyText;
 
+    String mStartTitle = "";
+    String mStartBody = "";
+
     private NotesDbAdapter mDbHelper;
     private Long mRowId;
+
+    boolean cancelSave = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,7 @@ public class NoteEdit  extends Activity
         mTitleText = findViewById(R.id.title);
         mBodyText = findViewById(R.id.body);
         Button confirmButton = findViewById(R.id.confirm);
+        Button cancelButton = findViewById(R.id.cancel);
 
         mRowId = savedInstanceState == null ? null : (Long) savedInstanceState.getSerializable(NotesDbAdapter.KEY_ROWID);
         if(mRowId == null)
@@ -39,11 +45,23 @@ public class NoteEdit  extends Activity
             mRowId = extras != null ? extras.getLong(NotesDbAdapter.KEY_ROWID) : null;
         }
 
+
         populateFields();
+
+        mStartTitle = mTitleText.getText().toString();
+        mStartBody = mBodyText.getText().toString();
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cancelChanges();
                 setResult(RESULT_OK);
                 finish();
             }
@@ -61,6 +79,7 @@ public class NoteEdit  extends Activity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+        System.out.println("on save state");
         saveState();
         outState.putSerializable(NotesDbAdapter.KEY_ROWID, mRowId);
     }
@@ -68,6 +87,7 @@ public class NoteEdit  extends Activity
     @Override
     protected void onPause() {
         super.onPause();
+        if(cancelSave) return;
         saveState();
     }
 
@@ -102,6 +122,18 @@ public class NoteEdit  extends Activity
         else
         {
             mDbHelper.updateNote(mRowId, title, body);
+        }
+    }
+
+    private void cancelChanges()
+    {
+        cancelSave = true;
+        if(mRowId != null)
+        {
+            if(mStartTitle.isEmpty() && mStartBody.isEmpty())
+                mDbHelper.deleteNote(mRowId);
+            else
+                mDbHelper.updateNote(mRowId, mStartTitle, mStartBody);
         }
     }
 }

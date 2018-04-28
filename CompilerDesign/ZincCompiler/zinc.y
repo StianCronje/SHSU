@@ -31,8 +31,6 @@
         return NULL;
     }
 
-    int declaring = 0;
-
     char countStr[4];
     int labelCount = 0;
     void make_label(char* label)
@@ -47,18 +45,6 @@
     {
         strcpy(label, pop());
     }
-
-
-    // RVALUE FLAG
-    // GOTRUE TRUE
-    // elseClause
-    // GOTO ENDIF
-    // LABEL TRUE
-    // RVALUE X
-    // PRINT
-    // RVALUE Y
-    // PRINT
-    // LABEL ENDIF
 %}
 
 /* Definitions */
@@ -68,13 +54,9 @@
     int num;
 }
 %token T_NUM <id> T_IDENT 
-%token T_LP T_RP T_SC T_COLON T_POWER T_EQ T_NE T_LT T_GT T_LE T_GE 
+%token T_LP T_RP T_SC T_COLON T_ASGN T_ADD T_SUB T_MULT T_DIV T_MOD T_POWER T_EQ T_NE T_LT T_GT T_LE T_GE 
 %token T_IF T_THEN T_ELSE T_BEGIN T_END T_ENDIF T_ENDWHILE T_WHILE T_LOOP T_PROGRAM T_VAR T_INT 
 %token T_WRITEINT T_READINT 
-
-%left T_ASGN 
-%left T_ADD T_SUB 
-%left T_MULT T_DIV T_MOD
 
 %type <id> type
 
@@ -91,9 +73,9 @@ beginDeclarations   : { printf("Section .data\n"); } declarations
                     ;
 declarations        : T_VAR T_IDENT T_COLON type T_SC declarations  { printf("%s : %s\n", $2, $4); }
                     | /* empty */
-                    | error T_IDENT T_COLON type T_SC declarations  { printf("Declaration Error : 'var' expected\n"); yyerrok; }
-                    | T_VAR T_IDENT error type T_SC declarations    { printf("Declaration Error : ':' expected\n"); yyerrok; }
-                    | T_VAR T_IDENT T_COLON type error declarations { printf("Declaration Error : ';' expected\n"); yyerrok; }
+                    | error T_IDENT T_COLON type T_SC declarations  { printf("Declaration Syntax Error : 'var' expected\n"); yyerrok; }
+                    | T_VAR T_IDENT error type T_SC declarations    { printf("Declaration Syntax Error : ':' expected\n"); yyerrok; }
+                    | T_VAR T_IDENT T_COLON type error declarations { printf("Declaration Syntax Error : ';' expected\n"); yyerrok; }
                     ;
 type                : T_INT { strcpy($$, "word"); }
                     ;
