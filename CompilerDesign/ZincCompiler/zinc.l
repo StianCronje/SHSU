@@ -1,40 +1,5 @@
 %{
-    /*
-    Rules of Zinc are as follows:
-
-    Numbers, Literals, and Identifiers:
-        num = (+|-)?[1-9][0-9]*|0
-        ident = [A-Z][_A-Z0-9]*
-    Symbols and Operators:
-        LP "("
-        RP ")"
-        ASGN ":="
-        SC ";"
-        COLON ":"
-        POWER "**"
-        MULTIPLICATIVE "*" | "div" | "mod"
-        ADDITIVE "+" | "-"
-        COMPARE "=" | "<>" | "<" | ">" | "<=" | ">="
-    Keywords:
-        IF "if"
-        THEN "then"
-        ELSE "else"
-        BEGIN "begin"
-        END "end"
-        ENDIF "endif"
-        ENDWHILE "endwhile"
-        WHILE "while"
-        LOOP "loop"
-        PROGRAM "program"
-        VAR "var"
-        INT "integer"
-    Built-in Procedures:
-        WRITEINT "writeInt"
-        READINT "readInt"
-    */
-
     #include "y.tab.h"
-
 %}
 
 %option yylineno
@@ -67,8 +32,8 @@ ELSE                "else"
 BEGIN               "begin"
 END                 "end"
 ENDIF               "endif"
-ENDWHILE            "endwhile"
 WHILE               "while"
+ENDWHILE            "endwhile"
 LOOP                "loop"
 PROGRAM             "program"
 VAR                 "var"
@@ -81,42 +46,42 @@ WHITESPACE          [ \t\n\r\f]
 
 %%
 
-{PROGRAM}           {/*printf("returning %-10s\n", yytext);*/ return T_PROGRAM;}
-{BEGIN}             {/*printf("returning %-10s\n", yytext);*/ return T_BEGIN;}
-{NUM}               {/*printf("returning %-10s\n", yytext);*/ return T_NUM;}
-{IDENT}             {/*printf("returning %-10s\n", yytext);*/ strcpy(yylval.id, yytext); return T_IDENT;}
-{LP}                {/*printf("returning %-10s\n", yytext);*/ return T_LP;}
-{RP}                {/*printf("returning %-10s\n", yytext);*/ return T_RP;}
-{ASGN}              {/*printf("returning %-10s\n", yytext);*/ return T_ASGN;}
-{SC}                {/*printf("returning %-10s\n", yytext);*/ return T_SC;}
-{COLON}             {/*printf("returning %-10s\n", yytext);*/ return T_COLON;}
-{POWER}             {/*printf("returning %-10s\n", yytext);*/ return T_POWER;}
-{MULT}              {/*printf("returning %-10s\n", yytext);*/ return T_MULT;}
-{DIV}               {/*printf("returning %-10s\n", yytext);*/ return T_DIV;}
-{MOD}               {/*printf("returning %-10s\n", yytext);*/ return T_MOD;}
-{ADD}               {/*printf("returning %-10s\n", yytext);*/ return T_ADD;}
-{SUB}               {/*printf("returning %-10s\n", yytext);*/ return T_SUB;}
-{EQ}                {/*printf("returning %-10s\n", yytext);*/ return T_EQ;}
-{NE}                {/*printf("returning %-10s\n", yytext);*/ return T_NE;}
-{LT}                {/*printf("returning %-10s\n", yytext);*/ return T_LT;}
-{GT}                {/*printf("returning %-10s\n", yytext);*/ return T_GT;}
-{LE}                {/*printf("returning %-10s\n", yytext);*/ return T_LE;}
-{GE}                {/*printf("returning %-10s\n", yytext);*/ return T_GE;}
-{IF}                {/*printf("returning %-10s\n", yytext);*/ return T_IF;}
-{THEN}              {/*printf("returning %-10s\n", yytext);*/ return T_THEN;}
-{ELSE}              {/*printf("returning %-10s\n", yytext);*/ return T_ELSE;}
-{ENDIF}             {/*printf("returning %-10s\n", yytext);*/ return T_ENDIF;}
-{WHILE}             {/*printf("returning %-10s\n", yytext);*/ return T_WHILE;}
-{ENDWHILE}          {/*printf("returning %-10s\n", yytext);*/ return T_ENDWHILE;}
-{LOOP}              {/*printf("returning %-10s\n", yytext);*/ return T_LOOP;}
-{VAR}               {/*printf("returning %-10s\n", yytext);*/ return T_VAR;}
-{INT}               {/*printf("returning %-10s\n", yytext);*/ return T_INT;}
-{END}               {/*printf("returning %-10s\n", yytext);*/ return T_END;}
-{WRITEINT}          {/*printf("returning %-10s\n", yytext);*/ return T_WRITEINT;}
-{READINT}           {/*printf("returning %-10s\n", yytext);*/ return T_READINT;}
+{PROGRAM}           { return T_PROGRAM; }
+{BEGIN}             { return T_BEGIN; }
+{NUM}               { yylval.num = atoi(yytext); return T_NUM; }
+{IDENT}             { strcpy(yylval.str, yytext); return T_IDENT; }
+{LP}                { return T_LP; }
+{RP}                { return T_RP; }
+{ASGN}              { return T_ASGN; }
+{SC}                { return T_SC; }
+{COLON}             { return T_COLON; }
+{POWER}             { return T_POWER; }
+{MULT}              { return T_MULT; }
+{DIV}               { return T_DIV; }
+{MOD}               { return T_MOD; }
+{ADD}               { return T_ADD; }
+{SUB}               { return T_SUB; }
+{EQ}                { return T_EQ; }
+{NE}                { return T_NE; }
+{LT}                { return T_LT; }
+{GT}                { return T_GT; }
+{LE}                { return T_LE; }
+{GE}                { return T_GE; }
+{IF}                { return T_IF; }
+{THEN}              { return T_THEN; }
+{ELSE}              { return T_ELSE; }
+{ENDIF}             { return T_ENDIF; }
+{WHILE}             { return T_WHILE; }
+{ENDWHILE}          { return T_ENDWHILE; }
+{LOOP}              { return T_LOOP; }
+{VAR}               { return T_VAR; }
+{INT}               { return T_INT; }
+{END}               { return T_END; }
+{WRITEINT}          { return T_WRITEINT; }
+{READINT}           { return T_READINT; }
 
 {COMMENT}           ; //printf("[COMMENT] %s\n", yytext);
-{WHITESPACE}        ; // Ignore whitespace.
+{WHITESPACE}        ; //Ignore whitespace.
 .                   {printf("INVALID TOKEN: %s\n", yytext);}
 
 %%

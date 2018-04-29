@@ -50,32 +50,26 @@
 /* Definitions */
 
 %union{
-    char id[12];
+    char str[50];
     int num;
 }
-%token T_NUM <id> T_IDENT 
+%token <num>T_NUM
+%token <str>T_IDENT
 %token T_LP T_RP T_SC T_COLON T_ASGN T_ADD T_SUB T_MULT T_DIV T_MOD T_POWER T_EQ T_NE T_LT T_GT T_LE T_GE 
 %token T_IF T_THEN T_ELSE T_BEGIN T_END T_ENDIF T_ENDWHILE T_WHILE T_LOOP T_PROGRAM T_VAR T_INT 
 %token T_WRITEINT T_READINT 
 
-%type <id> type
-
+%type <str> type
 
 %%
 /* productions */
 
 program             : T_PROGRAM beginDeclarations T_BEGIN beginStatements T_END { printf("HALT\n"); }
-                    | error beginDeclarations T_BEGIN beginStatements T_END     { printf("Program Syntax Error : 'program' expected\n"); yyerrok; }
-                    | T_PROGRAM beginDeclarations error beginStatements T_END   { printf("Program Syntax Error : 'begin' expected\n"); yyerrok; }
-                    | T_PROGRAM beginDeclarations T_BEGIN beginStatements error { printf("Program Syntax Error : 'end' expected\n"); yyerrok; }
                     ;
 beginDeclarations   : { printf("Section .data\n"); } declarations
                     ;
 declarations        : T_VAR T_IDENT T_COLON type T_SC declarations  { printf("%s : %s\n", $2, $4); }
                     | /* empty */
-                    | error T_IDENT T_COLON type T_SC declarations  { printf("Declaration Syntax Error : 'var' expected\n"); yyerrok; }
-                    | T_VAR T_IDENT error type T_SC declarations    { printf("Declaration Syntax Error : ':' expected\n"); yyerrok; }
-                    | T_VAR T_IDENT T_COLON type error declarations { printf("Declaration Syntax Error : ';' expected\n"); yyerrok; }
                     ;
 type                : T_INT { strcpy($$, "word"); }
                     ;
@@ -83,7 +77,6 @@ beginStatements     : { printf("Section .code\n"); } statementSequence
                     ;
 statementSequence   : statement T_SC statementSequence
                     | /* empty */
-                    | statement error statementSequence     { printf("Statement Error : ';' expected\n"); yyerrok; }
                     ;
 statement           : assignment
                     | ifStatement
@@ -128,7 +121,7 @@ expression          : simpleExpression
                     | simpleExpression T_EQ expression  { printf("EQ\n"); }
                     | simpleExpression T_NE expression  { printf("NE\n"); }
                     | simpleExpression T_LT expression  { printf("LT\n"); }
-                    | simpleExpression T_GT expression  { printf("GTLT\n"); }
+                    | simpleExpression T_GT expression  { printf("GT\n"); }
                     | simpleExpression T_LE expression  { printf("LE\n"); }
                     | simpleExpression T_GE expression  { printf("GE\n"); }
                     ;
@@ -144,17 +137,19 @@ term                : factor T_MULT term    { printf("MPY\n"); }
 factor              : primary T_POWER factor    { printf("POW\n"); }
                     | primary
                     ;
-primary             : T_NUM     { printf("PUSH %s\n", yytext); }
+primary             : T_NUM     { printf("PUSH %d\n", $1); }
                     | T_LP expression T_RP
-                    | T_IDENT   { printf("RVALUE %s\n", yytext); }
+                    | T_IDENT   { printf("RVALUE %s\n", $1); }
                     ;
 
 %%
 /* User subroutines */
 
-int main()
+int main(int argc, char** argv)
 {
-    printf("\n\n\n");
+     if ( argc > 0 )
+        stdin = fopen( argv[1], "r" );
+
     yyparse();
     return 0;
 }
