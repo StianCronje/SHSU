@@ -7,10 +7,10 @@
     extern char * yytext;
     extern int yylineno;
 
-    char trueLabel[10];
-    char endLabel[10];
+    char trueLabel[20];
+    char endLabel[20];
 
-    char labelStack[10][100];
+    char labelStack[20][100];
     int stackPointer = 0;
 
     void push(char* l)
@@ -31,13 +31,13 @@
         return NULL;
     }
 
-    char countStr[4];
+    char countStr[10];
     int labelCount = 0;
     void make_label(char* label)
     {
         labelCount++;
         sprintf(label, "%s", "LABEL");
-        sprintf(countStr, "%03d", labelCount);
+        sprintf(countStr, "%04d", labelCount);
         strcat(label, countStr);
         push(label);
     }
@@ -64,16 +64,12 @@
 %%
 /* productions */
 
-program             : T_PROGRAM beginDeclarations T_BEGIN beginStatements T_END { printf("HALT\n"); }
-                    ;
-beginDeclarations   : { printf("Section .data\n"); } declarations
+program             : T_PROGRAM { printf("Section .data\n"); } declarations T_BEGIN { printf("Section .code\n"); } statementSequence T_END { printf("HALT\n"); }
                     ;
 declarations        : T_VAR T_IDENT T_COLON type T_SC declarations  { printf("%s : %s\n", $2, $4); }
                     | /* empty */
                     ;
 type                : T_INT { strcpy($$, "word"); }
-                    ;
-beginStatements     : { printf("Section .code\n"); } statementSequence
                     ;
 statementSequence   : statement T_SC statementSequence
                     | /* empty */
@@ -84,10 +80,7 @@ statement           : assignment
                     | writeInt
                     | /* empty */
                     ;
-assignment          : T_IDENT T_ASGN expression {
-                                                    printf("LVALUE %s\n", $1);
-                                                    printf("STO\n");
-                                                }
+assignment          : T_IDENT T_ASGN { printf("LVALUE %s\n", $1); } expression { printf("STO\n"); }
                     | T_IDENT T_ASGN T_READINT  {
                                                     printf("LVALUE %s\n", $1);
                                                     printf("READ\n");
